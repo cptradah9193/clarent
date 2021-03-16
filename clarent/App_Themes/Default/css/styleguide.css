@@ -48,7 +48,7 @@
     }
 
     .mt-navbar .left-menu > li.project-item a {
-        font-size: 16px;
+        font-size: 20px;
     }
 
 .mt-navbar .separator {
@@ -57,7 +57,7 @@
     height: 20px;
     opacity: .2;
     vertical-align: inherit;
-    margin: 0 20px;
+    margin: 0 10px;
 }
 
 .mt-navbar .nav-right {
@@ -76,8 +76,7 @@
         }
 
         .mt-navbar .nav-right .user-menu .item > a {
-            width: 32px;
-            height: 32px;
+
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -129,6 +128,40 @@
             font-family: "HK Grotesk Medium", sans-serif;
         }
 
+.nav-right .user-menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+}
+
+.user-menu > li {
+    padding: 5px 10px;
+    display: -webkit-inline-box !important;
+    display: -ms-inline-flexbox !important;
+    display: inline-flex !important;
+    align-items: center;
+    min-height: 30px;
+}
+
+    .user-menu > li > a {
+        color: #003145;
+        display: -webkit-inline-box !important;
+        display: -ms-inline-flexbox !important;
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+    }
+
+.user-menu .help, .user-menu .notification, .user-menu .broadcast-btn {
+    font-size: 20px;
+    position: relative;
+    display: block;
+}
+
+.user-menu > li > a > [class^="icon-"], .user-menu > li > label > [class^="icon-"] {
+    opacity: 1;
+}
 /*--#header--*/
 /*--footer--*/
 .main-footer .footer-wrap {

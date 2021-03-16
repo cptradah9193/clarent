@@ -314,3 +314,12 @@
     padding:15px;
     border-radius:3px;
 }
+.userprofile-info-icon{
+    width:30px;
+    display:inline-flex;
+    justify-content:center;
+    font-size:18px;
+}
+.userprofile-info {
+    margin-bottom: 20px;
+}
