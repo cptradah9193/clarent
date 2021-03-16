@@ -1,0 +1,263 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!--meta tags-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <title>Clarent Institute iAudit Dashboard</title>
+    <!-- favicon -->
+    <!--<link rel="shortcut icon" href="../../App_Themes/Default/images/favicon.ico" type="image/x-icon">-->
+
+    <link href="../../App_Themes/Default/css/kendo.common.min.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/kendo.default.min.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/fonts.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/styleguide.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/responsive.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/casepoint.comfortable.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/kendo.Yellow.css" rel="stylesheet" />
+
+    <!-- css -->
+    <link href="../../App_Themes/Default/css/iaudit_dashboard.css" rel="stylesheet" />
+</head>
+<body>
+    <!--Navigation Header-->
+    <nav class="navbardashboard-main-wrapper d-flex justify-content-space-between bg-primary">
+        <!-- Nav Logo -->
+        <div class="d-flex navbardashboard-logo-wrapper align-items-center">
+            <a href="javascript:void();" class="navbardashboard-logo d-inline-flex">
+                <img alt="Clarent logo" src="../App_Themes/Default/images/Clarent_White_Logo.svg" class="navbardashboard-logo-img" />
+            </a>
+            <span class="separator"></span>
+            <span class="navbardashboard-logo-text">iAudit</span>
+        </div>
+        <!-- Nav user & Notification -->
+        <div class="navbardashboard-username-wrapper">
+            <ul class="navbardashboard-list">
+                <li>
+                    <a href="javascript:void(0);" class="navbar-icon" data-ara-title="Help" role="button" aria-label="Help"><i class="icon-help fs-20" aria-hidden="true"></i></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="navbar-icon" data-ara-title="Notification" role="button" aria-label="Help"><i class="icon-notification fs-20" aria-hidden="true"></i></a>
+                </li>
+                <li class="separator"></li>
+                <li class="navbar-userprofile text-left mr-0">
+                    <a href="javascript:void(0);" role="button" aria-label="Usre name Subhash Dudhat" class="navbar-userprofile-contain d-flex align-items-center">
+                        <div class="navbar-userprofile-text">
+                            <span class="font-medium d-block fs-16 ellipsis">subhash.dudhat@casepoint.in</span>
+                            <span class="fs-12 d-block navbar-sub-title ellipsis">Workpace Admin</span>
+                        </div>
+                        <i class="icon-arrow-down"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!--// Nav user & Notification -->
+    </nav>
+    <!--// Navigation Header-->
+    <!-- Menu Section-->
+    <section class="main-section-menu bg-light bb-1">
+        <ul class="main-section-menu-ul">
+            <li><a href="javascript:void(0);" class="ms-menu-link active">Dashboard</a></li>
+            <li><a href="javascript:void(0);" class="ms-menu-link">Templates</a></li>
+            <li><a href="javascript:void(0);" class="ms-menu-link">Inspetion</a></li>
+            <li><a href="javascript:void(0);" class="ms-menu-link">Schedules</a></li>
+            <li><a href="javascript:void(0);" class="ms-menu-link">Analytics</a></li>
+        </ul>
+    </section>
+    <!--// Menu Section-->
+    <!-- Main Contain -->
+    <main class="main-contain-wrapper">
+        <div class="d-flex dashboard-wrapper h100">
+            <div class="dashboard-left overflow-auto">
+                <!-- Daily Activity -->
+                <div class="dashboard-daily-activity">
+                    <h4 class="title font-semi-bold fs-16 text-dark">Daily Activity</h4>
+                    <div class="dashboard-daily-activity-wrapper">
+                        <ul class="dashboard-daily-activity-wrapper-ul d-flex flex-wrap">
+                            <li class="dashboard-daily-activity-item border daily-item-success">
+                                <div class="d-flex align-items-center">
+                                    <span class="daily-acitivity-icon"><i class="icon-agentinfoon"></i></span>
+                                    <span class="daily-acitivity-count">2</span>
+                                </div>
+                                <div class="daily-acitivity-title text-dark ellipsis">Inspection Completed</div>
+                            </li>
+                            <li class="dashboard-daily-activity-item border daily-item-green">
+                                <div class="d-flex align-items-center">
+                                    <span class="daily-acitivity-icon"><i class="icon-clock"></i></span>
+                                    <span class="daily-acitivity-count">3</span>
+                                </div>
+                                <div class="daily-acitivity-title text-dark ellipsis">Sheduled Inspection</div>
+                            </li>
+                            <li class="dashboard-daily-activity-item border daily-item-brown">
+                                <div class="d-flex align-items-center">
+                                    <span class="daily-acitivity-icon"><i class="icon-invite-user"></i></span>
+                                    <span class="daily-acitivity-count">5</span>
+                                </div>
+                                <div class="daily-acitivity-title text-dark ellipsis">on Going Inspection</div>
+                            </li>
+                            <li class="dashboard-daily-activity-item border daily-item-red">
+                                <div class="d-flex align-items-center">
+                                    <span class="daily-acitivity-icon"><i class="icon-agentinfooff"></i></span>
+                                    <span class="daily-acitivity-count">0</span>
+                                </div>
+                                <div class="daily-acitivity-title text-dark ellipsis">Failed Inspection</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--// Daily Activity -->
+                <!-- Todo Activity -->
+                <div class="todo-inspection-activity-wrapper">
+                    <div class="d-flex flex-wrap dashboard-row">
+                        <div class="todo-activity-wrapper dashboard-column-50">
+                            <h4 class="title font-semi-bold fs-16 text-dark pb-10">To Do</h4>
+                            <div class="border p-15 todo-activity-box">
+                                <table class="todo-activity-table">
+                                    <tr>
+                                        <td>
+                                            <div class="overflow-hidden font-medium">
+                                                <span class="text-dark d-block ellipsis">Osha Housekeeping Checklist</span>
+                                                <span class="text-muted d-block ellipsis fs-14">Created Date: <span>11 mar 2021 </span> <span class="separator"></span>Crated By: <span>Subhash Dudhat</span> </span>
+                                            </div>
+                                        </td>
+                                        <td class="todo-activity-table-status-name text-right">
+                                            <button class="btn k-button btn-borderd text-dark mr-10">inspection</button>
+                                        </td>
+                                        <td class="todo-activity-table-status">
+                                            <span class="text-dark font-medium d-block ellipsis">0% Score</span>
+                                        </td>
+                                        <td class="todo-activity-table-status text-right">
+                                            <span class="badge badge-primary" data-ara-title="In progress ">In Progress</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="overflow-hidden font-medium">
+                                                <span class="text-dark d-block ellipsis">Osha Housekeeping Checklist</span>
+                                                <span class="text-muted d-block ellipsis fs-14">Created Date: <span>11 mar 2021 </span> <span class="separator"></span>Crated By: <span>Subhash Dudhat</span> </span>
+                                            </div>
+                                        </td>
+                                        <td class="todo-activity-table-status-name text-right">
+                                            <button class="btn k-button btn-borderd text-dark mr-10">inspection</button>
+                                        </td>
+                                        <td class="todo-activity-table-status">
+                                            <span class="text-dark font-medium d-block ellipsis">0% Score</span>
+                                        </td>
+                                        <td class="todo-activity-table-status text-right">
+                                            <span class="badge badge-primary" data-ara-title="In progress">In Progress</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="inspection-activity-wrapper dashboard-column-50">
+                            <h4 class="title font-semi-bold fs-16 text-dark pb-10">Start an Inspection</h4>
+                            <div class="border inspection-activity-box">
+                                <ul class="inspection-activity-box-ul">
+                                    <li>
+                                        <div class="d-flex justify-content-space-between align-items-center">
+                                            <span class="text-dark ellipsis flex-1 font-semi-bold fs-14">Osha HouseKeeping CheckList</span>
+                                            <button class="btn btn-primary k-button">Start</button>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="d-flex justify-content-space-between align-items-center">
+                                            <span class="text-dark ellipsis flex-1 font-semi-bold fs-14">Osha HouseKeeping CheckList</span>
+                                            <button class="btn btn-primary k-button">Start</button>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="d-flex justify-content-space-between align-items-center">
+                                            <span class="text-dark ellipsis flex-1 font-semi-bold fs-14">Osha HouseKeeping CheckList</span>
+                                            <button class="btn btn-primary k-button">Start</button>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="d-flex justify-content-space-between align-items-center">
+                                            <span class="text-dark ellipsis flex-1 font-semi-bold fs-14">Osha HouseKeeping CheckList</span>
+                                            <button class="btn btn-primary k-button">Start</button>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--// Todo Activity -->
+                <!-- User an Existing Inspection Template -->
+                <div class="inspection-template-wrapper">
+                    <h4 class="title font-semi-bold fs-16 text-dark mb-10">Use and Existing Inspection Template</h4>
+                    <div class="border inspection-template-box">
+                        <div class="form-group">
+                            <label for="inspectionTemplateDropdown" class="font-medium">Filterby your industry</label>
+                            <select id="inspectionTemplateDropdown" title="dropdown without search">
+                                <option>General</option>
+                                <option>open</option>
+                                <option>Close</option>
+                            </select>
+                        </div>
+                        <div class="full-divider mb-15 mt-0"></div>
+                        <p class="font-semi-bold text-dark mb-0">Workspace Reopening Checklist for COVID- 19</p>
+                    </div>
+                </div>
+                <!--// User an Existing Inspection Template -->
+            </div>
+
+            <div class="activity-wrapper bg-light bl-1 d-flex flex-column">
+                <h4 class="title font-semi-bold text-dark bb-1 pb-10 mr-15 ml-15">Activity</h4>
+                <div class="activity-content flex-1 overflow-auto">
+                    <div id="actitbityListView" class="actitbityListView-wrapper"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!--// Main Contain -->
+    <!-- Footer -->
+    <footer class="footer-main-wrapper d-flex justify-content-space-between bg-light text-dark bt-1">
+        <span>Login Time : <span>01/06/2020 10:17:47 AM</span></span>
+        <span>Clarent 1.0</span>
+    </footer>
+    <!--// Footer -->
+
+
+    <script src="../../Scripts/Kendo/jquery.min.js"></script>
+    <script src="../../Scripts/Kendo/kendo.all.min.js"></script>
+
+    <script src="../../Scripts/CLARENT/Other/Custom/clarant-custom.js"></script>
+    <script src="../../Scripts/CLARENT/Other/Custom/Custom.js"></script>
+    <!-- Acitivity List View template -->
+    <script type="text/x-kendo-template" id="actitbityListViewtemp">
+        <div class="activity-item bb-1">
+            <div class="d-flex align-items-center justify-content-space-between font-medium activity-item-top">
+                <div class="flex-1 overflow-hidden">
+                    <span class="text-dark d-block ellipsis mb-5">#: activitytext #</span>
+                    <span class="text-muted d-block ellipsis fs-14">#: activitydate # / #: activityname #</span>
+                </div>
+                <span class="ml-15 btn activity-item-top-tag btn-#: activityClass # k-button">#: activitystatus #</span>
+            </div>
+            <button class="btn k-button btn-borderd text-dark">#: activitystatusB #</button> <span class="text-dark font-medium d-inline-flex ml-15">#: activityscore # Score</span>
+        </div>
+    </script>
+
+    <script>
+        // Activity List View
+        var Activitydata = new kendo.data.DataSource({
+            data: [
+                { activitytext: "Osha Housekeeping Checklist", activitydate: "11 mar 2021", activityname: "Subhash Dudhat", activitystatus: "Complete", activityClass: "success", activitystatusB: "inspection", activityscore: "0%" },
+                { activitytext: "Osha Housekeeping Checklist", activitydate: "11 mar 2021", activityname: "Subhash Dudhat", activitystatus: "Cancel", activityClass: "danger", activitystatusB: "Approved", activityscore: "100%" },
+                { activitytext: "Osha Housekeeping Checklist", activitydate: "11 mar 2021", activityname: "Parth Desai", activitystatus: "Complete", activityClass: "success", activitystatusB: "inspection", activityscore: "5%" },
+                { activitytext: "Osha Housekeeping Checklist", activitydate: "11 mar 2021", activityname: "Sagar Gajera", activitystatus: "Cancel", activityClass: "danger", activitystatusB: "inspection", activityscore: "20%" },
+                { activitytext: "Osha Housekeeping Checklist", activitydate: "11 mar 2021", activityname: "Ketan Patel", activitystatus: "Complete", activityClass: "success", activitystatusB: "inspection", activityscore: "10%" }
+            ]
+        });
+        $('#actitbityListView').kendoListView({
+            dataSource: Activitydata,
+            template: kendo.template($("#actitbityListViewtemp").html())
+        });
+        // Inspection Template Dropdown
+        $("#inspectionTemplateDropdown").kendoDropDownList();
+    </script>
+</body>
+</html>
