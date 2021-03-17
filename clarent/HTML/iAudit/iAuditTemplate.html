@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--meta tags-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    
+    <title>Clarent Institute iAudit Dashboard</title>
+    <!-- favicon -->
+    <!--<link rel="shortcut icon" href="../../App_Themes/Default/images/favicon.ico" type="image/x-icon">-->
+    
+    <link href="../../App_Themes/Default/css/kendo.common.min.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/kendo.default.min.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/fonts.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/styleguide.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/responsive.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/casepoint.comfortable.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/kendo.Lightblue.css" rel="stylesheet" />
+    
+    <!-- css -->
+    <link href="../../App_Themes/Default/css/iaudit_dashboard.css" rel="stylesheet" />
+</head>
+<body>
+    
+    <div class="iaudit-template-wrapper d-flex flex-column h100">
+        <div class="iaudit-template-header-wrapper">
+            <div class="iaudit-template-header font-medium text-primary pt-20 pb-10 d-flex align-items-center">
+                <span class="mr-5 fs-18 d-inline-flex"><i class="icon-dashboard-square"></i></span>    
+                <span class="fs-15">Templates</span>
+            </div>
+            <!-- Search Textbox -->
+            <div class="searchbar search-form-input mb-15">
+                <div class="clear-input search-box w100">
+                    <input type="text" name="txtTagListSearch" id="SearchTemplate" aria-label="tag name" class="form-control k-textbox k-valid" placeholder="Search Templates">
+                    <i class="icon-search" aria-hidden="true"></i>
+                </div>
+                <div class="action-div">
+                    <a href="javascript:void(0);" id="AddNewTemplate" class="btn btn-raised btn-primary btn-block pr-10 pl-10" role="button" aria-haspopup="true" aria-expanded="false" id="AddNewTemplate"><i aria-hidden="true" class="icon-plus"></i><span>New Template</span></a>
+                </div>
+            </div>
+            <!--// Search Textbox -->
+        </div>
+        <!-- Template Grid -->
+        <div class="iaudit-template-grid-wrapper flex-1 overflow-auto">
+            <div class="grid-wrapper h100">
+                <div id="iAuditTemplateGrid"></div>
+                <div id="iAuditTemplateGrid-pager"></div>
+            </div> 
+        </div>
+        <!--// Template Grid -->
+    </div>
+    <!-- Template Grid Popupover -->
+    <div id="TemplategridPopup" class="templategrid-dropdown">
+        <ul class="right dropdown-menu" role="menu" aria-labelledby="menu1">
+            <li role="presentation">
+                <a role="menuitem" href="javascript:void(0);"><i aria-hidden="true" class="icon-edit"></i>Edit Template</a>
+            </li>
+            <li role="presentation">
+                <a role="menuitem" href="javascript:void(0);"><i aria-hidden="true" class="icon-manage-exception"></i>Mange Access</a>
+            </li>
+            <li role="presentation">
+                <a role="menuitem" href="javascript:void(0);"><i aria-hidden="true" class="icon-calendar"></i>Schedule</a>
+            </li>
+            <li role="presentation">
+                <a role="menuitem" href="javascript:void(0);"><i aria-hidden="true" class="icon-completed"></i>Bookmark</a>
+            </li>
+        </ul>
+    </div>
+    <!-- New template Drawer -->
+    <div class="newtemp-drawer-wrapper" id="NewTempDrawer">
+        <div class="newtemp-drawer-wrapper-contain d-flex flex-column">
+            <div class="newtemp-drawer-header bb-1 d-flex pb-15">
+                <button aria-label='close' id="NewTempDrawerClose" data-ara-title="Close" class="btn-red-circle btn-icn-trans fs-12 text-danger"><i  aria-hidden="true"  class="icon-cancel"></i></button>
+                <span class="ellipsis fs-18 font-bold text-dark ml-15">New Template</span>
+            </div>
+            <div class="newtemp-blank-temp-action">
+                <a href="javascript:void(0);" class="newtemp-blank-temp-action-box">
+                    <span class="text-primary blankTemp-icon"><i class="icon-file"></i></span>
+                    <span class="text-primary blankTemp-text">Blank Template</span>
+                </a>
+            </div>
+            <h4 class="ellipsis text-dark font-bold fs-18 mb-15">Find & Customize a template from the public library</h4>
+            <div class="searchbar search-form-input newtemp-searchbox mb-15">
+                <div class="clear-input search-box w100">
+                    <input type="text" name="txtTagListSearch"  aria-label="tag name" class="form-control k-textbox k-valid" placeholder="Search here...">
+                    <i class="icon-search" aria-hidden="true"></i>
+                    <a role="button" aria-label="Clear Search" href="javascript:void(0);" class="btn-icn-hover icon-filter newtemp-searchbox-filter" data-ara-title="Clear Search"></a>
+                </div>
+            </div>
+            <div class="newtemp-list-wrappper border flex-1 overflow-auto">
+                <ul class="newtemp-list-ul" id="newtempListview"></ul>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../../Scripts/Kendo/jquery.min.js"></script>
+    <script src="../../Scripts/Kendo/kendo.all.min.js"></script>
+    
+    <script src="../../Scripts/CLARENT/Other/Custom/clarant-custom.js"></script>
+    <script src="../../Scripts/CLARENT/Other/Custom/Custom.js"></script>
+    <!-- Acitivity List View template -->
+    <!-- List View Templtae -->
+    <script type="text/x-kendo-template" id="newtempTmp">
+        <li>
+            <a href="javascript:void(0)" class="font-medium">
+                <span class="ellipsis text-dark">#: newTempName #</span>
+                <span class="ellipsis text-muted">#: NewTempcreate # </span>
+            </a>
+        </li>
+    </script>
+    <script>
+        
+        
+        //Grid
+        var fieldData = new kendo.data.DataSource({
+            data: 
+            [{TempName: "Clean Seen housekeeping checklist", TempDesc: "The Clean seen housekeeping Checklist converted using iAudior clarent", TempLastModifyed: "2 Hours ago", TempSecheduled: "No", TempAccess: "All", TempAccessAction: "Schedule" },
+            {TempName: "Unlimited Template", TempDesc: "UI-UX Audit", TempLastModifyed: "3 Hours ago", TempSecheduled: "Yes", TempAccess: "All", TempAccessAction: "Schedule" },
+            {TempName: "Unlimited Template", TempDesc: "UI-UX Audit", TempLastModifyed: "3 Hours ago", TempSecheduled: "Yes", TempAccess: "All", TempAccessAction: "Schedule" },
+            {TempName: "Unlimited Template", TempDesc: "UI-UX Audit", TempLastModifyed: "3 Hours ago", TempSecheduled: "Yes", TempAccess: "All", TempAccessAction: "Schedule" },
+            {TempName: "Unlimited Template", TempDesc: "UI-UX Audit", TempLastModifyed: "3 Hours ago", TempSecheduled: "Yes", TempAccess: "All", TempAccessAction: "Schedule" },
+            {TempName: "Unlimited Template", TempDesc: "UI-UX Audit", TempLastModifyed: "3 Hours ago", TempSecheduled: "Yes", TempAccess: "All", TempAccessAction: "Schedule" },
+            {TempName: "Unlimited Template", TempDesc: "UI-UX Audit", TempLastModifyed: "3 Hours ago", TempSecheduled: "Yes", TempAccess: "All", TempAccessAction: "Schedule" },
+            {TempName: "Unlimited Template", TempDesc: "UI-UX Audit", TempLastModifyed: "3 Hours ago", TempSecheduled: "Yes", TempAccess: "All", TempAccessAction: "Schedule" },
+            {TempName: "Unlimited Template", TempDesc: "UI-UX Audit", TempLastModifyed: "3 Hours ago", TempSecheduled: "Yes", TempAccess: "All", TempAccessAction: "Schedule" },
+            {TempName: "Unlimited Template", TempDesc: "UI-UX Audit", TempLastModifyed: "3 Hours ago", TempSecheduled: "Yes", TempAccess: "All", TempAccessAction: "Schedule" },
+            {TempName: "Unlimited Template", TempDesc: "UI-UX Audit", TempLastModifyed: "3 Hours ago", TempSecheduled: "Yes", TempAccess: "All", TempAccessAction: "Schedule" },],
+            schema: { model: { id: "fieldid" } }
+        });
+        $("#iAuditTemplateGrid").kendoGrid({
+            dataSource: fieldData,
+            totalRecordPerPage: 5,
+            scrollable: true,
+            resizable: false,
+            autoBind: true,
+            
+            config: { CurrentPage: 0, TotalPage: 10, RecordPerPage: 10, TotalRecord: 100, searchText: "" },
+            columns: [
+            { selectable: true, width: "50px" },
+            { field: "TempName", title: "Name" },
+            { field: "TempDesc", title: "Description" },
+            { field: "TempLastModifyed", title: "Last Modified" },
+            { field: "TempSecheduled", title: "Secheduled" },
+            { field: "TempAccess", title: "Access" },
+            { 
+                field: "TempAccessAction", 
+                title: "Access",
+                template: '<button class="btn btn-primary k-button">#: TempAccessAction #</button>'
+            },
+            {
+                field: "TempAction",
+                title: "Action",
+                template: '<a aria-haspopup="true" id="TempgridTrigger" data-ara-title="Action" aria-expanded="true" role="button" href="javascript:void(0);" onclick="OpenActionList()" class="btn-icn-hover btn-icn-trans"><i class="icon-option" aria-hidden="true"></i></a>',
+            }
+            ]
+        }).data("kendoGrid");
+        $("#iAuditTemplateGrid-pager").kendoPager({
+            dataSource: fieldData,
+            refresh: true
+        });
+        fieldData.read();
+        
+        $("#TemplategridPopup").kendoPopup({
+            anchor: "#TempgridTrigger",
+            position: "top right",
+            origin: "bottom right"
+        }).data("kendoPopup");
+        
+        function OpenActionList(){
+            $("#TemplategridPopup").data("kendoPopup").open();
+        }
+        
+        var newtempTmpDatasorce = new kendo.data.DataSource({
+            data: [
+            { newTempName : "Workspace Reopening CheckList for COVID - 19 ", NewTempcreate : "Created By Clarent Culter staff" },
+            { newTempName : "Workspace Reopening CheckList for COVID - 19 ", NewTempcreate : "Created By Clarent Culter staff" },
+            { newTempName : "Workspace Reopening CheckList for COVID - 19 ", NewTempcreate : "Created By Clarent Culter staff" },
+            { newTempName : "Workspace Reopening CheckList for COVID - 19 ", NewTempcreate : "Created By Clarent Culter staff" },
+            { newTempName : "Workspace Reopening CheckList for COVID - 19 ", NewTempcreate : "Created By Clarent Culter staff" },
+            { newTempName : "Workspace Reopening CheckList for COVID - 19 ", NewTempcreate : "Created By Clarent Culter staff" },
+            { newTempName : "Workspace Reopening CheckList for COVID - 19 ", NewTempcreate : "Created By Clarent Culter staff" },
+            { newTempName : "Workspace Reopening CheckList for COVID - 19 ", NewTempcreate : "Created By Clarent Culter staff" },
+            { newTempName : "Workspace Reopening CheckList for COVID - 19 ", NewTempcreate : "Created By Clarent Culter staff" },
+            { newTempName : "Workspace Reopening CheckList for COVID - 19 ", NewTempcreate : "Created By Clarent Culter staff" },
+            ]
+        });
+        
+        $('#newtempListview').kendoListView({
+            dataSource: newtempTmpDatasorce,
+            template: kendo.template($("#newtempTmp").html())
+        });
+        $('#AddNewTemplate').click(function(){
+            $('#NewTempDrawer').addClass('open');
+        })
+        $('#NewTempDrawerClose').click(function(){
+            $('#NewTempDrawer').removeClass('open');
+        })
+        
+        var newtempElement= Array("#AddNewTemplate", "#NewTempDrawer");
+        newtempElement.forEach(function (item) { 
+            $(item).click(function(){ return false; }); 
+        });
+        $(document).on("click", function() { 
+            $("#NewTempDrawer").removeClass('open'); 
+        });
+        
+    </script>
+</body>
+</html>

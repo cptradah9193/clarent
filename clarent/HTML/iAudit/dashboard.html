@@ -1,15 +1,15 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <!--meta tags-->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
+    
     <title>Clarent Institute iAudit Dashboard</title>
     <!-- favicon -->
     <!--<link rel="shortcut icon" href="../../App_Themes/Default/images/favicon.ico" type="image/x-icon">-->
-
+    
     <link href="../../App_Themes/Default/css/kendo.common.min.css" rel="stylesheet" />
     <link href="../../App_Themes/Default/css/kendo.default.min.css" rel="stylesheet" />
     <link href="../../App_Themes/Default/css/fonts.css" rel="stylesheet" />
@@ -17,207 +17,13 @@
     <link href="../../App_Themes/Default/css/responsive.css" rel="stylesheet" />
     <link href="../../App_Themes/Default/css/casepoint.comfortable.css" rel="stylesheet" />
     <link href="../../App_Themes/Default/css/kendo.Lightblue.css" rel="stylesheet" />
-
+    
     <!-- css -->
     <link href="../../App_Themes/Default/css/iaudit_dashboard.css" rel="stylesheet" />
 </head>
 <body>
-    <!--Navigation Header-->
-    <header class="main-header">
-        <nav class="mt-navbar">
-            <div class="nav-left" id="dvLeftMenu" data-role="aratooltipv2">
-                <div class="logo-wrapper">
-                    <img src="../../App_Themes/Default/images/Clarent_White_Logo.svg" />
-                </div>
-                <ul class="left-menu list-unstyled list-inline">
-                    <li class="separator"></li>
-                    <li class="active project-item ml-5"><a class="noPointer ellipsis" title="CMS">iAudit</a></li>
-                </ul>
-            </div>
-            <div class="nav-right">
-                <ul class="user-menu">
-                    <li class="support-mail-wrapper">
-                        <a href="javascript:void(0);" tabindex="0" class="help" id="btnSupportMail" data-ara-title="Help" aria-label="Help" role="button" data-role="aratooltipv2"><i class="icon-help" aria-hidden="true"></i></a>
-                    </li>
-                    <li class="notification-item item">
-                        <a href="javascript:void(0)">
-                            <span class="icon"><i class="icon-notification"></i></span>
-                            <!--<span class="counts">12</span>-->
-                        </a>
-                    </li>
-                    <li class="separator"></li>
-                    <li class="userprofile-item userprofile dropdown">
-                        <a href="javascript:void(0)">
-                            <span class="navuser-ellipse">subhash.dudhat@casepoint.in<br /><small>Space Admin</small></span>
-                            <span class="dw-icon"><i class="icon-arrow-down"></i></span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    <!--// Navigation Header-->
-    <!-- Menu Section-->
-    <section class="main-section-menu bg-light bb-1">
-        <ul class="main-section-menu-ul">
-            <li><a href="javascript:void(0);" class="ms-menu-link active">Dashboard</a></li>
-            <li><a href="javascript:void(0);" class="ms-menu-link">Templates</a></li>
-            <li><a href="javascript:void(0);" class="ms-menu-link">Inspetion</a></li>
-            <li><a href="javascript:void(0);" class="ms-menu-link">Schedules</a></li>
-            <li><a href="javascript:void(0);" class="ms-menu-link">Analytics</a></li>
-        </ul>
-    </section>
-    <!--// Menu Section-->
-    <!-- Main Contain -->
-    <main class="main-contain-wrapper main-content">
-        <!-- user profile -->
-        <div class="userprofile-menu dropdown-menu">
-            <div class="usermenu-wrap">
-                <div class="main-up">
-                    <div class="userprofile-content-wrapper">
-                        <div class="brief">
-                            <div class="img-circle"><span>NP</span></div>
-                            
-                        </div>
-                        <div class="a-box">
-                            <a id="settings"><i class="icon-setting"></i><span class="text-dark text-semibold">Settings</span></a>
-                            <a href="../Login.html" class="bl-0"><i class="icon-logout text-danger"></i><span class="text-dark text-semibold">Logout</span></a>
-                        </div>
-                        <div class="bottom-block">
-                            <div class="userprofile-info d-flex align-items-center">
-                                <span class="userprofile-info-icon"><i class="icon-user"></i></span>
-                                <div class="flex-1 overflow-hidden font-semi-bold ml-15">
-                                    <span class="text-muted d-block ellipsis mb-5">Username</span>
-                                    <span class="text-dark d-block ellipsis fs-15">subhash.dudhat@casepoint.in</span>
-                                </div>
-                            </div>
-                            <div class="userprofile-info d-flex align-items-center">
-                                <span class="userprofile-info-icon"><i class="icon-user"></i></span>
-                                <div class="flex-1 overflow-hidden font-semi-bold ml-15">
-                                    <span class="text-muted d-block ellipsis mb-5">Full Name</span>
-                                    <span class="text-dark d-block ellipsis fs-15">Subhash Dudhat</span>
-                                </div>
-                            </div>
-                            <div class="userprofile-info d-flex align-items-center">
-                                <span class="userprofile-info-icon"><i class="icon-email"></i></span>
-                                <div class="flex-1 overflow-hidden font-semi-bold ml-15">
-                                    <span class="text-muted d-block ellipsis mb-5">Email</span>
-                                    <span class="text-dark d-block ellipsis fs-15">subhash.dudhat@casepoint.in</span>
-                                </div>
-                            </div>
-                            <div class="userprofile-info d-flex align-items-center">
-                                <span class="userprofile-info-icon"><i class="icon-mobile"></i></span>
-                                <div class="flex-1 overflow-hidden font-semi-bold ml-15">
-                                    <span class="text-muted d-block ellipsis mb-5">Phone Number</span>
-                                    <span class="text-dark d-block ellipsis fs-15">+91 9979692357</span>
-                                </div>
-                            </div>
-                            <div class="userprofile-info d-flex align-items-center">
-                                <span class="userprofile-info-icon"><i class="icon-assign-role"></i></span>
-                                <div class="flex-1 overflow-hidden font-semi-bold ml-15">
-                                    <span class="text-muted d-block ellipsis mb-5">User Role</span>
-                                    <span class="text-dark d-block ellipsis fs-15">Scrum</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="settings">
-                    <div class="head">
-                        <a class="back"><i class="icon-arrow-left"></i></a>
-                        <h3>Settings</h3>
-                    </div>
-                    <!-- tab strip -->
-                    <div id="tabstrip" class="h100">
-                        <ul>
-                            <li class="k-state-active">
-                                Edit Profile
-                            </li>
-                            <li>
-                                Change Password
-                            </li>
-                        </ul>
-                        <div>
-                            <div class="setting-footer">
-                                <a class="btn btn-trans close">Close</a>
-                                <a class="btn btn-trans ml-0">Reset</a>
-                                <a class="btn btn-primary">Update</a>
-                            </div>
-                            <form class="edit-profile">
-                                <div class="brief">
-                                    <div class="img-circle"><span>NP</span></div>
-                                    <span class="input-pic">
-                                        <input type="file" id="fileProfileImage" name="fileProfileImage" title="Change Photo">
-                                        <i class="icon-photo"></i>Change Photo
-                                    </span>
-                                    <a><i class="icon-delete"></i>Reset Photo</a>
-                                </div>
-                                <div class="edit-profile-details">
-                                    <div class="form-group">
-                                        <label>User Name</label> 
-                                        <input class="form-control" readonly type="text" value="nikhil.parmar@casepoint.in" />
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="half">
-                                            <label>First Name</label>
-                                            <input class="form-control" type="text" value="Nikhil" />
-                                        </div>
-                                        <div class="half">
-                                            <label>Last Name</label>
-                                            <input class="form-control" type="text" value="Parmar" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Email</label>
-                                        <input class="form-control" type="email" readonly value="nikhil.parmar@casepoint.in" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Phone Number</label>
-                                        <input class="form-control" type="text" value="9876543210" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="drop-list">User Role</label>
-                                        <select id="UserRoleDropdown" title="dropdown without search">
-                                            <option>Scrum</option>
-                                            <option>iAudit</option>
-                                            <option>CorPocket</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <div>
-                            <div>
-                                <form class="edit-profile">
-                                    <div class="edit-profile-details">
-                                        <div class="form-group">
-                                            <label>Current Password</label>
-                                            <input class="form-control" type="password" placeholder="Current Password" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label>New Password <i class="icon-info-unfill text-muted"></i> </label>
-                                            <input class="form-control" type="password" placeholder="New Password" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Confirm Password</label>
-                                            <input class="form-control" type="password" placeholder="Re-type New Password" />
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="setting-footer">
-                                <a class="btn btn-trans close">Close</a>
-                                <a class="btn btn-trans ml-0">Reset</a>
-                                <a class="btn btn-primary">Save</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--  -->
-                </div>
-            </div>
-        </div>
-        <!-- end user profile -->
-
+   
+        
         <div class="d-flex dashboard-wrapper h100">
             <div class="dashboard-left overflow-auto d-flex flex-column">
                 <!-- Daily Activity -->
@@ -359,7 +165,7 @@
                 </div>
                 <!--// User an Existing Inspection Template -->
             </div>
-
+            
             <div class="activity-wrapper bg-light bl-1 d-flex flex-column">
                 <h4 class="title font-semi-bold text-dark bb-1 pb-10 mr-15 ml-15">Activity</h4>
                 <div class="activity-content flex-1 overflow-auto">
@@ -367,53 +173,178 @@
                 </div>
             </div>
         </div>
-    </main>
-    <!--// Main Contain -->
-    <!-- Footer -->
-    <footer class="footer-main-wrapper d-flex justify-content-space-between bg-light text-dark bt-1">
-        <span>Login Time : <span>01/06/2020 10:17:47 AM</span></span>
-        <span>Clarent 1.0</span>
-    </footer>
-    <!--// Footer -->
+    
+   
     <!-- Clean Seen Housekeeping Checklist -->
     <div id="houseKeepingChecklist" class="overflow-visible">
         <div class="housekeeping-wrapper pr h100">
             <div class="form-wizard-wrapper h100">
                 <div id="housekeepingTabstrip" class="housekeeping-wrapper-tabstrip h100">
                     <ul>
-                        <li class="k-state-active">
+                        <li >
                             <span>Basic Information</span>
                         </li>
-                        <li>
+                        <li class="k-state-active">
                             <span>Audit</span>
                         </li>
                     </ul>
-                    <div class="housekeeping-basic-wrapper d-flex flex-column">
-                        <div class="housekeeping-basic-form flex-1 overflow-auto">
-
-                        </div>
-                        <div class="window-footer">
-                            <button class="btn k-button">Save</button>
-                            <button class="btn btn-primary k-button">Next</button>
+                    <div class="housekeeping-basic-wrapper">
+                        <div class="d-flex flex-column h100">
+                            <div class="housekeeping-basic-form flex-1 overflow-hidden">
+                                <div class="housekeeping-basic-form-content overflow-auto h100">
+                                    <div class="form-group">
+                                        <label for="TitlePage">Title Page</label>
+                                        <select id="TitlePage" title="dropdown without search">
+                                            <option>Audit</option>
+                                            <option>CorPocket</option>
+                                            <option>Web Scrum</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="HClient">Client</label>
+                                        <input type="text" class="k-textbox"  id="HClient"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="HCouductdatePicker">Couduct On</label>
+                                        <input id="HCouductdatePicker" class="form-control" title="date picker"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="HInspected">Inspected by</label>
+                                        <input type="text" class="k-textbox"  id="HInspected"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="HInspected">Location</label>
+                                        <input type="text" class="k-textbox"  id="HInspected" value="Surat" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="window-footer">
+                                <button class="btn btn-trans k-button">Save</button>
+                                <button class="btn btn-primary k-button">Next</button>
+                            </div>
                         </div>
                     </div>
-                    <div>
-                        tabstrip content 2
-                        <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                        </p>
+                    <div class="housekeeping-basic-wrapper">
+                        <div class="d-flex flex-column h100">
+                            <div class="housekeeping-basic-form flex-1 overflow-hidden">
+                                <div class="housekeeping-basic-form-content housekeeping-audit-panelbar overflow-auto">
+                                    <ul id="AuditpanelBar" class="h100">
+                                        <li class="k-state-active">
+                                            <span class="k-link k-state-selected">
+                                                <span class="font-medium text-dark fs-15 ellipsis">Walking and working Surface</span> 
+                                                <span class="text-muted ellipsis">0/1 (0%)</span>
+                                            </span>
+                                            <div class="housekeeping-audit-panelbar-content">
+                                                <div class="housekeeping-audit-panelbar-content-wrapper">
+                                                    <p class="text-dark font-medium fs-14">Are Walkways and working surface clean and clear of debris?</p>
+                                                    <ul class="housekeeping-panelbar-tag">
+                                                        <li><button class="btn k-button btn-borderd">Satisfactory</button></li>
+                                                        <li><button class="btn k-button btn-borderd">Unsatisfactory</button></li>
+                                                        <li><button class="btn k-button btn-borderd">N/A</button></li>
+                                                    </ul>
+                                                    <div class="housekeeping-panelbar-addnote pr">
+                                                        <div class="housekeeping-panelbar-addnotetextbox">
+                                                            <input type="text" class="k-textbox" placeholder="Add Note" id="AddNote">
+                                                        </div>
+                                                        <div class="housekeeping-panelbar-textbox-action">
+                                                            <a href="javascript:void(0)" class="text-muted d-inline-flex align-items-center"><i class="icon-image-file"></i><span class="ml-5">Media</span></a>
+                                                            <a href="javascript:void(0)" class="text-muted d-inline-flex align-items-center ml-20"><i class="icon-image-file"></i><span class="ml-5">Action</span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <span class="k-link">
+                                                <span class="font-medium text-dark fs-15 ellipsis">Lighting</span> 
+                                                <span class="text-muted ellipsis">0/1 (0%)</span>
+                                            </span>
+                                            <div class="housekeeping-audit-panelbar-content">
+                                                <div class="housekeeping-audit-panelbar-content-wrapper">
+                                                    <div>
+                                                        <p class="text-dark font-medium fs-14">Are lighting fixtures in good working order?</p>
+                                                        <ul class="housekeeping-panelbar-tag">
+                                                            <li><button class="btn k-button btn-borderd">Satisfactory</button></li>
+                                                            <li><button class="btn k-button btn-borderd">Unsatisfactory</button></li>
+                                                            <li><button class="btn k-button btn-borderd">N/A</button></li>
+                                                        </ul>
+                                                        <div class="housekeeping-panelbar-addnote pr">
+                                                            <div class="housekeeping-panelbar-addnotetextbox">
+                                                                <input type="text" class="k-textbox" placeholder="Add Note" id="AddNote">
+                                                            </div>
+                                                            <div class="housekeeping-panelbar-textbox-action">
+                                                                <a href="javascript:void(0)" class="text-muted d-inline-flex align-items-center"><i class="icon-image-file"></i><span class="ml-5">Media</span></a>
+                                                                <a href="javascript:void(0)" class="text-muted d-inline-flex align-items-center ml-20"><i class="icon-image-file"></i><span class="ml-5">Action</span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="full-divider mt-15 mb-15"></div>
+                                                    <div>
+                                                        <p class="text-dark font-medium fs-14">Are lighting fixtures in good working order?</p>
+                                                        <ul class="housekeeping-panelbar-tag">
+                                                            <li><button class="btn k-button btn-borderd">Satisfactory</button></li>
+                                                            <li><button class="btn k-button btn-borderd">Unsatisfactory</button></li>
+                                                            <li><button class="btn k-button btn-borderd">N/A</button></li>
+                                                        </ul>
+                                                        <div class="housekeeping-panelbar-addnote pr">
+                                                            <div class="housekeeping-panelbar-addnotetextbox">
+                                                                <input type="text" class="k-textbox" placeholder="Add Note" id="AddNote">
+                                                            </div>
+                                                            <div class="housekeeping-panelbar-textbox-action">
+                                                                <a href="javascript:void(0)" class="text-muted d-inline-flex align-items-center"><i class="icon-image-file"></i><span class="ml-5">Media</span></a>
+                                                                <a href="javascript:void(0)" class="text-muted d-inline-flex align-items-center ml-20"><i class="icon-image-file"></i><span class="ml-5">Action</span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <span class="k-link">
+                                                <span class="font-medium text-dark fs-15 ellipsis">Waste Disposal</span> 
+                                                <span class="text-muted ellipsis">0/1 (0%)</span>
+                                            </span>
+                                            <div class="housekeeping-audit-panelbar-content">
+                                                <div class="housekeeping-audit-panelbar-content-wrapper">
+                                                    <p class="text-dark font-medium fs-14">Are Walkways and working surface clean and clear of debris?</p>
+                                                    <ul class="housekeeping-panelbar-tag">
+                                                        <li><button class="btn k-button btn-borderd">Satisfactory</button></li>
+                                                        <li><button class="btn k-button btn-borderd">Unsatisfactory</button></li>
+                                                        <li><button class="btn k-button btn-borderd">N/A</button></li>
+                                                    </ul>
+                                                    <div class="housekeeping-panelbar-addnote pr">
+                                                        <div class="housekeeping-panelbar-addnotetextbox">
+                                                            <input type="text" class="k-textbox" placeholder="Add Note" id="AddNote">
+                                                        </div>
+                                                        <div class="housekeeping-panelbar-textbox-action">
+                                                            <a href="javascript:void(0)" class="text-muted d-inline-flex align-items-center"><i class="icon-image-file"></i><span class="ml-5">Media</span></a>
+                                                            <a href="javascript:void(0)" class="text-muted d-inline-flex align-items-center ml-20"><i class="icon-image-file"></i><span class="ml-5">Action</span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                            <div class="window-footer">
+                                <button class="btn btn-trans k-button">Previous</button>
+                                <button class="btn btn-trans k-button">Save & Draft</button>
+                                <button class="btn btn-primary k-button">Mark as Complete</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
-
+    
     <!--// Clean Seen Housekeeping Checklist -->
-
+    
     <script src="../../Scripts/Kendo/jquery.min.js"></script>
     <script src="../../Scripts/Kendo/kendo.all.min.js"></script>
-
+    
     <script src="../../Scripts/CLARENT/Other/Custom/clarant-custom.js"></script>
     <script src="../../Scripts/CLARENT/Other/Custom/Custom.js"></script>
     <!-- Acitivity List View template -->
@@ -429,32 +360,17 @@
             <button class="btn k-button btn-borderd text-dark">#: activitystatusB #</button> <span class="text-dark font-medium d-inline-flex ml-15">#: activityscore # Score</span>
         </div>
     </script>
-
+    
     <script>
-        $(document).ready(function () {
-            //Kendo File Upload
-            $("#fileProfileImage").kendoUpload({
-                showFileList: false,
-                multiple: false,
-                localization: { select: 'Select File' }
-            });
-
-            $("#tabstrip").kendoTabStrip({
-                animation: {
-                    open: {
-                        effects: "fadeIn"
-                    }
-                }
-            });
-        })
+        
         // Activity List View
         var Activitydata = new kendo.data.DataSource({
             data: [
-                { activitytext: "Osha Housekeeping Checklist", activitydate: "11 mar 2021", activityname: "Subhash Dudhat", activitystatus: "Complete", activityClass: "success", activitystatusB: "inspection", activityscore: "0%" },
-                { activitytext: "Osha Housekeeping Checklist", activitydate: "11 mar 2021", activityname: "Subhash Dudhat", activitystatus: "Cancel", activityClass: "danger", activitystatusB: "Approved", activityscore: "100%" },
-                { activitytext: "Osha Housekeeping Checklist", activitydate: "11 mar 2021", activityname: "Parth Desai", activitystatus: "Complete", activityClass: "success", activitystatusB: "inspection", activityscore: "5%" },
-                { activitytext: "Osha Housekeeping Checklist", activitydate: "11 mar 2021", activityname: "Sagar Gajera", activitystatus: "Cancel", activityClass: "danger", activitystatusB: "inspection", activityscore: "20%" },
-                { activitytext: "Osha Housekeeping Checklist", activitydate: "11 mar 2021", activityname: "Ketan Patel", activitystatus: "Complete", activityClass: "success", activitystatusB: "inspection", activityscore: "10%" }
+            { activitytext: "Osha Housekeeping Checklist", activitydate: "11 mar 2021", activityname: "Subhash Dudhat", activitystatus: "Complete", activityClass: "success", activitystatusB: "inspection", activityscore: "0%" },
+            { activitytext: "Osha Housekeeping Checklist", activitydate: "11 mar 2021", activityname: "Subhash Dudhat", activitystatus: "Cancel", activityClass: "danger", activitystatusB: "Approved", activityscore: "100%" },
+            { activitytext: "Osha Housekeeping Checklist", activitydate: "11 mar 2021", activityname: "Parth Desai", activitystatus: "Complete", activityClass: "success", activitystatusB: "inspection", activityscore: "5%" },
+            { activitytext: "Osha Housekeeping Checklist", activitydate: "11 mar 2021", activityname: "Sagar Gajera", activitystatus: "Cancel", activityClass: "danger", activitystatusB: "inspection", activityscore: "20%" },
+            { activitytext: "Osha Housekeeping Checklist", activitydate: "11 mar 2021", activityname: "Ketan Patel", activitystatus: "Complete", activityClass: "success", activitystatusB: "inspection", activityscore: "10%" }
             ]
         });
         $('#actitbityListView').kendoListView({
@@ -464,26 +380,28 @@
         // Inspection Template Dropdown
         $("#inspectionTemplateDropdown").kendoDropDownList();
         $('#UserRoleDropdown').kendoDropDownList();
+        $('#TitlePage').kendoDropDownList();
+        $("#HCouductdatePicker").kendoDatePicker();
         // houseKeepingChecklist window
         $('#houseKeepingChecklist').kendoWindow({
             width: '65%',
-            height: '75%',
+            height: '86%',
             title: "Clean Seen Housekeeping Checklist",
             visible: false,
             draggable: false,
             resizable: false,
             defaultFocus: false,
             actions: [
-                "Close"
+            "Close"
             ],
             modal: true
         }).data("kendoWindow");
         $(document).on('click', '#houseKeepingChecklistBtn', function () {
             $("#houseKeepingChecklist").data("kendoWindow").center().open();
         });
-
+        
         //Tabstrip
-
+        
         $("#housekeepingTabstrip").kendoTabStrip({
             animation: {
                 open: {
@@ -491,7 +409,10 @@
                 }
             }
         });
-
+        
+        
+        $("#AuditpanelBar").kendoPanelBar();
+        
     </script>
 </body>
 </html>
