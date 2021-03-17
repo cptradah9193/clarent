@@ -110,7 +110,7 @@
     <script>
         $(document).ready(function () {
             //Kendo File Upload
-            $("select:not([multiple], .all-selector,.input-search,.select-label,#ddlsorting, .ddlFolderColor,.ddlfolder-permission)").kendoDropDownList();
+            $("select:not([multiple])").kendoDropDownList();
             $("#fileProfileImage").kendoUpload({
                 showFileList: false,
                 multiple: false,

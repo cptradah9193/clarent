@@ -241,11 +241,29 @@
     <script src="../../Scripts/CLARENT/Other/Custom/Custom.js"></script>
     <script>
         $(document).ready(function () {
+            $(".userprofile > a").click(function (e) {
+                $(".userprofile-menu.dropdown-menu").toggleClass("open");
+                e.stopPropagation();
+            });
+            $(document).click(function (e) {
+                if (!$(e.target).is('.userprofile-menu.dropdown-menu, .userprofile-menu.dropdown-menu *')) {
+                    $(".userprofile-menu.dropdown-menu").removeClass("open");
+                }
+            });
+            $("select:not([multiple])").kendoDropDownList();
             //Kendo File Upload
             $("#fileProfileImage").kendoUpload({
                 showFileList: false,
                 multiple: false,
                 localization: { select: 'Select File' }
+            });
+
+            $("#tabstrip").kendoTabStrip({
+                animation: {
+                    open: {
+                        effects: "fadeIn"
+                    }
+                }
             });
         });
     </script>

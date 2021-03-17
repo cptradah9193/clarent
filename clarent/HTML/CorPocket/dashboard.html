@@ -269,7 +269,7 @@
     <script src="../../Scripts/CLARENT/Other/Custom/Custom.js"></script>
     <script>
         $(document).ready(function () {
-            $("select:not([multiple], .all-selector,.input-search,.select-label,#ddlsorting, .ddlFolderColor,.ddlfolder-permission)").kendoDropDownList();
+            $("select:not([multiple])").kendoDropDownList();
             //Kendo File Upload
             $("#fileProfileImage").kendoUpload({
                 showFileList: false,
