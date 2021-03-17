@@ -1,2 +1,91 @@
-﻿body {
+﻿.event-dashboard {
+    padding: 0 20px;
+}
+
+.event-dashboard .event-tabstrip {
+    background-color: #fff;
+}
+.event-dashboard .event-tabstrip .tab-content {
+    padding: 15px 0;
+    height: calc(100% - 35px);
+}
+
+.event-dashboard .event-tabstrip .tab-content .searchbar > .input-search > .icon-search {
+    left: 15px;
+}
+.event-dashboard .event-tabstrip .tab-content .searchbar > .input-search > .form-control {
+    padding-left: 40px;
+}
+.event-dashboard .event-tabstrip .k-tabstrip-items .k-item .k-link {
+    padding: 8px 15px;
+    text-transform: uppercase;
+}
+
+.event-wrapper {
+    height: calc(100% - 52px);
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.card-thumbnail-view {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -10px;
+    border: 0;
+    
+}
+
+.card-thumbnail-view .thumbnail-item {
+    width: 20%;
+    padding: 0 10px;
+    margin-bottom: 20px;
+    border: 0;
+    color: #003145;
+    background-color: #fff;
+}
+
+.card-thumbnail-view .thumbnail-item.k-state-selected .thumbnail-item-wrapper{
+   border-color: #7e57c2;
+}
+
+.card-thumbnail-view .thumbnail-item .thumbnail-item-wrapper {
+    border-radius: 3px;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-thumbnail-view .thumbnail-item .thumbnail-item-wrapper  .date{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 999;
+    background: rgb(126 87 194 / 80%);
+    color: #fff;
+    padding: 5px 8px;
+    border-radius: 3px;
+}
+
+.card-thumbnail-view .thumbnail-item .thumbnail-item-wrapper .thumb-details {
+    padding: 15px 15px;
+}
+
+
+.card-thumbnail-view .thumbnail-item .thumbnail-item-wrapper .thumb-details .thumb-name {
+    font-size: 20px;
+}
+
+.card-thumbnail-view .thumbnail-item .thumbnail-item-wrapper .thumb-details .thum-list > li {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.card-thumbnail-view .thumbnail-item .thumbnail-item-wrapper .thumb-details  .thum-list > li > span.icon {
+    display: inline-block;
+    width: 25px;
+}
+
+.card-thumbnail-view .thumbnail-item .thumbnail-item-wrapper .thumb-details  .thum-list > li > span.text {
+    display: inline-block;
+    width: calc(100% - 30px);
 }

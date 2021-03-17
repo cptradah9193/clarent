@@ -1,5 +1,4 @@
-﻿/*--styleguide css--*/
-/*--header--*/
+﻿/*--header--*/
 .mt-navbar {
     height: 52px;
     padding: 10px 20px;
@@ -996,14 +995,12 @@ p.note {
     .full-search-bar .search-wrap {
         width: 1344px;
         height: 100%;
-        margin: 0 auto;
+        margin: 0 auto;   
     }
 
 /* #Full search bar */
 
-
 /*--styleguide css--*/
-
 .btn {
     position: relative;
     overflow: hidden;
