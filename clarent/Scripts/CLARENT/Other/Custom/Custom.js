@@ -1,4 +1,18 @@
-﻿$(document).ready(function () {
+﻿function handleFirstTab(e) {
+    document.body.classList.add('user-is-tabbing');
+    document.removeEventListener('keyup', handleFirstTab);
+    document.addEventListener('mousedown', handleMouseDownOnce);
+}
+
+function handleMouseDownOnce() {
+    document.body.classList.remove('user-is-tabbing');
+    document.removeEventListener('mousedown', handleMouseDownOnce);
+    document.addEventListener('keyup', handleFirstTab);
+}
+
+window.addEventListener('keyup', handleFirstTab);
+
+$(document).ready(function () {
     $(".dropdown > a").each(function () {
         $(this).click(function () {
             $(".dropdown").removeClass("open");

@@ -1,5 +1,5 @@
 ﻿.event-dashboard {
-    padding: 0 20px;
+    padding: 0 0;
 }
 
 .event-dashboard .event-tabstrip {
@@ -10,10 +10,10 @@
     height: calc(100% - 35px);
 }
 
-.event-dashboard .event-tabstrip .tab-content .searchbar > .input-search > .icon-search {
+.searchbar > .input-search > .icon-search {
     left: 15px;
 }
-.event-dashboard .event-tabstrip .tab-content .searchbar > .input-search > .form-control {
+.searchbar > .input-search > .form-control {
     padding-left: 40px;
 }
 .event-dashboard .event-tabstrip .k-tabstrip-items .k-item .k-link {
@@ -32,6 +32,7 @@
     flex-wrap: wrap;
     margin: 0 -10px;
     border: 0;
+    min-height: 100%;
     
 }
 
@@ -42,6 +43,7 @@
     border: 0;
     color: #003145;
     background-color: #fff;
+    box-sizing: border-box;
 }
 
 .card-thumbnail-view .thumbnail-item.k-state-selected .thumbnail-item-wrapper{
@@ -88,4 +90,42 @@
 .card-thumbnail-view .thumbnail-item .thumbnail-item-wrapper .thumb-details  .thum-list > li > span.text {
     display: inline-block;
     width: calc(100% - 30px);
+}
+
+.view-group {
+    display: inline-flex;
+    border-radius: 3px;
+    overflow: hidden;
+    background-color: #ECE6F6;
+}
+
+.view-group > .btn-view {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.view-group > .btn-view.active {
+    color: #fff;
+    background-color: #7e57c2;
+}
+
+.event-pane-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.event-pane-wrapper .view-wrapper {
+    flex: 1;
+    height: 100%;
+    overflow: auto;
+}
+
+.view-wrapper .thumbnail-view {
+    height: 100%;
+    overflow: auto;
+    overflow-x: hidden;
 }

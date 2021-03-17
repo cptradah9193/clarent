@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--meta tags-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <title>Clarent Institute iAudit Dashboard</title>
+    <!-- favicon -->
+    <!--<link rel="shortcut icon" href="../../App_Themes/Default/images/favicon.ico" type="image/x-icon">-->
+
+    <link href="../../App_Themes/Default/css/kendo.common.min.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/kendo.default.min.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/fonts.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/styleguide.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/core-pocket-responsive.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/casepoint.comfortable.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/kendo.Deeppurple.css" rel="stylesheet" />
+
+    <!-- css -->
+    <link href="../../App_Themes/Default/css/core-pocket.css" rel="stylesheet" />
+</head>
+
+<body>
+
+
+    <div class="mt-container mt-container-fluid h100 pl-20 pr-20">
+        <section class="h100 event-dashboard">
+            <div id="borederTabstrip" class="borderd-tab event-tabstrip h100">
+                <ul>
+                    <li class="k-state-active">
+                        Active Events
+                    </li>
+                    <li>
+                        Past Events
+                    </li>
+                    <li>
+                        Draft Events
+                    </li>
+
+                </ul>
+                <div class="tab-content">
+                    <div class="searchbar">
+                        <div class="input-search">
+                            <i class="icon-search" data-ara-title="Search" aria-hidden="true"
+                                data-role="aratooltipv2"></i>
+                            <input type="text" name="search" class="form-control k-textbox" placeholder="Search here..."
+                                aria-label="Search" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="event-wrapper">
+                        <div class="card-thumbnail-view" id="thumbnail_grid"></div>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    tabstrip content 3
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                        been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                        galley of type and scrambled it to make a type specimen book.
+                    </p>
+                </div>
+                <div class="tab-content">
+                    tabstrip content 4
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                        been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                        galley of type and scrambled it to make a type specimen book.
+                    </p>
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+
+    <script type="text/x-kendo-template" id="thumnail_template">
+        <div class="thumbnail-item">
+            <div class="thumbnail-item-wrapper">
+                <span class="date">02-Feb-21</span>
+                <div class="thumb-img">                   
+                    <img src='../../App_Themes/Default/images/core-pocket/event.jpg' />
+                </div>
+                <div class="thumb-details">
+                   <p class="font-medium text-dark thumb-name">CP Annual</>
+                   <ul class="thum-list">
+                       <li class="text-muted item-list">
+                           <span class="icon"><i class="icon-map"></i></span>
+                            <span class="text">Akshay Nagar 1st block 1st crosss Banglore-560016</span>                           
+                       </li>
+                       <li class="text-muted item-list">
+                        <span class="icon"><i class="icon-clock"></i></span>
+                        <span class="text">05:25 PM</span>
+                       </li>
+                   </ul>
+                    <div class="btn-group bt-1 pt-10 text-center">
+                       <a href="javascript:void(0)" class="btn btn-trans text-primary">More Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <!-- scripts -->
+    <script src="../../Scripts/Kendo/jquery.min.js"></script>
+    <script src="../../Scripts/Kendo/kendo.all.min.js"></script>
+    <script src="../../Scripts/CLARENT/Other/Custom/Custom.js"></script>
+    <script>
+        $(document).ready(function () {
+            //Kendo File Upload
+            $("select:not([multiple], .all-selector,.input-search,.select-label,#ddlsorting, .ddlFolderColor,.ddlfolder-permission)").kendoDropDownList();
+            $("#fileProfileImage").kendoUpload({
+                showFileList: false,
+                multiple: false,
+                localization: { select: 'Select File' }
+            });
+
+            $("#tabstrip").kendoTabStrip({
+                animation: {
+                    open: {
+                        effects: "fadeIn"
+                    }
+                }
+            });
+
+            $("#borederTabstrip").kendoTabStrip({
+                animation: {
+                    open: {
+                        effects: "fadeIn"
+                    }
+                }
+            });
+
+            var dataSource = new kendo.data.DataSource({
+                transport: {
+                    read: {
+                        url: "https://demos.telerik.com/kendo-ui/service/Products",
+                        dataType: "jsonp"
+                    }
+                },
+            });
+
+            $("#thumbnail_grid").kendoListView({
+                dataSource: dataSource,
+                selectable: "multiple",
+                template: kendo.template($("#thumnail_template").html())
+            });
+
+        });
+    </script>
+</body>
+
+</html>
