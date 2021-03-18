@@ -66,6 +66,15 @@
         <ul class="list-inline pages-menu">
             <li class="active"><a href="dashboard.html" title="Dashboard">Dashboard</a></li>
             <li><a href="events.html" title="Events">Events</a></li>
+            <li><a href="transaction.html" title="Transaction">Transaction</a></li>
+            <li class="dropdown" role="presentation">
+                <a role="menuitem" tabindex="0" onclick="return false;">Admin: Category<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li role="presentation" class=""><a role="menuitem" tabindex="0" href="category.html">Category</a>
+                    </li>
+
+                </ul>
+            </li>
         </ul>
     </nav>
     <!--#navigation pages-->
@@ -269,6 +278,7 @@
     <script src="../../Scripts/CLARENT/Other/Custom/Custom.js"></script>
     <script>
         $(document).ready(function () {
+
             $("select:not([multiple])").kendoDropDownList();
             //Kendo File Upload
             $("#fileProfileImage").kendoUpload({

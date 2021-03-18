@@ -214,14 +214,22 @@
         border-color: #dcdfe5;
     }
 
-    .pages-menu .dropdown:hover .dropdown-menu {
+    /* .pages-menu .dropdown:hover .dropdown-menu {
         display: block;
         right: 0;
         overflow: auto;
-    }
+    } */
 
     .pages-menu .dropdown .dropdown-menu > li > a {
         max-width: 100%;
+    }
+
+    .mt-navbar-pages .dropdown-menu {
+        margin: 0;
+    }
+
+    .pages-menu > li > a .caret:after {
+        border-top-color: #949eb2;
     }
 
 /* Navigation menu */

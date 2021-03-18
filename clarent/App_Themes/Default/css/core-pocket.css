@@ -129,3 +129,35 @@
     overflow: auto;
     overflow-x: hidden;
 }
+
+.amount-group > .am-icon {
+    position: absolute;
+    top: 30px;
+    left: 12px;
+    color: #003145;
+}
+
+.amount-group > .am-control {
+    padding-left: 25px;
+}
+
+.radiolist > li {
+    display: inline-block;
+}
+
+.photo-upload .image-preview {
+    width: 300px;
+}
+
+.photo-upload .k-upload .k-upload-files {
+    max-height: none;
+}
+
+.photo-upload  .k-file-name-size-wrapper{
+    display: block;
+    width: 100%;
+    margin: 0;
+    max-width: none;
+    background: #fafafa;
+    padding: 10px;
+}

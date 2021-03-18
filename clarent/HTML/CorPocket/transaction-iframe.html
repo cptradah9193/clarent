@@ -29,7 +29,7 @@
         <section id="main_splitter" class="k-spliter h100">
             <div class="center-pane h100 event-pane-wrapper">
                 <header class="grid-header">
-                    <h5 class="title text-primary display-block">Events</h5>
+                    <h5 class="title text-primary display-block">Transaction</h5>
                     <div class="searchbar d-flex align-items-center mb-0">
                         <div class="input-search">
                             <i class="icon-search" data-ara-title="Search" aria-hidden="true"
@@ -44,7 +44,7 @@
                             <ul class="dropdown-menu right">
                                 <li><a href="javascript:void(0)" id="addEventLink" onclick="openAddEventPopup();"><i
                                             class="icon-plus"></i><span>Add
-                                            Event</span></a></li>
+                                            Express</span></a></li>
 
                                 <li class="divider"></li>
                                 <li><a><i class="icon-delete text-danger"></i><span
@@ -58,93 +58,62 @@
                         <input type="checkbox" class="k-checkbox" id="checkAll101">
                         <label class="k-checkbox-label" for="checkAll101">All</label>
                     </div>
-                    <div class="ml-auto">
-                        <div class="btn-group view-group" id="viewGroup">
-                            <a href="javascript:void(0)" id="list_view" class="btn-view active"><i
-                                    class="icon-list"></i></a>
-                            <a href="javascript:void(0)" id="thum_view" class="btn-view"><i
-                                    class="icon-grid"></i></span></a>
-                        </div>
-                    </div>
                 </div>
                 <div class="view-wrapper">
                     <div class="grid-wrapper h100" id="list_view_content">
-                        <div id="eventGrid" class="mb-0"></div>
-                        <div id="eventGrid_pager" class="with-more-option">
+                        <div id="transGrid" class="mb-0"></div>
+                        <div id="transGrid_pager" class="with-more-option">
                         </div>
                     </div>
-                    <div class="thumbnail-view h100" id="thumb_view_content" style="display: none;">
-                        <div class="card-thumbnail-view" id="thumbnail_grid"></div>
-                    </div>
                 </div>
-
             </div>
         </section>
     </div>
-
-    <div id="addEvent" style="display: none;">
+    <!-- add express window -->
+    <div id="addExpress" style="display: none;">
         <div class="window-wrapper">
-            <div class="d-flex">
-                <div class="col-width-50 pl-0">
-                    <div class="form-group">
-                        <label for="">Event Name</label>
-                        <input type="text" class="form-control">
-                    </div>
-                </div>
-                <div class="col-width-50 pr-0">
-                    <div class="form-group">
-                        <label for="">Event Display Name</label>
-                        <input type="text" class="form-control">
-                    </div>
-                </div>
-            </div>
-            <div class="d-flex">
-                <div class="col-width-50 pl-0">
-                    <div class="form-group">
-                        <label for="datetimepicker1">Event Start From</label>
-                        <input id="datetimepicker1" class="form-control datetimepicker" title="date timepicker" />
-                    </div>
-                </div>
-                <div class="col-width-50 pr-0">
-                    <div class="form-group">
-                        <label for="datetimepicker2">Event End at</label>
-                        <input id="datetimepicker2" class="form-control datetimepicker" title="date timepicker" />
-                    </div>
-                </div>
-            </div>
-            <div class="d-flex">
-                <div class="col-width-50 pl-0">
-                    <div class="form-group">
-                        <label for="">Event Organizer</label>
-                        <input type="text" class="form-control">
-                    </div>
-                </div>
-                <div class="col-width-50 pr-0">
-                    <div class="form-group">
-                        <label for="">Event Manager</label>
-                        <input type="text" class="form-control">
-                    </div>
-                </div>
-            </div>
             <div class="form-group">
-                <label for="">Event Venue</label>
-                <input type="text" class="form-control">
+                <label for="event">Event</label>
+                <select id="event">
+                    <option>CP Annual</option>
+                    <option>CP ARA</option>
+                </select>
+            </div>
+            <div class="d-flex">
+                <div class="col-width-50 pl-0">
+                    <div class="form-group">
+                        <label for="Category">Category</label>
+                        <select id="Category">
+                            <option>Car</option>
+                            <option>Bus</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-width-50 pr-0">
+                    <div class="form-group amount-group">
+                        <label for="Amount">Amount</label>
+                        <span class="am-icon">&#8377</span>
+                        <input type="text" class="form-control am-control" id="Amount" value="2000">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="ExpenseDate">Expense Date</label>
+                <input type="text" class="form-control datetimepicker" id="ExpenseDate">
             </div>
             <div class="form-group">
                 <label for="textArea">Description</label>
-                <textarea id="textArea" class="form-control k-textbox" rows="5" aria-label="textarea"></textarea>
-            </div>
-            <div class="form-group photo-upload">
-                <label for="files" class="pointer-events-none">Photo</label>
-                <input name="files" class="files " type="file" aria-label="files" title="files" id="files" />
+                <textarea id="textArea" class="form-control k-textbox" rows="5"
+                    aria-label="textarea">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print,</textarea>
             </div>
         </div>
         <div class="window-footer dir-rtl">
-            <button class="btn btn-primary">Save</button>
+            <button class="btn btn-primary">Add</button>
             <button class="btn btn-trans">Close</button>
         </div>
     </div>
-
+    <!-- add express window -->
     <!-- option menu -->
     <ul id="popup" class="grid-options" style="display: none;">
         <li class="goto">
@@ -170,32 +139,7 @@
     </ul>
     <!-- option menu -->
 
-    <script type="text/x-kendo-template" id="thumnail_template">
-        <div class="thumbnail-item">
-            <div class="thumbnail-item-wrapper">
-                <span class="date">02-Feb-21</span>
-                <div class="thumb-img">                   
-                    <img src='../../App_Themes/Default/images/core-pocket/event.jpg' />
-                </div>
-                <div class="thumb-details">
-                   <p class="font-medium text-dark thumb-name">CP Annual</>
-                   <ul class="thum-list">
-                       <li class="text-muted item-list">
-                           <span class="icon"><i class="icon-map"></i></span>
-                            <span class="text">Akshay Nagar 1st block 1st crosss Banglore-560016</span>                           
-                       </li>
-                       <li class="text-muted item-list">
-                        <span class="icon"><i class="icon-clock"></i></span>
-                        <span class="text">05:25 PM</span>
-                       </li>
-                   </ul>
-                    <div class="btn-group bt-1 pt-10 text-center">
-                       <a href="javascript:void(0)" class="btn btn-trans text-primary">More Details</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </script>
+
 
     <!-- scripts -->
     <script src="../../Scripts/Kendo/jquery.min.js"></script>
@@ -212,18 +156,7 @@
             // common select dropdown
             $("select:not([multiple])").kendoDropDownList();
 
-            $("#list_view").click(function (e) {
-                $("#viewGroup > a").removeClass("active");
-                $(this).addClass("active");
-                $("#thumb_view_content").hide();
-                $("#list_view_content").show();
-            });
-            $("#thum_view").click(function (e) {
-                $("#viewGroup > a").removeClass("active");
-                $(this).addClass("active");
-                $("#thumb_view_content").show();
-                $("#list_view_content").hide();
-            })
+
             var dataSource = new kendo.data.DataSource({
                 transport: {
                     read: {
@@ -233,13 +166,8 @@
                 },
             });
 
-            $("#thumbnail_grid").kendoListView({
-                dataSource: dataSource,
-                selectable: "multiple",
-                template: kendo.template($("#thumnail_template").html())
-            });
 
-            $("#eventGrid").kendoGrid({
+            $("#transGrid").kendoGrid({
                 dataSource: {
                     type: "odata",
                     transport: {
@@ -259,29 +187,25 @@
                     width: 80
                 },
                 {
-                    template: 'Casepoint Platform - ARA',
+                    template: 'CP Annual',
                     field: "eventname",
                     title: "event name"
                 }, {
-                    template: 'Review',
-                    field: "eventDisplayName",
-                    title: "event display name",
+                    template: 'Car',
+                    field: "Category",
+                    title: "Category",
                 }, {
-                    template: 'Hardik Trada',
-                    field: "eventStartFrom",
-                    title: "Event Start From",
+                    template: '&\\\#8377 2000',
+                    field: "Amount",
+                    title: "Amount",
                 }, {
-                    template: 'Hardik Trada',
-                    field: "eventEndAt",
-                    title: "Event End At",
+                    template: '15/03/2021',
+                    field: "date",
+                    title: "Date",
                 }, {
-                    template: 'Hardik Trada',
-                    field: "eventOrg",
-                    title: "Event Organizer",
-                }, {
-                    template: 'Hardik Trada',
-                    field: "eventManager",
-                    title: "Event Manager",
+                    template: 'Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print,',
+                    field: "description",
+                    title: "description",
                 }]
             });
             // pager
@@ -295,12 +219,12 @@
                 ],
                 pageSize: 2
             });
-            $("#eventGrid_pager").kendoPager({
+            $("#transGrid_pager").kendoPager({
                 dataSource: dataSource,
             });
             dataSource.read();
 
-            $("#eventGrid_pager")
+            $("#transGrid_pager")
                 .append("<div class='more-oprion'><span class='separator'></span><a href='javascript:void(0)' id='moreOption' class='text-muted btn-default-hover'><i class='icon-option'></i></a></div>");
 
 
@@ -324,14 +248,14 @@
                 }
             });
 
-            $("#addEvent").kendoWindow({
+            $("#addExpress").kendoWindow({
                 animation: false,
                 width: '600px',
-                height: '85%',
+                height: '480px',
                 visible: false,
                 draggable: false,
                 resizable: false,
-                title: "Edit Field Details",
+                title: "Add Express",
                 actions: [
                     "Close"
                 ],
@@ -343,41 +267,13 @@
                 value: new Date()
             });
 
-            $("#files").kendoUpload({
 
-                multiple: false,
-                select: function (e) {
-
-                    var fileInfo = e.files[0];
-                    var wrapper = this.wrapper;
-
-                    setTimeout(function () {
-                        addPreview(fileInfo, wrapper);
-                    });
-                }
-            });
 
         });
 
-        function addPreview(file, wrapper) {
-            debugger
-            var raw = file.rawFile;
-            var reader = new FileReader();
-
-            if (raw) {
-                reader.onloadend = function () {
-                    var preview = $("<img class='image-preview'>").attr("src", this.result);
-
-                    wrapper.find(".k-file[data-uid='" + file.uid + "'] .k-file-extension-wrapper")
-                        .replaceWith(preview);
-                };
-
-                reader.readAsDataURL(raw);
-            }
-        }
 
         function openAddEventPopup() {
-            $("#addEvent").data("kendoWindow").center().open();
+            $("#addExpress").data("kendoWindow").center().open();
         }
     </script>
 </body>

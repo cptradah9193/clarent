@@ -109,6 +109,12 @@
     <script src="../../Scripts/CLARENT/Other/Custom/Custom.js"></script>
     <script>
         $(document).ready(function () {
+            // hide userprofile 
+            $(document).click(function () {
+                window.top.$('body').find('.userprofile-menu').removeClass('open');
+                window.top.$('body').find('.userprofile').removeClass('active open');
+            });
+
             //Kendo File Upload
             $("select:not([multiple])").kendoDropDownList();
             $("#fileProfileImage").kendoUpload({
