@@ -19,7 +19,7 @@
     <link href="../../App_Themes/Default/css/kendo.Lightblue.css" rel="stylesheet" />
     
     <!-- css -->
-    <link href="../../App_Themes/Default/css/iaudit_dashboard.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/wescrum.css" rel="stylesheet" />
 </head>
 <body>
     <!--Navigation Header-->
@@ -31,7 +31,7 @@
                 </div>
                 <ul class="left-menu list-unstyled list-inline">
                     <li class="separator"></li>
-                    <li class="active project-item ml-5"><a class="noPointer ellipsis" title="CMS">iAudit</a></li>
+                    <li class="active project-item ml-5"><a class="noPointer ellipsis" title="CMS">WeScrum</a></li>
                 </ul>
             </div>
             <div class="nav-right">
@@ -60,11 +60,13 @@
     <!-- Menu Section-->
     <section class="main-section-menu bg-light bb-1">
         <ul class="main-section-menu-ul" id="mainSectionMenu">
-            <li><a href="javascript:void(0);" id="iAuditDashboard" class="ms-menu-link active">Dashboard</a></li>
-            <li><a href="javascript:void(0);" id="iAuditTemplate" class="ms-menu-link">Templates</a></li>
-            <li><a href="javascript:void(0);" id="iAuditInspection" class="ms-menu-link">Inspetion</a></li>
-            <li><a href="javascript:void(0);" id="iAuditSchdules" class="ms-menu-link">Schedules</a></li>
-            <li><a href="javascript:void(0);" id="iAuditAnalytics" class="ms-menu-link">Analytics</a></li>
+            <li><a href="javascript:void(0);" id="wescrumDashboard" class="ms-menu-link active">Dashboard</a></li>
+            <li><a href="javascript:void(0);" id="wescrumDataimport" class="ms-menu-link">Data Import</a></li>
+            <li><a href="javascript:void(0);" id="wescrumSpringplanning" class="ms-menu-link">Sprint Planning</a></li>
+            <li><a href="javascript:void(0);" id="wescrumSprintReview" class="ms-menu-link">Sprint Review</a></li>
+            <li><a href="javascript:void(0);" id="wescrumSprintRelease" class="ms-menu-link">Sprint Release</a></li>
+            <li><a href="javascript:void(0);" id="wescrumSprintretro" class="ms-menu-link">Sprint Retrospective</a></li>
+            <li><a href="javascript:void(0);" id="wescrumAdminManage" class="ms-menu-link">Admin Management</a></li>
         </ul>
     </section>
     <!--// Menu Section-->
@@ -217,7 +219,7 @@
             </div>
         </div>
         <!-- end user profile -->
-        <iframe src="dashboard.html" id="iAuditIframe" frameborder="0" class="dashboardiframe"></iframe>
+        <iframe src="wescrum_sprintretro.html" id="WeScrumiframe" frameborder="0" class="dashboardiframe"></iframe>
     </main>
     <!--// Main Contain -->
     <!-- Footer -->
@@ -253,17 +255,35 @@
                 }
             });
 
-            $('#iAuditDashboard').click(function(){
+            $('#wescrumDashboard').click(function(){
                 $('#mainSectionMenu').find('a').removeClass('active');
                 $(this).addClass('active');
-                document.getElementById("iAuditIframe").src = "dashboard.html";
+                document.getElementById("WeScrumiframe").src = "wescrum_dashboard.html";
             })
 
-            $('#iAuditTemplate').click(function(){
+            $('#wescrumDataimport').click(function(){
                 $('#mainSectionMenu').find('a').removeClass('active');
                 $(this).addClass('active');
-                document.getElementById("iAuditIframe").src = "iAuditTemplate.html";
+                document.getElementById("WeScrumiframe").src = "wescrum_dataimport.html";
             })
+            $('#wescrumSpringplanning').click(function(){
+                $('#mainSectionMenu').find('a').removeClass('active');
+                $(this).addClass('active');
+                document.getElementById("WeScrumiframe").src = "wescrum_sprintplanning.html";
+            })
+
+            $('#wescrumAdminManage').click(function(){
+                $('#mainSectionMenu').find('a').removeClass('active');
+                $(this).addClass('active');
+                document.getElementById("WeScrumiframe").src = "wescrum_admin.html";
+            })
+            $('#wescrumSprintretro').click(function(){
+                $('#mainSectionMenu').find('a').removeClass('active');
+                $(this).addClass('active');
+                document.getElementById("WeScrumiframe").src = "wescrum_sprintretro.html";
+            })
+            
+            
         })
         
         

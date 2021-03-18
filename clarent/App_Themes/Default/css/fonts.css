@@ -2068,6 +2068,31 @@
 .icon-manage-exception-filled:before {
     content: "\e9d8";
 }
+
+.icon-username-check:before {
+    content: "\e9d9";
+}
+
+.icon-smile:before {
+    content: "\e9da";
+}
+
+.icon-media-filled:before {
+    content: "\e9db";
+}
+
+.icon-action-filled:before {
+    content: "\e9dc";
+}
+
+.icon-fullname:before {
+    content: "\e9dd";
+}
+
+.icon-call-phone:before {
+    content: "\e9de";
+}
+
 /*app hub icon*/
 
 @font-face {

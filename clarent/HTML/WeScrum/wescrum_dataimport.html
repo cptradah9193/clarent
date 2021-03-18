@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--meta tags-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    
+    <title>Clarent Institute iAudit Dashboard</title>
+    <!-- favicon -->
+    <!--<link rel="shortcut icon" href="../../App_Themes/Default/images/favicon.ico" type="image/x-icon">-->
+    
+    <link href="../../App_Themes/Default/css/kendo.common.min.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/kendo.default.min.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/fonts.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/styleguide.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/responsive.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/casepoint.comfortable.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/kendo.Lightblue.css" rel="stylesheet" />
+    
+    <!-- css -->
+    <link href="../../App_Themes/Default/css/wescrum.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="scrum-dataimport-wrapper d-flex flex-column h100">
+        <div class="scrum-dataimport-header-block bg-light d-flex border mb-15">
+            <div class="scrum-dataimport-dropdownbox">
+                <div class="form-group mb-0">
+                    <label for="selectEvent" class="fs-16">Select Event</label>
+                    <select name="search event" id="selectEvent"></select>
+                </div>
+            </div>
+            <div class="scrum-dataimport-dropdownbox">
+                <div class="form-group mb-0">
+                    <label for="SelectTeam" class="fs-16">Team</label>
+                    <select name="search team" id="SelectTeam"></select>
+                </div>
+            </div>
+            <div class="scrum-dataimport-importfile flex-1 overflow-hidden form-group mb-0">
+                <label class="fs-16 text-dark" for="ImportExcel">Select excel file to import</label>
+                <input type="file" id="ImportExcel" class="hidden"/>
+                <div class="scrum-dataimport-importfile-input">
+                    <div class="clear-input">
+                        <input type="text" name="txtTagListSearch" id="ImportExceltext" readonly aria-label="tag name" class="form-control k-textbox k-valid"/>
+                        <button class="btn btn-primary k-button scrum-dataimport-importfile-inputbtn" id="ImportExcelbtn">Browse</button>
+                    </div>
+                    <a href="javascript:void(0);" class="btn btn-primary scrum-dataimport-importfile-import" role="button" aria-haspopup="true" aria-expanded="false"><i aria-hidden="true" class="icon-import fs-14"></i><span>import</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="flex-1 overflow-auto">
+            <div class="grid-wrapper h100 dataimport-grid">
+                <div id="Dataimportgrid"></div>
+                <div id="Dataimportgrid-pager" class="with-more-option"></div>
+            </div> 
+        </div>
+    </div>
+    <!-- option menu -->
+    <ul id="popup" class="grid-options" style="display: none;">
+        <li class="goto">
+            <span class="text-muted">Go to page</span>
+            <span>
+                <input type="text" id="page_goto" class="form-control" />
+            </span>
+            <span class="text-muted">0</span>
+            <span class="text-muted">pages</span>
+        </li>
+        <li class="rpp">
+            <span class="text-muted">Record per page</span>
+            <select class="k-dropdown" id="pagerDropdown">
+                <option>5</option>
+                <option>10</option>
+                <option>15</option>
+                <option>20</option>
+                <option>50</option>
+                <option>100</option>
+                <option>200</option>
+            </select>
+        </li>
+    </ul>
+    <!--// option menu -->
+    <script src="../../Scripts/Kendo/jquery.min.js"></script>
+    <script src="../../Scripts/Kendo/kendo.all.min.js"></script>
+    
+    <script src="../../Scripts/CLARENT/Other/Custom/clarant-custom.js"></script>
+    <script src="../../Scripts/CLARENT/Other/Custom/Custom.js"></script>
+    
+    
+    <script>
+        // Select Event Dropdown
+        $("#selectEvent").kendoDropDownList({
+            dataSource: ["Sprint Planning", "Sprint Retrospective", "Sprint Review"],
+        });
+        // Select Team Dropdown
+        $("#SelectTeam").kendoDropDownList({
+            optionLabel: "-- Select Team --",
+            dataSource: ["Sprint Planning", "Sprint Retrospective", "Sprint Review"],
+        });
+        
+        $('#ImportExcelbtn').click(function(){
+            $('#ImportExcel').trigger('click');
+        })
+        
+        // Grid
+        var fieldData = new kendo.data.DataSource({
+            data: 
+            [{datano :"1",dataid:"325561", datareq :"Add new status column in resource file store table and apply cahnges in all resouce pages" , dataTpl: "Amitkumar P. Tailor" ,dataAss:"Niarali Vyas" ,dataVal :"Business",dataInt :"itreation 30" },
+            {datano :"2",dataid:"325561", datareq :"Add new status column in resource file store table and apply cahnges in all resouce pages" , dataTpl: "Amitkumar P. Tailor" ,dataAss:"Niarali Vyas" ,dataVal :"Business",dataInt :"itreation 30" },
+            {datano :"3",dataid:"325561", datareq :"Add new status column in resource file store table and apply cahnges in all resouce pages" , dataTpl: "Amitkumar P. Tailor" ,dataAss:"Niarali Vyas" ,dataVal :"Business",dataInt :"itreation 30" },
+            {datano :"4",dataid:"325561", datareq :"Add new status column in resource file store table and apply cahnges in all resouce pagesAdd new status column in resource file store table and apply cahnges in all resouce pagesAdd new status column in resource file store table and apply cahnges in all resouce pages" , dataTpl: "Amitkumar P. Tailor" ,dataAss:"Niarali Vyas" ,dataVal :"Business",dataInt :"itreation 30" },
+            {datano :"5",dataid:"325561", datareq :"Add new status column in resource file store table and apply cahnges in all resouce pages" , dataTpl: "Amitkumar P. Tailor" ,dataAss:"Niarali Vyas" ,dataVal :"Business",dataInt :"itreation 30" },
+            {datano :"6",dataid:"325561", datareq :"Add new status column in resource file store table and apply cahnges in all resouce pages" , dataTpl: "Amitkumar P. Tailor" ,dataAss:"Niarali Vyas" ,dataVal :"Business",dataInt :"itreation 30" },
+            {datano :"7",dataid:"325561", datareq :"Add new status column in resource file store table and apply cahnges in all resouce pages" , dataTpl: "Amitkumar P. Tailor" ,dataAss:"Niarali Vyas" ,dataVal :"Business",dataInt :"itreation 30" },
+            {datano :"8",dataid:"325561", datareq :"Add new status column in resource file store table and apply cahnges in all resouce pages" , dataTpl: "Amitkumar P. Tailor" ,dataAss:"Niarali Vyas" ,dataVal :"Business",dataInt :"itreation 30" },
+            {datano :"9",dataid:"325561", datareq :"Add new status column in resource file store table and apply cahnges in all resouce pages" , dataTpl: "Amitkumar P. Tailor" ,dataAss:"Niarali Vyas" ,dataVal :"Business",dataInt :"itreation 30" },
+            {datano :"10",dataid:"325561", datareq :"Add new status column in resource file store table and apply cahnges in all resouce pages" , dataTpl: "Amitkumar P. Tailor" ,dataAss:"Niarali Vyas" ,dataVal :"Business",dataInt :"itreation 30" },
+            ],
+            schema: { model: { id: "fieldid" } }
+        });
+        $("#Dataimportgrid").kendoGrid({
+            dataSource: fieldData,
+            totalRecordPerPage: 5,
+            scrollable: true,
+            resizable: false,
+            autoBind: true,
+            
+            config: { CurrentPage: 0, TotalPage: 10, RecordPerPage: 10, TotalRecord: 100, searchText: "" },
+            columns: [
+            { selectable: true, width: "50px" },
+            { field: "datano", title: "No" , width: "90px"},
+            { field: "dataid", title: "id" , width: "135px"},
+            { field: "datareq", title: "requirment/user story Title",
+            attributes: {
+                "class": "white-space-normal",
+            } },
+            { field: "dataTpl", title: "Tpl/Tl" , width: "190px"},
+            { field: "dataAss", title: "Assigned to" , width: "170px" },
+            { field: "dataVal", title: "value area (business Architectural)" , width: "260px"},
+            { field: "dataInt", title: "iteration no" , width: "200px"},
+            ]
+        }).data("kendoGrid");
+        
+        $("#Dataimportgrid-pager").kendoPager({
+            dataSource: fieldData,
+            refresh: true
+        });
+        fieldData.read();
+        
+        $("#Dataimportgrid-pager").append("<div class='more-oprion'><span class='separator'></span><a href='javascript:void(0)' id='moreOption' class='text-muted btn-default-hover'><i class='icon-option'></i></a></div>");
+        
+        var popup = $("#popup").kendoPopup({
+            animation: false,
+            anchor: $("#moreOption"),
+            origin: "top right",
+            position: "bottom right",
+            collision: "fit",
+            
+        }).data("kendoPopup");
+        
+        $("#moreOption").click(function () {
+            $("#popup").data("kendoPopup").open()
+        });
+        
+        $("#pagerDropdown").kendoDropDownList({
+            popup: {
+                appendTo: 'body'
+            }
+        });
+        
+        
+    </script>
+</body>
+</html>

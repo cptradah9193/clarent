@@ -45,7 +45,7 @@
         <div class="iaudit-template-grid-wrapper flex-1 overflow-auto">
             <div class="grid-wrapper h100">
                 <div id="iAuditTemplateGrid"></div>
-                <div id="iAuditTemplateGrid-pager"></div>
+                <div id="iAuditTemplateGrid-pager" class="with-more-option"></div>
             </div> 
         </div>
         <!--// Template Grid -->
@@ -93,6 +93,30 @@
             </div>
         </div>
     </div>
+    <!-- option menu -->
+    <ul id="popup" class="grid-options" style="display: none;">
+        <li class="goto">
+            <span class="text-muted">Go to page</span>
+            <span>
+                <input type="text" id="page_goto" class="form-control" />
+            </span>
+            <span class="text-muted">0</span>
+            <span class="text-muted">pages</span>
+        </li>
+        <li class="rpp">
+            <span class="text-muted">Record per page</span>
+            <select class="k-dropdown" id="pagerDropdown">
+                <option>5</option>
+                <option>10</option>
+                <option>15</option>
+                <option>20</option>
+                <option>50</option>
+                <option>100</option>
+                <option>200</option>
+            </select>
+        </li>
+    </ul>
+    <!--// option menu -->
     
     <script src="../../Scripts/Kendo/jquery.min.js"></script>
     <script src="../../Scripts/Kendo/kendo.all.min.js"></script>
@@ -161,6 +185,8 @@
         });
         fieldData.read();
         
+        $("#iAuditTemplateGrid-pager").append("<div class='more-oprion'><span class='separator'></span><a href='javascript:void(0)' id='moreOption' class='text-muted btn-default-hover'><i class='icon-option'></i></a></div>");
+        
         $("#TemplategridPopup").kendoPopup({
             anchor: "#TempgridTrigger",
             position: "top right",
@@ -204,7 +230,25 @@
         $(document).on("click", function() { 
             $("#NewTempDrawer").removeClass('open'); 
         });
-        
+         //Contextmenu popover left click for grid pager
+         var popup = $("#popup").kendoPopup({
+                animation: false,
+                anchor: $("#moreOption"),
+                origin: "top right",
+                position: "bottom right",
+                collision: "fit",
+
+            }).data("kendoPopup");
+
+            $("#moreOption").click(function () {
+                $("#popup").data("kendoPopup").open()
+            });
+
+            $("#pagerDropdown").kendoDropDownList({
+                popup: {
+                    appendTo: 'body'
+                }
+            });
     </script>
 </body>
 </html>

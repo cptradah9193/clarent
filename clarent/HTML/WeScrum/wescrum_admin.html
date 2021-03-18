@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--meta tags-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    
+    <title>Clarent Institute iAudit Dashboard</title>
+    <!-- favicon -->
+    <!--<link rel="shortcut icon" href="../../App_Themes/Default/images/favicon.ico" type="image/x-icon">-->
+    
+    <link href="../../App_Themes/Default/css/kendo.common.min.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/kendo.default.min.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/fonts.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/styleguide.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/responsive.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/casepoint.comfortable.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/kendo.Lightblue.css" rel="stylesheet" />
+    
+    <!-- css -->
+    <link href="../../App_Themes/Default/css/wescrum.css" rel="stylesheet" />
+</head>
+<body>
+    
+    <div class="admin-management-wrapper d-flex flex-column h100 pr-20 pl-20">
+        <h4 class="fs-16 text-primary pt-20 pb-10 font-medium">Admin Managment</h4>
+        <div class="admin-search-header">
+            <div class="searchbar search-form-input">
+                <div class="clear-input search-box w100">
+                    <input type="text" name="txtTagListSearch" id="txtTagListSearch" aria-label="tag name" class="form-control k-textbox k-valid" placeholder="Search here...">
+                    <i class="icon-search" aria-hidden="true"></i>
+                </div>
+                <div class="action-div dropdown">
+                    <a href="javascript:void(0);" class="btn btn-raised btn-primary btn-block" role="button" aria-haspopup="true" aria-expanded="false" id="actionbtnmenu1"><i aria-hidden="true" class="icon-action"></i><span>Action</span><span class="caret"></span></a>
+                    <ul class="dropdown-menu right" role="menu" aria-labelledby="actionbtnmenu1">
+                        <li role='presentation'><a href='javascript:void(0);' role='menuitem'>Team Settings</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="flex-1 overflow-auto">
+            <div class="admin-management-grid-wrapper grid-wrapper h100">
+                <div id="AdminMangGrid"></div>
+                <div id="AdminMangGrid-pager" class="with-more-option"></div>
+            </div>
+        </div>
+    </div>
+    <!-- option menu -->
+    <ul id="AdminMangepopup" class="grid-options" style="display: none;">
+        <li class="goto">
+            <span class="text-muted">Go to page</span>
+            <span>
+                <input type="text" id="page_goto" class="form-control" />
+            </span>
+            <span class="text-muted">0</span>
+            <span class="text-muted">pages</span>
+        </li>
+        <li class="rpp">
+            <span class="text-muted">Record per page</span>
+            <select class="k-dropdown" id="pagerDropdown">
+                <option>5</option>
+                <option>10</option>
+                <option>15</option>
+                <option>20</option>
+                <option>50</option>
+                <option>100</option>
+                <option>200</option>
+            </select>
+        </li>
+    </ul>
+    <!--// option menu -->
+    <script src="../../Scripts/Kendo/jquery.min.js"></script>
+    <script src="../../Scripts/Kendo/kendo.all.min.js"></script>
+    
+    <script src="../../Scripts/CLARENT/Other/Custom/clarant-custom.js"></script>
+    <script src="../../Scripts/CLARENT/Other/Custom/Custom.js"></script>
+    
+    
+    <script>
+        var fieldData = new kendo.data.DataSource({
+            data: 
+            [{Project: "Clarent platform - iAudit" , Team: "Review" ,ProductOwner : "Swapnil P. Desai",ScrumMaster: "Ankur Mistry",Lead : "Ankur Mistry"  },
+            {Project: "Clarent platform - iAudit" , Team: "Review" ,ProductOwner : "Swapnil P. Desai",ScrumMaster: "Ankur Mistry",Lead : "Ankur Mistry"  },
+            ],
+            schema: { model: { id: "fieldid" } }
+        });
+        $("#AdminMangGrid").kendoGrid({
+            dataSource: fieldData,
+            totalRecordPerPage: 5,
+            scrollable: true,
+            resizable: false,
+            autoBind: true,
+            config: { CurrentPage: 0, TotalPage: 10, RecordPerPage: 10, TotalRecord: 100, searchText: "" },
+            columns: [
+            { selectable: true, width: "50px" },
+            { field: "Project", title: "Project" },
+            { field: "Team", title: "Team" },
+            { field: "ProductOwner", title: "Product Owner" },
+            { field: "ScrumMaster", title: "Scrum Master" },
+            { field: "Lead", title: "Lead" },
+            ]
+        }).data("kendoGrid");
+        
+        $("#AdminMangGrid-pager").kendoPager({
+            dataSource: fieldData,
+            refresh: true
+        });
+        fieldData.read();
+        
+        $("#AdminMangGrid-pager").append("<div class='more-oprion'><span class='separator'></span><a href='javascript:void(0)' id='moreOption' class='text-muted btn-default-hover'><i class='icon-option'></i></a></div>");
+        
+        var popup = $("#AdminMangepopup").kendoPopup({
+            animation: false,
+            anchor: $("#moreOption"),
+            origin: "top right",
+            position: "bottom right",
+            collision: "fit",
+            
+        }).data("kendoPopup");
+        
+        $("#moreOption").click(function () {
+            $("#AdminMangepopup").data("kendoPopup").open()
+        });
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--meta tags-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    
+    <title>Clarent Institute iAudit Dashboard</title>
+    <!-- favicon -->
+    <!--<link rel="shortcut icon" href="../../App_Themes/Default/images/favicon.ico" type="image/x-icon">-->
+    
+    <link href="../../App_Themes/Default/css/kendo.common.min.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/kendo.default.min.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/fonts.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/styleguide.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/responsive.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/casepoint.comfortable.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/kendo.Lightblue.css" rel="stylesheet" />
+    
+    <!-- css -->
+    <link href="../../App_Themes/Default/css/wescrum.css" rel="stylesheet" />
+</head>
+<body>
+    
+    <div class="planning-main-wrapper h100 overflow-hidden">
+        <div class="planning-splitter-wrapper h100" id="sprintPlanSplitter">
+            <div class="planning-parameters-wrapper">
+                <div class="planning-parameters-wrapper-content">
+                    <h4 class="text-dark fs-16 mb-15 font-bold">Parameters</h4>
+                    <div class="box-row">
+                        <div class="box-column planningwidth">
+                            <div class="form-group">
+                                <label for="Parametersproject" class="pointer-events-none font-bold">Project</label>
+                                <input type="text" class="k-textbox" placeholder="" value="Clarent Platform" id="Parametersproject">
+                            </div>
+                        </div>
+                        <div class="box-column planningwidth">
+                            <div class="form-group">
+                                <label for="ParametersTeam" class="pointer-events-none font-bold">Team</label>
+                                <select name="search dropdown" id="ParametersTeam"></select>
+                            </div>
+                        </div>
+                        <div class="box-column planningwidth">
+                            <div class="form-group">
+                                <label for="Parametersitr" class="pointer-events-none font-bold">Team</label>
+                                <select name="search dropdown" id="Parametersitr"></select>
+                            </div>
+                        </div>
+                        <div class="box-column w100">
+                            <div class="form-group">
+                                <label for="SprintGoal" class="pointer-events-none font-bold">Sprint Goal</label>
+                                <textarea id="SprintGoal" class="form-control k-textbox" rows="5" aria-label="textarea">Sprint Goal 1</textarea>
+                            </div>
+                        </div>
+                        <div class="box-column w100 text-right">
+                            <button class="btn btn-primary k-button">Process</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Sprint Planning Report -->
+            <div class="planning-report-wrapper" id="reportwrapperSplitter">
+                <div class="planning-report-box d-flex h100 flex-column  br-1">
+                    <div class="planning-report-header bb-1 bt-1 bl-1  bg-light d-flex align-items-center">
+                        <a role="button" href="javascript:void(0);" class="btn-default-hover fs-10 text-muted plaaningsplitterbtn" id="closeRightPanel" aria-label="Field dialog collapsed">
+                            <i class="icon-double-arrow-right viewer-right-panel-collapse" aria-hidden="true"></i>
+                            <i class="icon-double-arrow-left" aria-hidden="true"></i>
+                        </a>
+                        <span class="ellipsis flex-1 overflow-hidden fs-18 text-dark font-bold ml-15 planning-report-header-text">Sprint Planing Report</span>
+                    </div>
+                    <div class="planning-report-content flex-1 overflow-hidden d-flex flex-column">
+                        <div class="planning-report-content-controls flex-1 overflow-auto pr-15 pl-15">
+                            <!-- project Detail -->
+                            <div class="planning-report-content-box border">
+                                <h4 class="title">project Details</h4>
+                                <div class="box-row">
+                                    <div class="box-column box-33">
+                                        <div class="form-group">
+                                            <label for="ProjectTeam" class="font-medium">Team</label>
+                                            <select name="search dropdown" id="ProjectTeam"></select>
+                                        </div>
+                                    </div>
+                                    <div class="box-column box-33">
+                                        <div class="form-group">
+                                            <label for="projectAPM" class="font-medium">APM</label>
+                                            <input type="text" class="k-textbox" placeholder="" value="Aniruddh Bordervala" id="projectAPM"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Scrum Team -->
+                            <div class="planning-report-content-box border">
+                                <h4 class="title">Scrum Team</h4>
+                                <div class="box-row">
+                                    <div class="box-column box-33">
+                                        <div class="form-group">
+                                            <label for="ScrumMaster" class="font-medium">Scrum Master</label>
+                                            <input type="text" class="k-textbox" placeholder="" value="Aniruddh Bordervala" id="ScrumMaster"/>
+                                        </div>
+                                    </div>
+                                    <div class="box-column developer-textarea-width">
+                                        <div class="form-group">
+                                            <label for="DevTeam" class="font-medium">Developer Team</label>
+                                            <textarea id="DevTeam" class="form-control k-textbox" rows="5" aria-label="textarea">Dhara Kher, Arpit Patel,Partb Jarivala</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Sprint Events -->
+                            <div class="planning-report-content-box border">
+                                <h4 class="title">Sprint Events</h4>
+                                <div class="box-row">
+                                    <div class="box-column box-33">
+                                        <div class="form-group">
+                                            <label for="SprintDuration" class="font-medium">Sprint Duration</label>
+                                            <input type="text" class="k-textbox" placeholder="" value="3 Week" id="SprintDuration"/>
+                                        </div>
+                                    </div>
+                                    <div class="box-column box-33">
+                                        <div class="form-group">
+                                            <label for="SprintTimeline" class="font-medium">Sprint Timeline</label>
+                                            <input type="text" class="k-textbox" placeholder="" value="01/03/2021 to 19/06/2021" id="SprintTimeline"/>
+                                        </div>
+                                    </div>
+                                    <div class="box-column box-33">
+                                        <div class="form-group">
+                                            <label for="SprintPlanning" class="font-medium">Sprint Planning</label>
+                                            <input type="text" class="k-textbox" placeholder="" value="01/03/2021" id="SprintPlanning"/>
+                                        </div>
+                                    </div>
+                                    <div class="box-column box-33">
+                                        <div class="form-group">
+                                            <label for="DailyScrum" class="font-medium">Daily Scrum</label>
+                                            <input type="text" class="k-textbox" placeholder="" value="2:30 PM" id="DailyScrum"/>
+                                        </div>
+                                    </div>
+                                    <div class="box-column box-33">
+                                        <div class="form-group">
+                                            <label for="SprintReview" class="font-medium">Sprint Review</label>
+                                            <input type="text" class="k-textbox" placeholder="" value="19/03/2021" id="SprintReview"/>
+                                        </div>
+                                    </div>
+                                    <div class="box-column box-33">
+                                        <div class="form-group">
+                                            <label for="SprintReview" class="font-medium">Sprint Retrospective</label>
+                                            <input type="text" class="k-textbox" placeholder="" value="19/03/2021" id="SprintReview"/>
+                                        </div>
+                                    </div>
+                                    <div class="box-column box-33">
+                                        <div class="form-group">
+                                            <label for="SprintReview" class="font-medium">Sprint Goal</label>
+                                            <input type="text" class="k-textbox" placeholder="" value="Legal Hold &  BSMF" id="SprintReview"/>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <!-- Capacity matrix -->
+                            <div class="capacity-wrapper">
+                                <h4 class="fs-16 font-bold text-dark mb-15">Capacity Matrix - Planning vs Availablity</h4>
+                                <div class="capacity-wrapper-grid grid-wrapper">
+                                    <div id="capacityMatixgrid" class="mb-0"></div>
+                                </div>
+                            </div>
+                            <!-- Sprint backlog -->
+                            <div class="sprint-backlog-wrapper">
+                                <h4 class="fs-16 font-bold text-dark mb-15">Sprint backlog</h4>
+                                <div class="sprint-backlog-wrapper-grid grid-wrapper" style="height: 300px;">
+                                    <div id="sprintaBacklogGrid"></div>
+                                    <div id="sprintaBacklogGrid-pager" class="with-more-option"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="planning-report-content-footer p-15 text-right bt-1">
+                            <button class="btn btn-primary k-button"><i  aria-hidden="true"  class="icon-export"></i><span>Export</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- option menu -->
+    <ul id="Sprintbacklogpopup" class="grid-options" style="display: none;">
+        <li class="goto">
+            <span class="text-muted">Go to page</span>
+            <span>
+                <input type="text" id="page_goto" class="form-control" />
+            </span>
+            <span class="text-muted">0</span>
+            <span class="text-muted">pages</span>
+        </li>
+        <li class="rpp">
+            <span class="text-muted">Record per page</span>
+            <select class="k-dropdown" id="pagerDropdown">
+                <option>5</option>
+                <option>10</option>
+                <option>15</option>
+                <option>20</option>
+                <option>50</option>
+                <option>100</option>
+                <option>200</option>
+            </select>
+        </li>
+    </ul>
+    <!--// option menu -->
+    <script src="../../Scripts/Kendo/jquery.min.js"></script>
+    <script src="../../Scripts/Kendo/kendo.all.min.js"></script>
+    
+    <script src="../../Scripts/CLARENT/Other/Custom/clarant-custom.js"></script>
+    <script src="../../Scripts/CLARENT/Other/Custom/Custom.js"></script>
+    
+    
+    <script>
+        //Dropdown
+        $("#ParametersTeam").kendoDropDownList({
+            optionLabel: "-- Select Team --",
+            dataSource: ["review", "viewer", "Core"],
+        });
+        $("#Parametersitr").kendoDropDownList({
+            optionLabel: "-- Select Iteration --",
+            dataSource: ["iteration 1", "iteration 2", "iteration 3"],
+        });
+        $("#ProjectTeam").kendoDropDownList({
+            dataSource: ["Core frameWork", "Review", "viewer"],
+        });
+        
+        //Splitter
+        $('#sprintPlanSplitter').kendoSplitter({
+            panes: [
+            { collapsible: false, width:"50%" },
+            { collapsible: true , min :"40%" , max :"60%" , collapsedSize: "46px", },
+            ],
+        });
+        var reportsplitter = $("#sprintPlanSplitter").data("kendoSplitter");
+        reportsplitter.resize(true);
+        $('#closeRightPanel').click(function () {
+            reportsplitter.toggle("#reportwrapperSplitter");
+        })
+        
+        //Capacity Grid
+        var capcitydata = new kendo.data.DataSource({
+            data: 
+            [{capTeam : "Devlopement",PlannHours:"1274.5" ,Availablehours :"2020.50" },
+            {capTeam : "QA",PlannHours:"719.5" ,Availablehours :"983.50" },
+            ],
+            schema: { model: { id: "fieldid" } }
+        });
+        $('#capacityMatixgrid').kendoGrid({
+            dataSource: capcitydata,
+            scrollable: true,
+            resizable: false,
+            autoBind: true,
+            config: { CurrentPage: 0, TotalPage: 10, RecordPerPage: 10, TotalRecord: 100, searchText: "" },
+            columns: [
+            { field: "capTeam", title: "Team" ,footerTemplate: "Total" },
+            { field: "PlannHours", title: "Planned Hours" ,footerTemplate: "500" },
+            { field: "Availablehours", title: "Available Hours" ,footerTemplate: "451541" },
+            ]
+        }).data("kendoGrid");
+        
+        //sprint backlog Grid
+        var fieldData = new kendo.data.DataSource({
+            data: 
+            [{datano : "1",dataid : "51215",datareq: "Apps Designer - page - Search profile" , ClientReq : "Keyur Patel", Reqby:"Amy patel" , Assto: "Ami Patel" ,SizeTo: "3", ValueOf: "Business" },
+            {datano : "1",dataid : "51215",datareq: "Apps Designer - page - Search profile" , ClientReq : "Keyur Patel", Reqby:"Amy patel" , Assto: "Ami Patel" ,SizeTo: "3", ValueOf: "Business" },
+            {datano : "1",dataid : "51215",datareq: "Apps Designer - page - Search profile" , ClientReq : "Keyur Patel", Reqby:"Amy patel" , Assto: "Ami Patel" ,SizeTo: "3", ValueOf: "Business" },
+            {datano : "1",dataid : "51215",datareq: "Apps Designer - page - Search profile" , ClientReq : "Keyur Patel", Reqby:"Amy patel" , Assto: "Ami Patel" ,SizeTo: "3", ValueOf: "Business" },
+            {datano : "1",dataid : "51215",datareq: "Apps Designer - page - Search profile" , ClientReq : "Keyur Patel", Reqby:"Amy patel" , Assto: "Ami Patel" ,SizeTo: "3", ValueOf: "Business" },
+            {datano : "1",dataid : "51215",datareq: "Apps Designer - page - Search profile" , ClientReq : "Keyur Patel", Reqby:"Amy patel" , Assto: "Ami Patel" ,SizeTo: "3", ValueOf: "Business" },
+            {datano : "1",dataid : "51215",datareq: "Apps Designer - page - Search profile" , ClientReq : "Keyur Patel", Reqby:"Amy patel" , Assto: "Ami Patel" ,SizeTo: "3", ValueOf: "Business" },            
+            ],
+            schema: { model: { id: "fieldid" } }
+        });
+        $("#sprintaBacklogGrid").kendoGrid({
+            dataSource: fieldData,
+            totalRecordPerPage: 5,
+            scrollable: true,
+            resizable: false,
+            autoBind: true,
+            config: { CurrentPage: 0, TotalPage: 10, RecordPerPage: 10, TotalRecord: 100, searchText: "" },
+            columns: [
+            { field: "datano", title: "No" , width: "90px"},
+            { field: "dataid", title: "id" , width: "135px"},
+            { field: "datareq", title: "requirment/user story Title Client",},
+            { field: "ClientReq", title: "Client Requested by",},
+            { field: "Reqby", title: "Requested by",},
+            { field: "Assto", title: "Assigned To",},
+            { field: "SizeTo", title: "Size",},
+            { field: "ValueOf", title: "Value Area",},
+            ]
+        }).data("kendoGrid");
+        
+        $("#sprintaBacklogGrid-pager").kendoPager({
+            dataSource: fieldData,
+            refresh: true
+        });
+        fieldData.read();
+        
+        $("#sprintaBacklogGrid-pager").append("<div class='more-oprion'><span class='separator'></span><a href='javascript:void(0)' id='moreOption' class='text-muted btn-default-hover'><i class='icon-option'></i></a></div>");
+        
+        var popup = $("#Sprintbacklogpopup").kendoPopup({
+            animation: false,
+            anchor: $("#moreOption"),
+            origin: "top right",
+            position: "bottom right",
+            collision: "fit",
+            
+        }).data("kendoPopup");
+        
+        $("#moreOption").click(function () {
+            $("#Sprintbacklogpopup").data("kendoPopup").open()
+        });
+        
+        $("#pagerDropdown").kendoDropDownList({
+            popup: {
+                appendTo: 'body'
+            }
+        });
+        
+        $('#sprintPlanSplitter').data('kendoSplitter').resize(true);
+    </script>
+</body>
+</html>
