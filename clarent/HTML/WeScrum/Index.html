@@ -290,22 +290,16 @@
                 document.getElementById("WeScrumiframe").src = "wescrum_sprintretro.html";
             })
             
-            
-            
             $('#mainSectionMenu').find('a').click(function(){
                 $('.WeScrumiframe').ready(function(){
-                    var iframeBody = $(".WeScrumiframe").contents().find("body");
-                    $(iframeBody.selector).append('<div class="loader"></div>');
+                    $('body').append('<div class="loader"></div>');
                     setTimeout(() => {
-                        $(iframeBody.selector).find('.loader').remove();
+                        $('body').find('.loader').remove();
                     }, 1000);
                 })
             })
-            
-            
         })
         $(window).load(function(){
-            
             setTimeout(() => {
                 $('body').find('.loader').remove();
             }, 1000);
