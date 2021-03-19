@@ -22,6 +22,7 @@
     <link href="../../App_Themes/Default/css/wescrum.css" rel="stylesheet" />
 </head>
 <body>
+    <div class="loader"></div>
     <!--Navigation Header-->
     <header class="main-header">
         <nav class="mt-navbar">
@@ -219,7 +220,7 @@
             </div>
         </div>
         <!-- end user profile -->
-        <iframe src="wescrum_sprintretro.html" id="WeScrumiframe" frameborder="0" class="dashboardiframe"></iframe>
+        <iframe src="wescrum_dashboard.html" id="WeScrumiframe" frameborder="0" class="dashboardiframe"></iframe>
     </main>
     <!--// Main Contain -->
     <!-- Footer -->
@@ -229,14 +230,13 @@
     </footer>
     <!--// Footer -->
     
-    
     <script src="../../Scripts/Kendo/jquery.min.js"></script>
     <script src="../../Scripts/Kendo/kendo.all.min.js"></script>
     
     <script src="../../Scripts/CLARENT/Other/Custom/clarant-custom.js"></script>
     <script src="../../Scripts/CLARENT/Other/Custom/Custom.js"></script>
     <!-- Acitivity List View template -->
-  
+    
     
     <script>
         $(document).ready(function () {
@@ -254,13 +254,20 @@
                     }
                 }
             });
-
+            
+            
+            $("#UserRoleDropdown").kendoDropDownList({
+                popup: {
+                    appendTo: 'body'
+                }
+            });
+            
             $('#wescrumDashboard').click(function(){
                 $('#mainSectionMenu').find('a').removeClass('active');
                 $(this).addClass('active');
                 document.getElementById("WeScrumiframe").src = "wescrum_dashboard.html";
             })
-
+            
             $('#wescrumDataimport').click(function(){
                 $('#mainSectionMenu').find('a').removeClass('active');
                 $(this).addClass('active');
@@ -271,7 +278,7 @@
                 $(this).addClass('active');
                 document.getElementById("WeScrumiframe").src = "wescrum_sprintplanning.html";
             })
-
+            
             $('#wescrumAdminManage').click(function(){
                 $('#mainSectionMenu').find('a').removeClass('active');
                 $(this).addClass('active');
@@ -284,6 +291,24 @@
             })
             
             
+            
+            $('#mainSectionMenu').find('a').click(function(){
+                $('.WeScrumiframe').ready(function(){
+                    var iframeBody = $(".WeScrumiframe").contents().find("body");
+                    $(iframeBody.selector).append('<div class="loader"></div>');
+                    setTimeout(() => {
+                        $(iframeBody.selector).find('.loader').remove();
+                    }, 1000);
+                })
+            })
+            
+            
+        })
+        $(window).load(function(){
+            
+            setTimeout(() => {
+                $('body').find('.loader').remove();
+            }, 1000);
         })
         
         

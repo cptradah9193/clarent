@@ -26,15 +26,15 @@
     <div class="admin-management-wrapper d-flex flex-column h100 pr-20 pl-20">
         <h4 class="fs-16 text-primary pt-20 pb-10 font-medium">Admin Managment</h4>
         <div class="admin-search-header">
-            <div class="searchbar search-form-input">
-                <div class="clear-input search-box w100">
+            <div class="searchbar mb-15">
+                <div class="clear-input search-box w100 search-box input-search">
                     <input type="text" name="txtTagListSearch" id="txtTagListSearch" aria-label="tag name" class="form-control k-textbox k-valid" placeholder="Search here...">
                     <i class="icon-search" aria-hidden="true"></i>
                 </div>
                 <div class="action-div dropdown">
                     <a href="javascript:void(0);" class="btn btn-raised btn-primary btn-block" role="button" aria-haspopup="true" aria-expanded="false" id="actionbtnmenu1"><i aria-hidden="true" class="icon-action"></i><span>Action</span><span class="caret"></span></a>
                     <ul class="dropdown-menu right" role="menu" aria-labelledby="actionbtnmenu1">
-                        <li role='presentation'><a href='javascript:void(0);' role='menuitem'>Team Settings</a></li>
+                        <li role='presentation'><a href='javascript:void(0);' id="TeamSettingBtn" role='menuitem'>Team Settings</a></li>
                     </ul>
                 </div>
             </div>
@@ -43,6 +43,86 @@
             <div class="admin-management-grid-wrapper grid-wrapper h100">
                 <div id="AdminMangGrid"></div>
                 <div id="AdminMangGrid-pager" class="with-more-option"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Add Field -->
+    <div id="AddFieldWindow" class="addfield-window-wrapper">
+        <div class="addfield-window-form-wrapper">
+            <div class="addfield-window-form">
+                <div class="form-group">
+                    <label class="font-semi-bold">Add Project</label>
+                    <input type="text" class="k-textbox" aria-label="Product owner">
+                </div>
+            </div>
+            <div class="window-footer">
+                <button class="btn btn-trans k-button">Close</button>
+                <button class="btn btn-primary k-button">Add</button>
+            </div>
+        </div>
+    </div>
+    <!-- Team Setting Window -->
+    <div id="TeamSettingWindow" class="teamsetting-window-wrapper">
+        <div class="teamsetting-window-form-wrapper d-flex flex-column h100">
+            <div class="teamsetting-window-form flex-1 overflow-auto">
+                <div class="box-row">
+                    <div class="box-column box-50">
+                        <div class="form-group">
+                            <label class="font-semi-bold">Project</label>
+                            <div class="form-group-content form-group-with-btn">
+                                <div class="with-btn">
+                                    <select name="search dropdown" id="teamProject"></select>
+                                </div>
+                                <button aria-label="Add" id="addTeamProject" class="btn btn-borderd bg-light text-muted teamwindow-icon"><i aria-hidden="true" class="icon-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-column box-50">
+                        <div class="form-group">
+                            <label class="font-semi-bold">Team</label>
+                            <div class="form-group-content form-group-with-btn">
+                                <div class="with-btn">
+                                    <select name="search dropdown" id="teamDropdown"></select>
+                                </div>
+                                <button aria-label="Add" id="addTeamField" class="btn btn-borderd bg-light text-muted teamwindow-icon"><i aria-hidden="true" class="icon-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-column box-50">
+                        <div class="form-group">
+                            <label class="font-semi-bold">Product Owner</label>
+                            <input type="text" class="k-textbox" aria-label="Product owner">
+                        </div>
+                    </div>
+                    <div class="box-column box-50">
+                        <div class="form-group">
+                            <label class="font-semi-bold">Scrum Master</label>
+                            <input type="text" class="k-textbox" aria-label="Product owner">
+                        </div>
+                    </div>
+                    <div class="box-column box-50">
+                        <div class="form-group">
+                            <label class="font-semi-bold">TL - PL</label>
+                            <input type="text" class="k-textbox" aria-label="Product owner">
+                        </div>
+                    </div>
+                    <div class="box-column box-50">
+                        <div class="form-group">
+                            <label class="font-semi-bold">Daily Scrum</label>
+                            <input type="text" class="k-textbox" aria-label="Product owner">
+                        </div>
+                    </div>
+                    <div class="box-column box-50">
+                        <div class="form-group">
+                            <label class="font-semi-bold">Discovery Team</label>
+                            <textarea  class="form-control k-textbox" rows="5" aria-label="textarea"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="window-footer">
+                <button class="btn btn-trans k-button">Close</button>
+                <button class="btn btn-primary k-button">Save</button>
             </div>
         </div>
     </div>
@@ -70,6 +150,7 @@
         </li>
     </ul>
     <!--// option menu -->
+    
     <script src="../../Scripts/Kendo/jquery.min.js"></script>
     <script src="../../Scripts/Kendo/kendo.all.min.js"></script>
     
@@ -121,6 +202,63 @@
         
         $("#moreOption").click(function () {
             $("#AdminMangepopup").data("kendoPopup").open()
+        });
+        
+        $("#pagerDropdown").kendoDropDownList({
+            popup: {
+                appendTo: 'body'
+            }
+        });
+        //Team Setting window
+        
+        $("#TeamSettingWindow").kendoWindow({
+            width: '35%',
+            height: '57%',
+            title: "Team Settings",
+            visible: false,
+            draggable: false,
+            resizable: false,
+            defaultFocus: false,
+            actions: [
+            "Close"
+            ],
+            modal: true
+        }).data("kendoWindow");
+        
+        $(document).on('click', '#TeamSettingBtn', function () {
+            $("#TeamSettingWindow").data("kendoWindow").center().open();
+        });
+        
+        // Dropdown
+        $("#teamProject").kendoDropDownList({
+            dataSource: ["project1", "project2", "project3"],
+            filter: "contains",
+            optionLabel: "-- Select Field --",
+        });
+        
+        $("#teamDropdown").kendoDropDownList({
+            dataSource: ["project1", "project2", "project3"],
+            filter: "contains",
+            optionLabel: "-- Select Field --",
+        });
+        
+        // add Field window
+        
+        $("#AddFieldWindow").kendoWindow({
+            width: '25%',
+            title: "Add Field",
+            visible: false,
+            draggable: false,
+            resizable: false,
+            defaultFocus: false,
+            actions: [
+            "Close"
+            ],
+            modal: true
+        }).data("kendoWindow");
+        
+        $(document).on('click', '#addTeamProject , #addTeamField', function () {
+            $("#AddFieldWindow").data("kendoWindow").center().open();
         });
         
     </script>

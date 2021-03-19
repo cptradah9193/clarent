@@ -22,8 +22,136 @@
     <link href="../../App_Themes/Default/css/wescrum.css" rel="stylesheet" />
 </head>
 <body>
+    <div class="h100" id="retrospectiveBoard">
+        <div class="retroboard-wrapper h100 d-flex" >
+            <div class="retroboard-content">
+                <div class="form-wizard-wrapper h100">
+                    <div id="retroreportTabstrip" class="retro-report-tabstrip-wrapper d-flex flex-column">
+                        <ul>
+                            <li class="k-state-active">
+                                Brainsform
+                            </li>
+                            <li>
+                                Vote
+                            </li>
+                            <li>
+                                Review
+                            </li>
+                        </ul>
+                        <div class="retro-report-tabstrip-content">
+                            <div class="retro-report-tabstrip-inner-wrapper d-flex flex-column h100">
+                                <div class="retro-report-tabstrip-inner-content flex-1 overflow-auto pb-15">
+                                    
+                                    <!-- Template -->
+                                    <div class="taskboard retroreport-board"></div>
+                                    <!-- LIST TEMPLATE -->
+                                    <script id="listTemplate" type="text/x-kendo-template">
+                                        <div class="taskboard-wrapper-column">
+                                            <div class="taskboard-wrapper bgborder-#: classname # ">
+                                                <div class="taskboard-header">
+                                                    <h4 class="fs-16 font-medium text-dark flex-1 overflow-hidden ellipsis">#: name #</h4>
+                                                    <button aria-label="refresh" data-ara-title="Refresh" class="btn-icn-hover btn-icn-trans"><i aria-hidden="true" class="icon-refresh"></i></button>
+                                                </div>
+                                                <div class="taskboard-content list-wrapper">
+                                                    <div id="list-#: listID #" class="additem"></div>
+                                                    <div class="taskboard-content-notecard k-add-button text-center mb-0">
+                                                        <i class="icon-plus"></i> Add
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </script>
+                                    <!-- CARD TEMPLATE -->
+                                    <script id="cardTemplate" type="text/x-kendo-template">
+                                        <div class="taskboard-content-notecard card">
+                                            <p class="text-dark pb-10 bb-1 card-text-style"> #= name # </p>
+                                            <div class="card-controls">
+                                                <a href="javascript:void(0)" aria-label='Edit' data-ara-title="Edit"  class="k-edit-button btn-icn-hover btn-icn-trans "><i class="icon-edit"></i></a>
+                                                <a href="javascript:void(0)" aria-label='Edit' data-ara-title="Edit"  class="k-delete-button btn-icn-hover btn-red-circle fs-12 btn-icn-trans"><i class="icon-delete"></i></a>
+                                                <span class="separator"></span>
+                                                <a href="javascript:void(0)" aria-label='Edit' data-ara-title="Edit"  class="btn-icn-hover btn-icn-trans"><i class="icon-like"></i></a>
+                                                <span>3</span>
+                                            </div>
+                                        </div>
+                                    </script>
+                                    <script id="cardEditTemplate" type="text/x-kendo-template">
+                                        <div class="taskboard-content-notecard">
+                                            <textarea class="card-edit form-control k-textbox" name="name" data-bind="value:name" required="required"></textarea>
+                                            <div class="card-edit-controls pt-15">
+                                                <button class="k-update-button btn btn-primary k-button w100">
+                                                    <span class="k-icon k-i-check"></span> Save
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </script>
+                                    
+                                    <!-- Template -->
+                                    
+                                </div>
+                                <div class="retro-report-tabstrip-inner-footer pt-15 bt-1 d-flex justify-content-flex-end align-items-center">
+                                    <button class="btn btn-trans k-button" id="CloseRetroboard">Close</button>
+                                    <span class="separator"></span>
+                                    <button class="btn btn-trans k-button">Previous</button>
+                                    <button class="btn btn-primary k-button">Next</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="retro-report-tabstrip-content">
+                            tabstrip content 2
+                            <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                            </p>
+                        </div>
+                        <div class="retro-report-tabstrip-content">
+                            tabstrip content 3
+                            <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="retroboard-activity-content bl-1 bg-light d-flex flex-column">
+                <h4 class="fs-14 font-medium text-dark pb-10 bb-1 mb-15">Activity</h4>
+                <div class="retroboard-activity-content-wrapper flex-1 overflow-hidden d-flex flex-column">
+                    <div class="activity-copy-box d-flex align-items-center mb-15">
+                        <span class="text-primary flex-1 ellipsis activity-copy-box-bg">https://www.wescrum.com/we095</span>
+                        <div>
+                            <button aria-label='copy' data-ara-title="copy" class="btn-icn-hover btn-icn-trans"><i  aria-hidden="true"  class="icon-share"></i></button>
+                            <button aria-label='copy' data-ara-title="copy" class="btn-icn-hover btn-icn-trans"><i  aria-hidden="true"  class="icon-copy"></i></button>
+                        </div>
+                    </div>
+                    <div class="flex-1 overflow-auto">
+                        <ul class="activity-list-name">
+                            <li>
+                                <span class="activity-list-name-img"><img src="https://cdn-a60e.kxcdn.com/wp-content/uploads/2020/02/ccpa-most-impacted-legal-industry.jpg" alt="image"/></span>
+                                <span class="activity-list-name-text ellipsis">Parth Desai</span>
+                            </li>
+                            <li>
+                                <span class="activity-list-name-img"><img src="https://cdn-a60e.kxcdn.com/wp-content/uploads/2020/02/ccpa-most-impacted-legal-industry.jpg" alt="image"/></span>
+                                <span class="activity-list-name-text ellipsis">Parth Desai</span>
+                            </li>
+                            <li>
+                                <span class="activity-list-name-img"><img src="https://cdn-a60e.kxcdn.com/wp-content/uploads/2020/02/ccpa-most-impacted-legal-industry.jpg" alt="image"/></span>
+                                <span class="activity-list-name-text ellipsis">Parth Desai</span>
+                            </li>
+                            <li>
+                                <span class="activity-list-name-img"><img src="https://cdn-a60e.kxcdn.com/wp-content/uploads/2020/02/ccpa-most-impacted-legal-industry.jpg" alt="image"/></span>
+                                <span class="activity-list-name-text ellipsis">Parth Desai</span>
+                            </li>
+                            <li>
+                                <span class="activity-list-name-img"><img src="https://cdn-a60e.kxcdn.com/wp-content/uploads/2020/02/ccpa-most-impacted-legal-industry.jpg" alt="image"/></span>
+                                <span class="activity-list-name-text ellipsis">Parth Desai</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     
-    <div class="retrospective-wrapper">
+    <div class="retrospective-wrapper" id="retrospectiveCard" >
         <div class="box-row">
             <div class="box-column box-20">
                 <div class="retro-box border">
@@ -48,7 +176,7 @@
                             </li>
                         </ul>
                     </div>
-                    <button class="btn bgtextlight-blue k-button w100 d-linline-flex align-items-center mb-15"><span class="mr-5">View </span><i class="icon-expand-right fs-13"></i></button>
+                    <button class="btn bgtextlight-blue k-button w100 d-linline-flex align-items-center mb-15 retro-viewallbtn"><span class="mr-5">View </span><i class="icon-expand-right fs-13"></i></button>
                 </div>
             </div>
             <div class="box-column box-20">
@@ -66,7 +194,7 @@
                             </li>
                         </ul>
                     </div>
-                    <button class="btn bgtextlight-blue k-button w100 d-linline-flex align-items-center mb-15"><span class="mr-5">View </span><i class="icon-expand-right fs-13"></i></button>
+                    <button class="btn bgtextlight-blue k-button w100 d-linline-flex align-items-center mb-15 retro-viewallbtn"><span class="mr-5">View </span><i class="icon-expand-right fs-13"></i></button>
                 </div>
             </div>
             <div class="box-column box-20">
@@ -92,7 +220,7 @@
                             </li>
                         </ul>
                     </div>
-                    <button class="btn bgtextlight-blue k-button w100 d-linline-flex align-items-center mb-15"><span class="mr-5">View </span><i class="icon-expand-right fs-13"></i></button>
+                    <button class="btn bgtextlight-blue k-button w100 d-linline-flex align-items-center mb-15 retro-viewallbtn"><span class="mr-5">View </span><i class="icon-expand-right fs-13"></i></button>
                 </div>
             </div>
             <div class="box-column box-20">
@@ -122,7 +250,7 @@
                             </li>
                         </ul>
                     </div>
-                    <button class="btn bgtextlight-blue k-button w100 d-linline-flex align-items-center mb-15"><span class="mr-5">View </span><i class="icon-expand-right fs-13"></i></button>
+                    <button class="btn bgtextlight-blue k-button w100 d-linline-flex align-items-center mb-15 retro-viewallbtn"><span class="mr-5">View </span><i class="icon-expand-right fs-13"></i></button>
                 </div>
             </div>
             <div class="box-column box-20">
@@ -148,7 +276,7 @@
                             </li>
                         </ul>
                     </div>
-                    <button class="btn bgtextlight-blue k-button w100 d-linline-flex align-items-center mb-15"><span class="mr-5">View </span><i class="icon-expand-right fs-13"></i></button>
+                    <button class="btn bgtextlight-blue k-button w100 d-linline-flex align-items-center mb-15 retro-viewallbtn"><span class="mr-5">View </span><i class="icon-expand-right fs-13"></i></button>
                 </div>
             </div>
             <div class="box-column box-20">
@@ -166,7 +294,7 @@
                             </li>
                         </ul>
                     </div>
-                    <button class="btn bgtextlight-blue k-button w100 d-linline-flex align-items-center mb-15"><span class="mr-5">View </span><i class="icon-expand-right fs-13"></i></button>
+                    <button class="btn bgtextlight-blue k-button w100 d-linline-flex align-items-center mb-15 retro-viewallbtn"><span class="mr-5">View </span><i class="icon-expand-right fs-13"></i></button>
                 </div>
             </div>
             <div class="box-column box-20">
@@ -192,7 +320,7 @@
                             </li>
                         </ul>
                     </div>
-                    <button class="btn bgtextlight-blue k-button w100 d-linline-flex align-items-center mb-15"><span class="mr-5">View </span><i class="icon-expand-right fs-13"></i></button>
+                    <button class="btn bgtextlight-blue k-button w100 d-linline-flex align-items-center mb-15 retro-viewallbtn"><span class="mr-5">View </span><i class="icon-expand-right fs-13"></i></button>
                 </div>
             </div>
             <div class="box-column box-20">
@@ -222,11 +350,10 @@
                             </li>
                         </ul>
                     </div>
-                    <button class="btn bgtextlight-blue k-button w100 d-linline-flex align-items-center mb-15"><span class="mr-5">View </span><i class="icon-expand-right fs-13"></i></button>
+                    <button class="btn bgtextlight-blue k-button w100 d-linline-flex align-items-center mb-15 retro-viewallbtn"><span class="mr-5">View </span><i class="icon-expand-right fs-13"></i></button>
                 </div>
             </div>
         </div>
-
     </div>
     
     <script src="../../Scripts/Kendo/jquery.min.js"></script>
@@ -237,6 +364,110 @@
     
     
     <script>
+        $(document).ready(function(){
+            $('#retrospectiveBoard').hide();
+            $('.retro-viewallbtn').click(function(){
+                $('#retrospectiveBoard').show();
+                $('#retrospectiveCard').hide();
+            })
+            $('#CloseRetroboard').click(function(){
+                $('#retrospectiveBoard').hide();
+                $('#retrospectiveCard').show();
+            })
+            // TabStrip
+            $("#retroreportTabstrip").kendoTabStrip({
+                animation: {
+                    open: {
+                        effects: "fadeIn"
+                    }
+                }
+            });
+            
+            
+            //Board
+            $('.taskboard').kendoListView({
+                template: kendo.template($('#listTemplate').html()),
+                dataSource: [{
+                    listID: 0,
+                    name: 'What went well?',
+                    classname: "green"
+                },
+                {
+                    listID: 1,
+                    name: 'What went less well?',
+                    classname: "yellow"
+                },
+                {
+                    listID: 2,
+                    name: 'What do we went to try next?',
+                    classname: "blue"
+                },
+                {
+                    listID: 3,
+                    name: 'What Puzzle us?',
+                    classname: "red"
+                }
+                ]
+            });
+            $('#list-0').kendoListView({
+                template: kendo.template($('#cardTemplate').html()),
+                editTemplate: kendo.template($('#cardEditTemplate').html()),
+                dataSource: [{
+                    cardID: 0,
+                    name: 'As Noted above, columns reside on the board and are a way to break up the diffrent stages in the project workflow'
+                }]
+            });
+            $('#list-1').kendoListView({
+                template: kendo.template($('#cardTemplate').html()),
+                editTemplate: kendo.template($('#cardEditTemplate').html()),
+                dataSource: [{
+                    cardID: 1,
+                    name: 'As Noted above, columns reside on the board and are a way to break up the diffrent stages in the project workflow'
+                },
+                {
+                    cardID: 2,
+                    name: 'As Noted above, columns reside on the board and are a way to break up the diffrent stages in the project workflow'
+                },
+                
+                ]
+            });
+            $('#list-2').kendoListView({
+                template: kendo.template($('#cardTemplate').html()),
+                editTemplate: kendo.template($('#cardEditTemplate').html())
+            });
+            $('#list-3').kendoListView({
+                template: kendo.template($('#cardTemplate').html()),
+                editTemplate: kendo.template($('#cardEditTemplate').html())
+            });
+            var sortableOptions = {
+                filter: '.card',
+                container: '.taskboard',
+                connectWith: '.additem',
+                cursor: 'grabbing',
+                placeholder: function(element) {
+                    return $('<div class="taskboard-place"></div>').css({
+                    });
+                },
+                hint: function(element) {
+                    return element.clone().css({
+                        width: '15em',
+                        transform: 'rotate(-5deg)',
+                        border: '1px solid #eee'
+                    });
+                }
+            };
+            $('#list-0').kendoSortable(sortableOptions);
+            $('#list-1').kendoSortable(sortableOptions);
+            $('#list-2').kendoSortable(sortableOptions);
+            $('#list-3').kendoSortable(sortableOptions);
+            $('.k-add-button').click(function(e) {
+                var list = $(e.target).closest('.list-wrapper').find('.additem');
+                var listID = '#' + $(list).prop('id');
+                var listView = $(listID).data('kendoListView');
+                listView.add();
+            });
+        })
+        
         
     </script>
 </body>
