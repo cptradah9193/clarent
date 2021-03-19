@@ -8,7 +8,7 @@
     
     <title>Clarent Institute iAudit Dashboard</title>
     <!-- favicon -->
-    <!--<link rel="shortcut icon" href="../../App_Themes/Default/images/favicon.ico" type="image/x-icon">-->
+    <link rel="shortcut icon" href="../../App_Themes/Default/images/favicon.ico" type="image/x-icon">
     
     <link href="../../App_Themes/Default/css/kendo.common.min.css" rel="stylesheet" />
     <link href="../../App_Themes/Default/css/kendo.default.min.css" rel="stylesheet" />
@@ -22,6 +22,7 @@
     <link href="../../App_Themes/Default/css/iaudit_dashboard.css" rel="stylesheet" />
 </head>
 <body>
+    <div class="loader"></div>
     <!--Navigation Header-->
     <header class="main-header">
         <nav class="mt-navbar">
@@ -264,8 +265,21 @@
                 $(this).addClass('active');
                 document.getElementById("iAuditIframe").src = "iAuditTemplate.html";
             })
+
+            $('#mainSectionMenu').find('a').click(function(){
+                $('.iAuditIframe').ready(function(){
+                    $('body').append('<div class="loader"></div>');
+                    setTimeout(() => {
+                        $('body').find('.loader').remove();
+                    }, 1000);
+                })
+            })
         })
-        
+        $(window).load(function(){
+            setTimeout(() => {
+                $('body').find('.loader').remove();
+            }, 1000);
+        })
         
     </script>
 </body>

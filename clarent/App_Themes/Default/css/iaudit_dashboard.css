@@ -431,3 +431,18 @@
     transition-duration: 0.367s;
 }
 /*// New Template Drawer */
+.loader{
+    position: fixed;
+    height: calc(100% - 132px);
+    width: 100%;
+    z-index: 99;
+    background-color: #ffffff;
+    top:104px;
+    right:0;
+}
+.loader:before{
+    height: 100px;
+    width: 100px;
+    left: calc(50% - 50px);
+    top: calc(50% - 50px);
+}
