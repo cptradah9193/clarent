@@ -1,4 +1,21 @@
-﻿/* Dashboard */
+﻿/* Loader  css */
+.iloader{
+    position: fixed;
+    height: calc(100% - 132px);
+    width: 100%;
+    z-index: 99;
+    background-color: #ffffff;
+    top:104px;
+    right:0;
+}
+.iloader:before{
+    height: 100px;
+    width: 100px;
+    left: calc(50% - 50px);
+    top: calc(50% - 50px);
+}
+/* // Loader  css */
+/* Dashboard */
 /*Main Section Menu*/
 .main-section-menu {
     padding-top: 5px;
@@ -431,18 +448,142 @@
     transition-duration: 0.367s;
 }
 /*// New Template Drawer */
-.loader{
-    position: fixed;
-    height: calc(100% - 132px);
-    width: 100%;
-    z-index: 99;
-    background-color: #ffffff;
-    top:104px;
-    right:0;
+
+.admin-search-header .k-textbox{
+    padding-left: 40px !important;
 }
-.loader:before{
-    height: 100px;
-    width: 100px;
-    left: calc(50% - 50px);
-    top: calc(50% - 50px);
+.admin-search-header .icon-search{
+    font-size: 16px;
+    left:5px
+}
+/* Schedules css */
+.schedule-tabstrip-wrapper .schedule-tabstrip-content{
+    padding:0;
+}
+.schedule-tabstrip > .k-tabstrip-items > .k-item{
+    text-transform: uppercase;
+}
+.schedule-tabstrip > .k-tabstrip-items > .k-item > .k-link{
+    text-transform: uppercase;
+    font-family: 'HK Grotesk SemiBold';
+}
+/* // Schedules css */
+/* Add Template window */
+.addtemplate-window-wrapper{
+    
+}
+
+.box-row{
+    margin-left: -7.5px;
+    margin-right: -7.5px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+.box-row .box-column{
+    padding-right: 7.5px;
+    padding-left: 7.5px;
+}
+.box-row .box-50{
+    width: 50%;
+}
+.addtemplate-content-box{
+    padding:15px 15px 0;
+    border-radius: 3px;
+    margin-right: 20px;
+}
+.questionlist-wrapper{
+    margin-left: 10px;
+}
+.template-question-list{
+    
+}
+.template-question-list .k-treelist-group {
+    background-color: #f9fafc !important;
+}
+.template-question-list .k-treelist-group > td:first-child {
+    border-left: 1px solid #dcdfe5 !important;border-radius: 3px 0 0 3px;
+}
+.template-question-list .k-treelist-group > td:last-child {
+    border-right: 1px solid #dcdfe5;
+    border-radius: 0 3px 3px 0;
+}
+.template-question-list .k-icon.k-i-collapse,.template-question-list .k-icon.k-i-expand {
+    height: 24px;
+    width: 24px;
+    background-color: #2196f3;
+    border-radius: 50%;
+    color: #fff !important;
+    margin-right: 10px;
+}
+.template-question-list .k-icon.k-i-collapse:before{
+    top: 1px !important;
+    left: 2px;
+}
+.template-question-list .k-icon.k-i-expand:before {
+    top: 5.4px !important;
+    left: 7.5px;
+}
+.template-question-list .k-treelist-group > td {
+    padding: 7px 10px;
+    font-family: 'HK Grotesk SemiBold';
+}
+.template-question-list .k-treelist-group > td:last-child .tagbtn{
+    display: none;
+}
+.questionlist-template{
+    display: flex;
+    justify-content: space-between;
+}
+.template-question-list .k-grid-content tr td{
+    position: relative;
+}
+.template-question-list .k-grid-content tr:not(.k-treelist-group) td:first-child{
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.template-question-list .k-grid-content tr:not(.k-treelist-group) td:first-child:after{
+    content: '\eaec';
+    position: absolute;
+    top: 0;
+    left: 19px;
+    font-size: 32px;
+    height: 100%;
+    line-height: 48px;
+    color: #949eb2;
+    cursor: move;
+}
+.bgtextlight-green:hover,
+.bgtextlight-green{
+    color:#35c47d ;
+    background-color: rgba(53,196,125,0.2);
+}
+.bgtextlight-yellow:hover,
+.bgtextlight-yellow{
+    color:#fcc825 ;
+    background-color: rgba(225,200,37,0.2);
+}
+.bgtextlight-blue:hover,
+.bgtextlight-blue{
+    color:#4a88e9 ;
+    background-color: rgba(74,136,233,0.2);
+}
+.bgtextlight-redwine:hover,
+.bgtextlight-redwine{
+    color:#b46182 ;
+    background-color: rgba(180,97,130,0.2);
+}
+.bgtextlight-red:hover,
+.bgtextlight-red{
+    color:#ff5a5a ;
+    background-color: rgba(250,90,90,0.2);
 }

@@ -22,7 +22,7 @@
     <link href="../../App_Themes/Default/css/iaudit_dashboard.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="loader"></div>
+    <div class="loader iloader"></div>
     <!--Navigation Header-->
     <header class="main-header">
         <nav class="mt-navbar">
@@ -63,7 +63,7 @@
         <ul class="main-section-menu-ul" id="mainSectionMenu">
             <li><a href="javascript:void(0);" id="iAuditDashboard" class="ms-menu-link active">Dashboard</a></li>
             <li><a href="javascript:void(0);" id="iAuditTemplate" class="ms-menu-link">Templates</a></li>
-            <li><a href="javascript:void(0);" id="iAuditInspection" class="ms-menu-link">Inspetion</a></li>
+            <li><a href="javascript:void(0);" id="iAuditInspection" class="ms-menu-link">Inspetions</a></li>
             <li><a href="javascript:void(0);" id="iAuditSchdules" class="ms-menu-link">Schedules</a></li>
             <li><a href="javascript:void(0);" id="iAuditAnalytics" class="ms-menu-link">Analytics</a></li>
         </ul>
@@ -218,7 +218,7 @@
             </div>
         </div>
         <!-- end user profile -->
-        <iframe src="dashboard.html" id="iAuditIframe" frameborder="0" class="dashboardiframe"></iframe>
+        <iframe src="iAuditTemplate.html" id="iAuditIframe" frameborder="0" class="dashboardiframe"></iframe>
     </main>
     <!--// Main Contain -->
     <!-- Footer -->
@@ -235,10 +235,15 @@
     <script src="../../Scripts/CLARENT/Other/Custom/clarant-custom.js"></script>
     <script src="../../Scripts/CLARENT/Other/Custom/Custom.js"></script>
     <!-- Acitivity List View template -->
-  
+    
     
     <script>
         $(document).ready(function () {
+            $("#UserRoleDropdown").kendoDropDownList({
+                popup: {
+                    appendTo: $(".userprofile-menu")
+                }
+            });
             //Kendo File Upload
             $("#fileProfileImage").kendoUpload({
                 showFileList: false,
@@ -253,22 +258,34 @@
                     }
                 }
             });
-
+            
             $('#iAuditDashboard').click(function(){
                 $('#mainSectionMenu').find('a').removeClass('active');
                 $(this).addClass('active');
                 document.getElementById("iAuditIframe").src = "dashboard.html";
             })
-
+            
             $('#iAuditTemplate').click(function(){
                 $('#mainSectionMenu').find('a').removeClass('active');
                 $(this).addClass('active');
                 document.getElementById("iAuditIframe").src = "iAuditTemplate.html";
             })
-
+            
+            $('#iAuditInspection').click(function(){
+                $('#mainSectionMenu').find('a').removeClass('active');
+                $(this).addClass('active');
+                document.getElementById("iAuditIframe").src = "inspections.html";
+            })
+            
+            $('#iAuditSchdules').click(function(){
+                $('#mainSectionMenu').find('a').removeClass('active');
+                $(this).addClass('active');
+                document.getElementById("iAuditIframe").src = "schedules.html";
+            })
+            
             $('#mainSectionMenu').find('a').click(function(){
                 $('.iAuditIframe').ready(function(){
-                    $('body').append('<div class="loader"></div>');
+                    $('body').append('<div class="loader iloader"></div>');
                     setTimeout(() => {
                         $('body').find('.loader').remove();
                     }, 1000);

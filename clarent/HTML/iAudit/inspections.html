@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--meta tags-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    
+    <title>Clarent Institute iAudit Dashboard</title>
+    <!-- favicon -->
+    <!--<link rel="shortcut icon" href="../../App_Themes/Default/images/favicon.ico" type="image/x-icon">-->
+    
+    <link href="../../App_Themes/Default/css/kendo.common.min.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/kendo.default.min.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/fonts.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/styleguide.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/responsive.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/casepoint.comfortable.css" rel="stylesheet" />
+    <link href="../../App_Themes/Default/css/kendo.Lightblue.css" rel="stylesheet" />
+    
+    <!-- css -->
+    <link href="../../App_Themes/Default/css/iaudit_dashboard.css" rel="stylesheet" />
+</head>
+
+<body>
+    
+    <div class="iaudit-template-wrapper d-flex flex-column h100">
+        <div class="iaudit-template-header-wrapper">
+            <div class="iaudit-template-header font-medium text-primary pt-20 pb-10 d-flex align-items-center">
+                <span class="mr-5 fs-18 d-inline-flex"><i class="icon-dashboard-square"></i></span>
+                <span class="fs-15 ml-5">Inspections</span>
+            </div>
+            <!-- Search Textbox -->
+            <div class="admin-search-header">
+                <div class="searchbar mb-15">
+                    <div class="clear-input search-box w100 search-box input-search">
+                        <input type="text" name="txtTagListSearch" id="txtTagListSearch" aria-label="tag name" class="form-control k-textbox k-valid" placeholder="Search Templates">
+                        <i class="icon-search" aria-hidden="true"></i>
+                    </div>
+                    <div class="action-div dropdown">
+                        <a href="javascript:void(0);" class="btn btn-raised btn-primary btn-block pr-10 pl-10" role="button" aria-haspopup="true" id="AddNewTemplate" aria-expanded="false" ><i aria-hidden="true" class="icon-export"></i><span>Export</span></a>
+                    </div>
+                </div>
+            </div>
+            <!--// Search Textbox -->
+        </div>
+        <!-- Template Grid -->
+        <div class="iaudit-template-grid-wrapper flex-1 overflow-auto">
+            <div class="grid-wrapper h100">
+                <div id="iAuditInspectionGrid"></div>
+                <div id="iAuditInspectionGrid-pager" class="with-more-option"></div>
+            </div>
+        </div>
+        <!--// Template Grid -->
+    </div>
+    
+    
+    <!-- option menu -->
+    <ul id="popup" class="grid-options" style="display: none;">
+        <li class="goto">
+            <span class="text-muted">Go to page</span>
+            <span>
+                <input type="text" id="page_goto" class="form-control" />
+            </span>
+            <span class="text-muted">0</span>
+            <span class="text-muted">pages</span>
+        </li>
+        <li class="rpp">
+            <span class="text-muted">Record per page</span>
+            <select class="k-dropdown" id="pagerDropdown">
+                <option>5</option>
+                <option>10</option>
+                <option>15</option>
+                <option>20</option>
+                <option>50</option>
+                <option>100</option>
+                <option>200</option>
+            </select>
+        </li>
+    </ul>
+    <!--// option menu -->
+    
+    <script src="../../Scripts/Kendo/jquery.min.js"></script>
+    <script src="../../Scripts/Kendo/kendo.all.min.js"></script>
+    
+    <script src="../../Scripts/CLARENT/Other/Custom/clarant-custom.js"></script>
+    <script src="../../Scripts/CLARENT/Other/Custom/Custom.js"></script>
+    <!-- Acitivity List View template -->
+    
+    <script>
+        
+        //Grid
+        var fieldData = new kendo.data.DataSource({
+            data:
+            [{IName : "10 Mar 2021/Subhash Dudhat" ,ITemplate: "Clean Seen housekeeping Checklist" ,IDocNumber :"",IScore:"0%",IConducted:"10 Mar 2021" , ICompleted :"15 Mar 2021" },
+            {IName : "10 Mar 2021/Subhash Dudhat" ,ITemplate: "Clean Seen housekeeping Checklist" ,IDocNumber :"",IScore:"10%",IConducted:"10 Mar 2021" , ICompleted :"15 Mar 2021" },
+            {IName : "10 Mar 2021/Subhash Dudhat" ,ITemplate: "Clean Seen housekeeping Checklist" ,IDocNumber :"",IScore:"20%",IConducted:"10 Mar 2021" , ICompleted :"15 Mar 2021" },
+            {IName : "10 Mar 2021/Subhash Dudhat" ,ITemplate: "Clean Seen housekeeping Checklist" ,IDocNumber :"",IScore:"25%",IConducted:"10 Mar 2021" , ICompleted :"15 Mar 2021" },
+            {IName : "10 Mar 2021/Subhash Dudhat" ,ITemplate: "Clean Seen housekeeping Checklist" ,IDocNumber :"",IScore:"50%",IConducted:"10 Mar 2021" , ICompleted :"15 Mar 2021" },
+            {IName : "10 Mar 2021/Subhash Dudhat" ,ITemplate: "Clean Seen housekeeping Checklist" ,IDocNumber :"",IScore:"40%",IConducted:"10 Mar 2021" , ICompleted :"15 Mar 2021" },
+            {IName : "10 Mar 2021/Subhash Dudhat" ,ITemplate: "Clean Seen housekeeping Checklist" ,IDocNumber :"",IScore:"30%",IConducted:"10 Mar 2021" , ICompleted :"15 Mar 2021" },
+            {IName : "10 Mar 2021/Subhash Dudhat" ,ITemplate: "Clean Seen housekeeping Checklist" ,IDocNumber :"",IScore:"10%",IConducted:"10 Mar 2021" , ICompleted :"15 Mar 2021" },
+            ],
+            schema: { model: { id: "fieldid" } }
+        });
+        $("#iAuditInspectionGrid").kendoGrid({
+            dataSource: fieldData,
+            totalRecordPerPage: 5,
+            scrollable: true,
+            resizable: false,
+            autoBind: true,
+            
+            config: { CurrentPage: 0, TotalPage: 10, RecordPerPage: 10, TotalRecord: 100, searchText: "" },
+            columns: [
+            { selectable: true, width: "50px" },
+            { field: "IName", title: "Name" },
+            { field: "ITemplate", title: "Template" },
+            { field: "IDocNumber", title: "Document No." },
+            { field: "IScore", title: "Score" },
+            { field: "IConducted", title: "Counducted" },
+            { field: "ICompleted", title: "Completed" },
+            ]
+        }).data("kendoGrid");
+        $("#iAuditInspectionGrid-pager").kendoPager({
+            dataSource: fieldData,
+            refresh: true
+        });
+        fieldData.read();
+        
+        $("#iAuditInspectionGrid-pager").append("<div class='more-oprion'><span class='separator'></span><a href='javascript:void(0)' id='moreOption' class='text-muted btn-default-hover'><i class='icon-option'></i></a></div>");
+       
+        //Contextmenu popover left click for grid pager
+        var popup = $("#popup").kendoPopup({
+            animation: false,
+            anchor: $("#moreOption"),
+            origin: "top right",
+            position: "bottom right",
+            collision: "fit",
+            
+        }).data("kendoPopup");
+        
+        $("#moreOption").click(function () {
+            $("#popup").data("kendoPopup").open()
+        });
+        
+        $("#pagerDropdown").kendoDropDownList({
+            popup: {
+                appendTo: 'body'
+            }
+        });
+    </script>
+</body>
+
+</html>

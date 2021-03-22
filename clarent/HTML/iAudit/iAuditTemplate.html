@@ -6,11 +6,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
+    
     <title>Clarent Institute iAudit Dashboard</title>
     <!-- favicon -->
     <!--<link rel="shortcut icon" href="../../App_Themes/Default/images/favicon.ico" type="image/x-icon">-->
-
+    
     <link href="../../App_Themes/Default/css/kendo.common.min.css" rel="stylesheet" />
     <link href="../../App_Themes/Default/css/kendo.default.min.css" rel="stylesheet" />
     <link href="../../App_Themes/Default/css/fonts.css" rel="stylesheet" />
@@ -18,31 +18,29 @@
     <link href="../../App_Themes/Default/css/responsive.css" rel="stylesheet" />
     <link href="../../App_Themes/Default/css/casepoint.comfortable.css" rel="stylesheet" />
     <link href="../../App_Themes/Default/css/kendo.Lightblue.css" rel="stylesheet" />
-
+    
     <!-- css -->
     <link href="../../App_Themes/Default/css/iaudit_dashboard.css" rel="stylesheet" />
 </head>
 
 <body>
-
+    
     <div class="iaudit-template-wrapper d-flex flex-column h100">
         <div class="iaudit-template-header-wrapper">
             <div class="iaudit-template-header font-medium text-primary pt-20 pb-10 d-flex align-items-center">
                 <span class="mr-5 fs-18 d-inline-flex"><i class="icon-dashboard-square"></i></span>
-                <span class="fs-15">Templates</span>
+                <span class="fs-15 ml-5">Templates</span>
             </div>
             <!-- Search Textbox -->
-            <div class="searchbar search-form-input mb-15">
-                <div class="clear-input search-box w100">
-                    <input type="text" name="txtTagListSearch" id="SearchTemplate" aria-label="tag name"
-                        class="form-control k-textbox k-valid" placeholder="Search Templates">
-                    <i class="icon-search" aria-hidden="true"></i>
-                </div>
-                <div class="action-div">
-                    <a href="javascript:void(0);" id="AddNewTemplate"
-                        class="btn btn-raised btn-primary btn-block pr-10 pl-10" role="button" aria-haspopup="true"
-                        aria-expanded="false" id="AddNewTemplate"><i aria-hidden="true" class="icon-plus"></i><span>New
-                            Template</span></a>
+            <div class="admin-search-header">
+                <div class="searchbar mb-15">
+                    <div class="clear-input search-box w100 search-box input-search">
+                        <input type="text" name="txtTagListSearch" id="txtTagListSearch" aria-label="tag name" class="form-control k-textbox k-valid" placeholder="Search Templates">
+                        <i class="icon-search" aria-hidden="true"></i>
+                    </div>
+                    <div class="action-div dropdown">
+                        <a href="javascript:void(0);" class="btn btn-raised btn-primary btn-block pr-10 pl-10" role="button" aria-haspopup="true" id="AddNewTemplate" aria-expanded="false" ><i aria-hidden="true" class="icon-plus"></i><span>New Template</span></a>
+                    </div>
                 </div>
             </div>
             <!--// Search Textbox -->
@@ -60,20 +58,24 @@
     <div id="TemplategridPopup" class="templategrid-dropdown">
         <ul class="right dropdown-menu" role="menu" aria-labelledby="menu1">
             <li role="presentation">
-                <a role="menuitem" href="javascript:void(0);"><i aria-hidden="true" class="icon-edit"></i>Edit
-                    Template</a>
+                <a role="menuitem" href="javascript:void(0);">
+                    <i aria-hidden="true" class="icon-edit"></i>EditTemplate
+                </a>
             </li>
             <li role="presentation">
-                <a role="menuitem" href="javascript:void(0);"><i aria-hidden="true"
-                        class="icon-manage-exception"></i>Mange Access</a>
+                <a role="menuitem" href="javascript:void(0);">
+                    <i aria-hidden="true" class="icon-manage-exception"></i>Mange Access
+                </a>
             </li>
             <li role="presentation">
-                <a role="menuitem" href="javascript:void(0);"><i aria-hidden="true"
-                        class="icon-calendar"></i>Schedule</a>
+                <a role="menuitem" href="javascript:void(0);">
+                    <i aria-hidden="true" class="icon-calendar"></i>Schedule
+                </a>
             </li>
             <li role="presentation">
-                <a role="menuitem" href="javascript:void(0);"><i aria-hidden="true"
-                        class="icon-completed"></i>Bookmark</a>
+                <a role="menuitem" href="javascript:void(0);">
+                    <i aria-hidden="true" class="icon-completed"></i>Bookmark
+                </a>
             </li>
         </ul>
     </div>
@@ -82,12 +84,12 @@
         <div class="newtemp-drawer-wrapper-contain d-flex flex-column">
             <div class="newtemp-drawer-header bb-1 d-flex pb-15">
                 <button aria-label='close' id="NewTempDrawerClose" data-ara-title="Close"
-                    class="btn-red-circle btn-icn-trans fs-12 text-danger"><i aria-hidden="true"
-                        class="icon-cancel"></i></button>
+                class="btn-red-circle btn-icn-trans fs-12 text-danger"><i aria-hidden="true"
+                class="icon-cancel"></i></button>
                 <span class="ellipsis fs-18 font-bold text-dark ml-15">New Template</span>
             </div>
             <div class="newtemp-blank-temp-action">
-                <a href="javascript:void(0);" class="newtemp-blank-temp-action-box">
+                <a href="#" class="newtemp-blank-temp-action-box" id="AddTemplateBtn">
                     <span class="text-primary blankTemp-icon"><i class="icon-file"></i></span>
                     <span class="text-primary blankTemp-text">Blank Template</span>
                 </a>
@@ -97,10 +99,10 @@
             <div class="searchbar search-form-input newtemp-searchbox mb-15">
                 <div class="clear-input search-box w100">
                     <input type="text" name="txtTagListSearch" aria-label="tag name"
-                        class="form-control k-textbox k-valid" placeholder="Search here...">
+                    class="form-control k-textbox k-valid" placeholder="Search here...">
                     <i class="icon-search" aria-hidden="true"></i>
                     <a role="button" aria-label="Clear Search" href="javascript:void(0);"
-                        class="btn-icn-hover icon-filter newtemp-searchbox-filter" data-ara-title="Clear Search"></a>
+                    class="btn-icn-hover icon-filter newtemp-searchbox-filter" id="tempFilterSearch" data-ara-title="Clear Search"></a>
                 </div>
             </div>
             <div class="newtemp-list-wrappper border flex-1 overflow-auto">
@@ -132,10 +134,121 @@
         </li>
     </ul>
     <!--// option menu -->
-
+    <!-- Add Template Window -->
+    <div id="addTemplateWindow">
+        <div class="addtemplate-window-wrapper h100">
+            <div class="add-template-widnow-splitte" id="AddTempSplitter">
+                <div id="tempBuilder">
+                    <div class="h100 d-flex flex-column">
+                        <div class="flex-1 overflow-auto">
+                            <h4 class="text-dark font-bold pb-10 fs-16">Template Biilder</h4>
+                            <div class="addtemplate-content-box border">
+                                <div class="box-row">
+                                    <div class="box-column w100">
+                                        <div class="form-group">
+                                            <label for="TemplateName" class="font-medium">Template Name <span class="text-danger">*</span> </label>
+                                            <input type="text" class="k-textbox" placeholder="" value="Cleanseen housekeeping" id="TemplateName">
+                                        </div>
+                                    </div>
+                                    <div class="box-column w100">
+                                        <div class="form-group">
+                                            <label for="discription" class="font-medium">Discription</label>
+                                            <textarea id="DevTeam" class="form-control k-textbox" rows="5" id="discription" aria-label="textarea">this Cleanseen housekeeping checklist convertedusing iAuditor can be used to inspect housekeeping activites.
+                                            </textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h4 class="text-dark font-bold pt-15 pb-10 fs-16">Title</h4>
+                            <div class="addtemplate-content-box border">
+                                <div class="box-row">
+                                    <div class="box-column box-50">
+                                        <div class="form-group">
+                                            <label for="TempProcess" class="font-medium">Process <span class="text-danger">*</span> </label>
+                                            <input type="text" class="k-textbox" placeholder="" value="UI-UX Audit" id="TempProcess">
+                                        </div>
+                                    </div>
+                                    <div class="box-column box-50">
+                                        <div class="form-group">
+                                            <label for="TempContactpoint" class="font-medium">Contact point <span class="text-danger">*</span> </label>
+                                            <input type="text" class="k-textbox" placeholder="" value="UI-UX Audit" id="TempContactpoint">
+                                        </div>
+                                    </div>
+                                    <div class="box-column box-50">
+                                        <div class="form-group">
+                                            <label for="TempDepartment" class="font-medium">Department <span class="text-danger">*</span> </label>
+                                            <input type="text" class="k-textbox" placeholder="" value="housekeeping" id="TempDepartment">
+                                        </div>
+                                    </div>
+                                    <div class="box-column box-50">
+                                        <div class="form-group">
+                                            <label for="TempAuditorName" class="font-medium">Auditor Name <span class="text-danger">*</span> </label>
+                                            <input type="text" class="k-textbox" placeholder="" value="Ankur Mistry" id="TempAuditorName">
+                                        </div>
+                                    </div>
+                                    <div class="box-column box-50">
+                                        <div class="form-group">
+                                            <label for="Tempownername" class="font-medium">Process Owner<span class="text-danger">*</span> </label>
+                                            <input type="text" class="k-textbox" placeholder="" value="Ankur Mistry" id="Tempownername">
+                                        </div>
+                                    </div>
+                                    <div class="box-column box-50">
+                                        <div class="form-group">
+                                            <label for="TempAuditName" class="font-medium">Audit Name <span class="text-danger">*</span> </label>
+                                            <input type="text" class="k-textbox" placeholder="" value="Ankur Mistry" id="TempAuditName">
+                                        </div>
+                                    </div>
+                                    <div class="box-column box-50">
+                                        <div class="form-group">
+                                            <label for="TempDate" class="font-medium">Date <span class="text-danger">*</span> </label>
+                                            <input id="TempDate" class="form-control " title="date picker" />
+                                        </div>
+                                    </div>
+                                    <div class="box-column box-50">
+                                        <div class="form-group">
+                                            <label for="TempDueDate" class="font-medium">Due Date <span class="text-danger">*</span> </label>
+                                            <input type="text" class="k-textbox" placeholder="" value="20/03/21" id="TempDueDate">
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="window-footer mr-20">
+                            <button class="btn btn-trans k-button">Reset</button>
+                            <button class="btn btn-primary k-button">Save</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="QuestionList">
+                    <div class="questionlist-wrapper flex-column h100">
+                        <div class="questionlist-header">
+                            <h4 class="fs-16 font-medium pb-15 text-dark">Question List</h4>
+                            <div class="admin-search-header">
+                                <div class="searchbar mb-15">
+                                    <div class="clear-input search-box w100 search-box input-search">
+                                        <input type="text" name="txtTagListSearch" id="txtTagListSearch" aria-label="tag name" class="form-control k-textbox k-valid" placeholder="Search Templates">
+                                        <i class="icon-search" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="dropdown ml-15 d-flex">
+                                        <a href="javascript:void(0);" class="btn btn-raised btn-primary pr-10 pl-10 mr-10" role="button" aria-haspopup="true" aria-expanded="false"><i aria-hidden="true" class="icon-plus"></i><span>Add Section</span></a>
+                                        <a href="javascript:void(0);" class="btn btn-raised btn-primary pr-10 pl-10" role="button" aria-haspopup="true" aria-expanded="false"><i aria-hidden="true" class="icon-plus"></i><span>Add Quedstion</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="questionlist-content flex-1 overflow-auto template-question-list">
+                            <div id="treelist"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--// Add Template Window -->
     <script src="../../Scripts/Kendo/jquery.min.js"></script>
     <script src="../../Scripts/Kendo/kendo.all.min.js"></script>
-
+    
     <script src="../../Scripts/CLARENT/Other/Custom/clarant-custom.js"></script>
     <script src="../../Scripts/CLARENT/Other/Custom/Custom.js"></script>
     <!-- Acitivity List View template -->
@@ -149,22 +262,21 @@
         </li>
     </script>
     <script>
-
-
+        
         //Grid
         var fieldData = new kendo.data.DataSource({
             data:
-                [{ TempName: "Clean Seen housekeeping checklist", TempDesc: "The Clean seen housekeeping Checklist converted using iAudior clarent", TempLastModifyed: "2 Hours ago", TempSecheduled: "No", TempAccess: "All", TempAccessAction: "Schedule" },
-                { TempName: "Unlimited Template", TempDesc: "UI-UX Audit", TempLastModifyed: "3 Hours ago", TempSecheduled: "Yes", TempAccess: "All", TempAccessAction: "Schedule" },
-                { TempName: "Unlimited Template", TempDesc: "UI-UX Audit", TempLastModifyed: "3 Hours ago", TempSecheduled: "Yes", TempAccess: "All", TempAccessAction: "Schedule" },
-                { TempName: "Unlimited Template", TempDesc: "UI-UX Audit", TempLastModifyed: "3 Hours ago", TempSecheduled: "Yes", TempAccess: "All", TempAccessAction: "Schedule" },
-                { TempName: "Unlimited Template", TempDesc: "UI-UX Audit", TempLastModifyed: "3 Hours ago", TempSecheduled: "Yes", TempAccess: "All", TempAccessAction: "Schedule" },
-                { TempName: "Unlimited Template", TempDesc: "UI-UX Audit", TempLastModifyed: "3 Hours ago", TempSecheduled: "Yes", TempAccess: "All", TempAccessAction: "Schedule" },
-                { TempName: "Unlimited Template", TempDesc: "UI-UX Audit", TempLastModifyed: "3 Hours ago", TempSecheduled: "Yes", TempAccess: "All", TempAccessAction: "Schedule" },
-                { TempName: "Unlimited Template", TempDesc: "UI-UX Audit", TempLastModifyed: "3 Hours ago", TempSecheduled: "Yes", TempAccess: "All", TempAccessAction: "Schedule" },
-                { TempName: "Unlimited Template", TempDesc: "UI-UX Audit", TempLastModifyed: "3 Hours ago", TempSecheduled: "Yes", TempAccess: "All", TempAccessAction: "Schedule" },
-                { TempName: "Unlimited Template", TempDesc: "UI-UX Audit", TempLastModifyed: "3 Hours ago", TempSecheduled: "Yes", TempAccess: "All", TempAccessAction: "Schedule" },
-                { TempName: "Unlimited Template", TempDesc: "UI-UX Audit", TempLastModifyed: "3 Hours ago", TempSecheduled: "Yes", TempAccess: "All", TempAccessAction: "Schedule" },],
+            [{ TempName: "Clean Seen housekeeping checklist", TempDesc: "The Clean seen housekeeping Checklist converted using iAudior clarent", TempLastModifyed: "2 Hours ago", TempSecheduled: "No", TempAccess: "All", TempAccessAction: "Schedule" },
+            { TempName: "Unlimited Template", TempDesc: "UI-UX Audit", TempLastModifyed: "3 Hours ago", TempSecheduled: "Yes", TempAccess: "All", TempAccessAction: "Schedule" },
+            { TempName: "Unlimited Template", TempDesc: "UI-UX Audit", TempLastModifyed: "3 Hours ago", TempSecheduled: "Yes", TempAccess: "All", TempAccessAction: "Schedule" },
+            { TempName: "Unlimited Template", TempDesc: "UI-UX Audit", TempLastModifyed: "3 Hours ago", TempSecheduled: "Yes", TempAccess: "All", TempAccessAction: "Schedule" },
+            { TempName: "Unlimited Template", TempDesc: "UI-UX Audit", TempLastModifyed: "3 Hours ago", TempSecheduled: "Yes", TempAccess: "All", TempAccessAction: "Schedule" },
+            { TempName: "Unlimited Template", TempDesc: "UI-UX Audit", TempLastModifyed: "3 Hours ago", TempSecheduled: "Yes", TempAccess: "All", TempAccessAction: "Schedule" },
+            { TempName: "Unlimited Template", TempDesc: "UI-UX Audit", TempLastModifyed: "3 Hours ago", TempSecheduled: "Yes", TempAccess: "All", TempAccessAction: "Schedule" },
+            { TempName: "Unlimited Template", TempDesc: "UI-UX Audit", TempLastModifyed: "3 Hours ago", TempSecheduled: "Yes", TempAccess: "All", TempAccessAction: "Schedule" },
+            { TempName: "Unlimited Template", TempDesc: "UI-UX Audit", TempLastModifyed: "3 Hours ago", TempSecheduled: "Yes", TempAccess: "All", TempAccessAction: "Schedule" },
+            { TempName: "Unlimited Template", TempDesc: "UI-UX Audit", TempLastModifyed: "3 Hours ago", TempSecheduled: "Yes", TempAccess: "All", TempAccessAction: "Schedule" },
+            { TempName: "Unlimited Template", TempDesc: "UI-UX Audit", TempLastModifyed: "3 Hours ago", TempSecheduled: "Yes", TempAccess: "All", TempAccessAction: "Schedule" },],
             schema: { model: { id: "fieldid" } }
         });
         $("#iAuditTemplateGrid").kendoGrid({
@@ -173,25 +285,25 @@
             scrollable: true,
             resizable: false,
             autoBind: true,
-
+            
             config: { CurrentPage: 0, TotalPage: 10, RecordPerPage: 10, TotalRecord: 100, searchText: "" },
             columns: [
-                { selectable: true, width: "50px" },
-                { field: "TempName", title: "Name" },
-                { field: "TempDesc", title: "Description" },
-                { field: "TempLastModifyed", title: "Last Modified" },
-                { field: "TempSecheduled", title: "Secheduled" },
-                { field: "TempAccess", title: "Access" },
-                {
-                    field: "TempAccessAction",
-                    title: "Access",
-                    template: '<button class="btn btn-primary k-button">#: TempAccessAction #</button>'
-                },
-                {
-                    field: "TempAction",
-                    title: "Action",
-                    template: '<a aria-haspopup="true" id="TempgridTrigger" data-ara-title="Action" aria-expanded="true" role="button" href="javascript:void(0);"  class="btn-icn-hover tempcontextmenu btn-icn-trans"><i class="icon-option" aria-hidden="true"></i></a>',
-                }
+            { selectable: true, width: "50px" },
+            { field: "TempName", title: "Name" },
+            { field: "TempDesc", title: "Description" },
+            { field: "TempLastModifyed", title: "Last Modified" },
+            { field: "TempSecheduled", title: "Secheduled" },
+            { field: "TempAccess", title: "Access" },
+            {
+                field: "TempAccessAction",
+                title: "Access",
+                template: '<button class="btn btn-primary k-button">#: TempAccessAction #</button>'
+            },
+            {
+                field: "TempAction",
+                title: "Action",
+                template: '<a aria-haspopup="true" id="TempgridTrigger" data-ara-title="Action" aria-expanded="true" role="button" href="javascript:void(0);"  class="btn-icn-hover tempcontextmenu btn-icn-trans"><i class="icon-option" aria-hidden="true"></i></a>',
+            }
             ]
         }).data("kendoGrid");
         $("#iAuditTemplateGrid-pager").kendoPager({
@@ -199,31 +311,31 @@
             refresh: true
         });
         fieldData.read();
-
+        
         $("#iAuditTemplateGrid-pager").append("<div class='more-oprion'><span class='separator'></span><a href='javascript:void(0)' id='moreOption' class='text-muted btn-default-hover'><i class='icon-option'></i></a></div>");
-
+        
         $("#TemplategridPopup").kendoContextMenu({
             target: ".tempcontextmenu",
             showOn: "click",
             appendTo: "body",
         }).data("kendoContextMenu");
-
-
+        
+        
         var newtempTmpDatasorce = new kendo.data.DataSource({
             data: [
-                { newTempName: "Workspace Reopening CheckList for COVID - 19 ", NewTempcreate: "Created By Clarent Culter staff" },
-                { newTempName: "Workspace Reopening CheckList for COVID - 19 ", NewTempcreate: "Created By Clarent Culter staff" },
-                { newTempName: "Workspace Reopening CheckList for COVID - 19 ", NewTempcreate: "Created By Clarent Culter staff" },
-                { newTempName: "Workspace Reopening CheckList for COVID - 19 ", NewTempcreate: "Created By Clarent Culter staff" },
-                { newTempName: "Workspace Reopening CheckList for COVID - 19 ", NewTempcreate: "Created By Clarent Culter staff" },
-                { newTempName: "Workspace Reopening CheckList for COVID - 19 ", NewTempcreate: "Created By Clarent Culter staff" },
-                { newTempName: "Workspace Reopening CheckList for COVID - 19 ", NewTempcreate: "Created By Clarent Culter staff" },
-                { newTempName: "Workspace Reopening CheckList for COVID - 19 ", NewTempcreate: "Created By Clarent Culter staff" },
-                { newTempName: "Workspace Reopening CheckList for COVID - 19 ", NewTempcreate: "Created By Clarent Culter staff" },
-                { newTempName: "Workspace Reopening CheckList for COVID - 19 ", NewTempcreate: "Created By Clarent Culter staff" },
+            { newTempName: "Workspace Reopening CheckList for COVID - 19 ", NewTempcreate: "Created By Clarent Culter staff" },
+            { newTempName: "Workspace Reopening CheckList for COVID - 19 ", NewTempcreate: "Created By Clarent Culter staff" },
+            { newTempName: "Workspace Reopening CheckList for COVID - 19 ", NewTempcreate: "Created By Clarent Culter staff" },
+            { newTempName: "Workspace Reopening CheckList for COVID - 19 ", NewTempcreate: "Created By Clarent Culter staff" },
+            { newTempName: "Workspace Reopening CheckList for COVID - 19 ", NewTempcreate: "Created By Clarent Culter staff" },
+            { newTempName: "Workspace Reopening CheckList for COVID - 19 ", NewTempcreate: "Created By Clarent Culter staff" },
+            { newTempName: "Workspace Reopening CheckList for COVID - 19 ", NewTempcreate: "Created By Clarent Culter staff" },
+            { newTempName: "Workspace Reopening CheckList for COVID - 19 ", NewTempcreate: "Created By Clarent Culter staff" },
+            { newTempName: "Workspace Reopening CheckList for COVID - 19 ", NewTempcreate: "Created By Clarent Culter staff" },
+            { newTempName: "Workspace Reopening CheckList for COVID - 19 ", NewTempcreate: "Created By Clarent Culter staff" },
             ]
         });
-
+        
         $('#newtempListview').kendoListView({
             dataSource: newtempTmpDatasorce,
             template: kendo.template($("#newtempTmp").html())
@@ -234,14 +346,15 @@
         $('#NewTempDrawerClose').click(function () {
             $('#NewTempDrawer').removeClass('open');
         })
-
-        var newtempElement = Array("#AddNewTemplate", "#NewTempDrawer");
-        newtempElement.forEach(function (item) {
-            $(item).click(function () { return false; });
+        
+        // Click outside to remove class 
+        $(document).on('click', function (e) {
+            var container = $("#AddNewTemplate ,#NewTempDrawer");
+            if (!$(e.target).closest(container).length) {
+                $('#NewTempDrawer').removeClass('open');
+            }
         });
-        $(document).on("click", function () {
-            $("#NewTempDrawer").removeClass('open');
-        });
+        
         //Contextmenu popover left click for grid pager
         var popup = $("#popup").kendoPopup({
             animation: false,
@@ -249,17 +362,83 @@
             origin: "top right",
             position: "bottom right",
             collision: "fit",
-
+            
         }).data("kendoPopup");
-
+        
         $("#moreOption").click(function () {
             $("#popup").data("kendoPopup").open()
         });
-
+        
         $("#pagerDropdown").kendoDropDownList({
             popup: {
                 appendTo: 'body'
             }
+        });
+        
+        // Add Template Window
+        $('#addTemplateWindow').kendoWindow({
+            width: '95%',
+            height: '86%',
+            title: "Add Template",
+            visible: false,
+            draggable: false,
+            resizable: false,
+            defaultFocus: false,
+            actions: [
+            "Close"
+            ],
+            modal: true
+        }).data("kendoWindow").center().open();
+        
+        $(document).on('click', '#AddTemplateBtn', function () {
+            $("#addTemplateWindow").data("kendoWindow").center().open();
+        });
+        $('#AddTempSplitter').kendoSplitter({
+            panes: [
+            { collapsible: false, size: "30%" , min: "30%" , max : "30%" },
+            { collapsible: false }
+            ],
+        });
+        
+        $("#TempDate").kendoDatePicker();
+        
+        
+        // trre list
+        
+        var dataSource = new kendo.data.TreeListDataSource({
+            data: [
+            { id: 1, Question: "Walkways and Working Surface", Responce:"", parentId: null },
+            { id: 1.1, Question: "Are Walkways and working surface clean and clear or debris?", Responce: "Yes", parentId: 1 },
+            { id: 1.2, Question: "Are slippery conditions, such ad snow and ice,eliminated in designated walkways and woking surface?", Responce: "NO",  parentId: 1 },
+            { id: 2, Question: "Lighting", Responce:"", parentId: null },
+            { id: 2.1, Question: "Are Lighting fixtures in good working order?", Responce: "NA", parentId: 2 },
+            { id: 2.2, Question: "Are Lighting fixtures clean, allowing for optimal lighting levels?", Responce: "Yes",  parentId: 2 },
+            { id: 3, Question: "Dust and Dirt Removal", Responce:"",  parentId: null },
+            { id: 3.1, Question: "Are cleaning methods in place to minimize dust clouds,particulary where ignition sorces are present?", Responce: "No",  parentId: 3 },
+            { id: 3.2, Question: "Are dust residues cleaned at regular intervals and in areas that may be noramlly overlokked(e.g., overhead)?", Responce: "Yes",  parentId: 3 },
+            { id: 4, Question: "Sanitation facilities", Responce:"",  parentId: null },
+            { id: 4.1, Question: "Is potable water made available to workers for drinking, food preparation, worker health, and personal needs?", Responce: "Yes",  parentId: 4 },
+            { id: 4.2, Question: "Is serving, Cleaning and supplying schedule being followed?", Responce: "No",  parentId: 4 },
+            ],
+            schema: {
+                model: {
+                    id: "id",
+                    expanded: true
+                }
+            }
+        });
+        
+        $("#treelist").kendoTreeList({
+            dataSource: dataSource,
+            columns: [
+            { field: "Question", title: "Question", width: "75%"  },
+            { field: "Responce" , title: "Type Of Response" , template: "<div class='questionlist-template'><div><span class='btn bgtextlight-green tagbtn k-button'>#: Responce #</span></div><a href='javascript:void(0)' class='text-muted'><i class='icon-arrow-down'></i></a></div>" },
+            ],
+            editable: {
+                move: {
+                    reorderable: true
+                }
+            },
         });
     </script>
 </body>
