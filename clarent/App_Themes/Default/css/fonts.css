@@ -102,6 +102,10 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-location:before {
+    content: "\e9df";
+  }
+  
 .icon-clock:before, .icon-clock3:before {
     content: "\eac8";
 }
