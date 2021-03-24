@@ -237,8 +237,9 @@
                                 </div>
                             </div>
                         </div>
+                      
                         <div class="questionlist-content flex-1 overflow-auto template-question-list">
-                            <div id="treelist"></div>
+                            <div id="treelist" class="h100"></div>
                         </div>
                     </div>
                 </div>
@@ -430,8 +431,9 @@
         
         $("#treelist").kendoTreeList({
             dataSource: dataSource,
+            sortable: true,
             columns: [
-            { field: "Question", title: "Question", width: "75%"  },
+            { field: "Question", title: "Question", width: "75%" , template: "<span class='questionlist-drag-icon-content'><span class='questionlist-drag-icon'><i class='icon-draggable'></i></span><span class='questionlist-drag-text'>#: Question #</span></span>"  },
             { field: "Responce" , title: "Type Of Response" , template: "<div class='questionlist-template'><div><span class='btn bgtextlight-green tagbtn k-button'>#: Responce #</span></div><a href='javascript:void(0)' class='text-muted'><i class='icon-arrow-down'></i></a></div>" },
             ],
             editable: {
@@ -440,6 +442,9 @@
                 }
             },
         });
+        $('#treelist').find('tr').addClass('questionlist-drag');
+        
+        
     </script>
 </body>
 
