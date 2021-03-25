@@ -8,7 +8,7 @@
     
     <title>Clarent Institute iAudit Dashboard</title>
     <!-- favicon -->
-    <!--<link rel="shortcut icon" href="../../App_Themes/Default/images/favicon.ico" type="image/x-icon">-->
+    <link rel="shortcut icon" href="../../App_Themes/Default/images/favicon.ico" type="image/x-icon">
     
     <link href="../../App_Themes/Default/css/kendo.common.min.css" rel="stylesheet" />
     <link href="../../App_Themes/Default/css/kendo.default.min.css" rel="stylesheet" />
@@ -67,7 +67,15 @@
             <li><a href="javascript:void(0);" id="wescrumSprintReview" class="ms-menu-link">Sprint Review</a></li>
             <li><a href="javascript:void(0);" id="wescrumSprintRelease" class="ms-menu-link">Sprint Release</a></li>
             <li><a href="javascript:void(0);" id="wescrumSprintretro" class="ms-menu-link">Sprint Retrospective</a></li>
-            <li><a href="javascript:void(0);" id="wescrumAdminManage" class="ms-menu-link">Admin Management</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0);" id="wescrumAdminManage" class="ms-menu-link align-items-center"><span>Admin </span> <i class="icon-down fs-10 ml-5"></i> </a>
+                <ul class="dropdown-menu right" role="menu" aria-labelledby="actionbtnmenu1">
+                    <li role='presentation'><a href='javascript:void(0);' id="AdminProductDetail" role='menuitem'>Product Details</a></li>
+                    <li role='presentation'><a href='javascript:void(0);' id="AdminTeamCongiguration" role='menuitem'>Team Configuration</a></li>
+                    <li role='presentation'><a href='javascript:void(0);' id="AdminEnvDetails" role='menuitem'>Enviroment Details</a></li>
+                    <li role='presentation'><a href='javascript:void(0);' id="AdminReleaseCadence"  role='menuitem'>Release Cadence</a></li>
+                </ul>
+            </li>
         </ul>
     </section>
     <!--// Menu Section-->
@@ -278,19 +286,52 @@
                 $(this).addClass('active');
                 document.getElementById("WeScrumiframe").src = "wescrum_sprintplanning.html";
             })
-            
-            $('#wescrumAdminManage').click(function(){
-                $('#mainSectionMenu').find('a').removeClass('active');
-                $(this).addClass('active');
-                document.getElementById("WeScrumiframe").src = "wescrum_admin.html";
-            })
             $('#wescrumSprintretro').click(function(){
                 $('#mainSectionMenu').find('a').removeClass('active');
                 $(this).addClass('active');
                 document.getElementById("WeScrumiframe").src = "wescrum_sprintretro.html";
             })
+            $('#mainSectionMenu').find('a').click(function(){
+                if(this.id == "wescrumAdminManage"){
+                    return false;
+                } else{
+                    $('#wescrumAdminManage').find('span').text('Admin');
+                }
+            })
+            //Admin 
+            $('#AdminProductDetail').click(function(){
+                $('#mainSectionMenu').find('a').removeClass('active');
+                $('#wescrumAdminManage').addClass('active');
+                $('#wescrumAdminManage').find('span').text('Admin: Production Details');
+                document.getElementById("WeScrumiframe").src = "admin_productdetail.html";
+            })
+            
+            $('#AdminTeamCongiguration').click(function(){
+                $('#mainSectionMenu').find('a').removeClass('active');
+                $('#wescrumAdminManage').addClass('active');
+                $('#wescrumAdminManage').find('span').text('Admin: Team Configuration');
+                document.getElementById("WeScrumiframe").src = "admin_teamconfig.html";
+            })
+
+            $('#AdminEnvDetails').click(function(){
+                $('#mainSectionMenu').find('a').removeClass('active');
+                $('#wescrumAdminManage').addClass('active');
+                $('#wescrumAdminManage').find('span').text('Admin: Enviroment Details');
+                document.getElementById("WeScrumiframe").src = "admin_envDetail.html";
+            })
+
+            $('#AdminReleaseCadence').click(function(){
+                $('#mainSectionMenu').find('a').removeClass('active');
+                $('#wescrumAdminManage').addClass('active');
+                $('#wescrumAdminManage').find('span').text('Admin: Release Cadence');
+                document.getElementById("WeScrumiframe").src = "admin_releasecad.html";
+            })
+            
             
             $('#mainSectionMenu').find('a').click(function(){
+                if(this.id == "wescrumAdminManage"){
+                    return false;
+                }
                 $('.WeScrumiframe').ready(function(){
                     $('body').append('<div class="loader"></div>');
                     setTimeout(() => {

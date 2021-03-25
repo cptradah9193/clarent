@@ -24,6 +24,7 @@
     border-bottom: none;
     margin-bottom: -1px;
     border-radius: 3px 3px 0 0;
+    transform: translateY(-1px);
 }
 
 .main-section-menu .main-section-menu-ul .ms-menu-link.active {
@@ -503,4 +504,23 @@
     width: 100px;
     left: calc(50% - 50px);
     top: calc(50% - 50px);
+}
+.release-cadence-dropdwon{
+    position: absolute;
+    z-index: 99;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+}
+.release-cadence-dropdwon-searchbox .release-cadence-dropdwon .icon-search{
+    position: static;
+    transform: translateY(0);
+}
+.release-cadence-dropdwon-searchbox .input-search .form-control.k-textbox {
+    padding-left: 13rem;
+}
+.release-cadence-dropdwon-searchbox .release-cadence-dropdwon .select-label.k-dropdown{
+    width: 145px;
 }
