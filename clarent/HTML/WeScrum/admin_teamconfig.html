@@ -22,29 +22,96 @@
     <link href="../../App_Themes/Default/css/wescrum.css" rel="stylesheet" />
 </head>
 <body>
-    
-    <div class="admin-management-wrapper d-flex flex-column h100 pr-20 pl-20">
-        <h4 class="fs-16 text-primary pt-20 pb-10 font-semi-bold">Team Configuration</h4>
-        <div class="admin-search-header">
-            <div class="searchbar mb-15">
-                <div class="clear-input search-box w100 search-box input-search">
-                    <input type="text" name="txtTagListSearch" id="txtTagListSearch" aria-label="tag name" class="form-control k-textbox k-valid" placeholder="Search here...">
-                    <i class="icon-search" aria-hidden="true"></i>
+    <div class="adminsplitter-main-wrapper h100">
+        <div id="adminSplitter" class="adminsplitter-wrapper">
+            <div class="admin-management-wrapper d-flex flex-column h100 pr-20 pl-20">
+                <h4 class="fs-16 text-primary  pb-10 font-semi-bold">Team Configuration</h4>
+                <div class="admin-search-header">
+                    <div class="searchbar mb-15">
+                        <div class="clear-input search-box w100 search-box input-search">
+                            <input type="text" name="txtTagListSearch" id="txtTagListSearch" aria-label="tag name" class="form-control k-textbox k-valid" placeholder="Search here...">
+                            <i class="icon-search" aria-hidden="true"></i>
+                        </div>
+                        <div class="action-div dropdown">
+                            <a href="javascript:void(0);" class="btn btn-raised btn-primary btn-block" role="button" aria-haspopup="true" aria-expanded="false" id="actionbtnmenu1"><i aria-hidden="true" class="icon-action"></i><span>Action</span><span class="caret"></span></a>
+                            <ul class="dropdown-menu right" role="menu" aria-labelledby="actionbtnmenu1">
+                                <li role='presentation'><a href='javascript:void(0);' class="drawer-open" id="TeamSettingBtn" role='menuitem'><i aria-hidden="true" class="icon-plus"></i>Add </a></li>
+                                <li role='presentation'><a href='javascript:void(0);' role='menuitem'><i aria-hidden="true" class="icon-edit1"></i><span>Edit</span></a></li>
+                                <li role='presentation'><a href='javascript:void(0);' role='menuitem'><i aria-hidden="true" class="icon-delete text-danger"></i><span class="text-danger">Delete</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="action-div dropdown">
-                    <a href="javascript:void(0);" class="btn btn-raised btn-primary btn-block" role="button" aria-haspopup="true" aria-expanded="false" id="actionbtnmenu1"><i aria-hidden="true" class="icon-action"></i><span>Action</span><span class="caret"></span></a>
-                    <ul class="dropdown-menu right" role="menu" aria-labelledby="actionbtnmenu1">
-                        <li role='presentation'><a href='javascript:void(0);' id="TeamSettingBtn" role='menuitem'><i aria-hidden="true" class="icon-plus"></i>Add </a></li>
-                        <li role='presentation'><a href='javascript:void(0);' role='menuitem'><i aria-hidden="true" class="icon-edit1"></i><span>Edit</span></a></li>
-                        <li role='presentation'><a href='javascript:void(0);' role='menuitem'><i aria-hidden="true" class="icon-delete text-danger"></i><span class="text-danger">Delete</span></a></li>
-                    </ul>
+                <div class="flex-1 overflow-auto">
+                    <div class="admin-management-grid-wrapper grid-wrapper h100">
+                        <div id="AdminMangGrid"></div>
+                        <div id="AdminMangGrid-pager" class="with-more-option"></div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="flex-1 overflow-auto">
-            <div class="admin-management-grid-wrapper grid-wrapper h100">
-                <div id="AdminMangGrid"></div>
-                <div id="AdminMangGrid-pager" class="with-more-option"></div>
+            <div class="adminsplitter-right-drawer" id="right_drawer">
+                <div class="adminsplitter-right-drawer-wrapper br-1 h100 flex-column">
+                    <div class="adminsplitter-right-drawer-header bb-1 bt-1 bl-1  bg-light d-flex align-items-center">
+                        <button aria-label='close' data-ara-title="Close" class="btn-red-circle btn-icn-trans fs-12 close-drawer"><i  aria-hidden="true"  class="icon-cancel"></i></button>
+                        <span class="ellipsis flex-1 overflow-hidden fs-18 text-dark font-bold ml-15 splitter-header-text">Add Team</span>
+                    </div>
+                    <div class="adminsplitter-right-drawer-content flex-1 overflow-hidden flex-column ">
+                        <div class="form-inline flex-1 overflow-auto p-15">
+                            <div class="form-group">
+                                <label for="prductname" class="pointer-events-none text-semibold ellipsis">Product Name</label>
+                                <div class="form-group-content">
+                                    <select name="search dropdown" id="prductname"></select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="TeamName" class="pointer-events-none text-semibold ellipsis">Team Name</label>
+                                <div class="form-group-content">
+                                    <input type="text" id="TeamName" class="k-textbox" placeholder="" value="Review" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="Alias" class="pointer-events-none text-semibold ellipsis">Alias</label>
+                                <div class="form-group-content">
+                                    <input type="text" id="Alias" class="k-textbox" placeholder="" value="Review" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="Productid" class="pointer-events-none text-semibold ellipsis">Product Id</label>
+                                <div class="form-group-content">
+                                    <input type="text" id="Productid" class="k-textbox" placeholder="" value="211482" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="ProductOwner" class="pointer-events-none text-semibold ellipsis">Product Owner</label>
+                                <div class="form-group-content">
+                                    <input type="text" id="ProductOwner" class="k-textbox" placeholder="" value="Ankur mistry" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="ScrumMaster" class="pointer-events-none text-semibold ellipsis">Scrum Master</label>
+                                <div class="form-group-content">
+                                    <input type="text" id="ScrumMaster" class="k-textbox" placeholder="" value="Ankur mistry" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="dailyScrum" class="pointer-events-none text-semibold ellipsis">Daily Scrum</label>
+                                <div class="form-group-content">
+                                    <input type="text" id="dailyScrum" class="k-textbox" placeholder="" value="" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="Discoveryteam" class="pointer-events-none text-semibold ellipsis">Discovery Team</label>
+                                <div class="form-group-content">
+                                    <input type="text" id="Discoveryteam" class="k-textbox" placeholder="" value="Tarun Harkinia,Amy Hilbert" >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actionbtn bt-1 p-15 text-right">
+                            <button class="btn btn-trans k-button close-drawer">Close</button>
+                            <button class="btn btn-primary k-button">Save</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -73,86 +140,8 @@
         </li>
     </ul>
     <!--// option menu -->
-    <!-- Add Field -->
-    <div id="AddFieldWindow" class="addfield-window-wrapper">
-        <div class="addfield-window-form-wrapper">
-            <div class="addfield-window-form">
-                <div class="form-group">
-                    <label class="font-semi-bold">Add Project</label>
-                    <input type="text" class="k-textbox" aria-label="Product owner">
-                </div>
-            </div>
-            <div class="window-footer">
-                <button class="btn btn-trans k-button">Close</button>
-                <button class="btn btn-primary k-button">Add</button>
-            </div>
-        </div>
-    </div>
-    <!-- Team Setting Window -->
-    <div id="TeamSettingWindow" class="teamsetting-window-wrapper">
-        <div class="teamsetting-window-form-wrapper d-flex flex-column h100">
-            <div class="teamsetting-window-form flex-1 overflow-auto">
-                <div class="box-row">
-                    <div class="box-column box-50">
-                        <div class="form-group">
-                            <label class="font-semi-bold">Project</label>
-                            <div class="form-group-content form-group-with-btn">
-                                <div class="with-btn">
-                                    <select name="search dropdown" id="teamProject"></select>
-                                </div>
-                                <button aria-label="Add" id="addTeamProject" class="btn btn-borderd bg-light text-muted teamwindow-icon"><i aria-hidden="true" class="icon-plus"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-column box-50">
-                        <div class="form-group">
-                            <label class="font-semi-bold">Team</label>
-                            <div class="form-group-content form-group-with-btn">
-                                <div class="with-btn">
-                                    <select name="search dropdown" id="teamDropdown"></select>
-                                </div>
-                                <button aria-label="Add" id="addTeamField" class="btn btn-borderd bg-light text-muted teamwindow-icon"><i aria-hidden="true" class="icon-plus"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-column box-50">
-                        <div class="form-group">
-                            <label class="font-semi-bold">Product Owner</label>
-                            <input type="text" class="k-textbox" aria-label="Product owner">
-                        </div>
-                    </div>
-                    <div class="box-column box-50">
-                        <div class="form-group">
-                            <label class="font-semi-bold">Scrum Master</label>
-                            <input type="text" class="k-textbox" aria-label="Product owner">
-                        </div>
-                    </div>
-                    <div class="box-column box-50">
-                        <div class="form-group">
-                            <label class="font-semi-bold">TL - PL</label>
-                            <input type="text" class="k-textbox" aria-label="Product owner">
-                        </div>
-                    </div>
-                    <div class="box-column box-50">
-                        <div class="form-group">
-                            <label class="font-semi-bold">Daily Scrum</label>
-                            <input type="text" class="k-textbox" aria-label="Product owner">
-                        </div>
-                    </div>
-                    <div class="box-column box-50">
-                        <div class="form-group">
-                            <label class="font-semi-bold">Discovery Team</label>
-                            <textarea  class="form-control k-textbox" rows="5" aria-label="textarea"></textarea>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="window-footer">
-                <button class="btn btn-trans k-button">Close</button>
-                <button class="btn btn-primary k-button">Save</button>
-            </div>
-        </div>
-    </div>
+    
+    
     <script src="../../Scripts/Kendo/jquery.min.js"></script>
     <script src="../../Scripts/Kendo/kendo.all.min.js"></script>
     
@@ -220,56 +209,61 @@
                 appendTo: 'body'
             }
         });
-
-        //Team Setting window
         
-        $("#TeamSettingWindow").kendoWindow({
-            width: '35%',
-            height: '57%',
-            title: "Team Settings",
-            visible: false,
-            draggable: false,
-            resizable: false,
-            defaultFocus: false,
-            actions: [
-            "Close"
+        //Right Drawer splitter
+        $('#adminSplitter').kendoSplitter({
+            panes: [
+            { collapsible: false },
+            { collapsible: true, size: '30%', min: '20%' , max: "30%", collapsed: true , },
             ],
-            modal: true
-        }).data("kendoWindow");
+            expand: function (e) {
+                if (e.sender.options.panes[1].collapsed) {
+                    var slide = kendo.fx($("#right_drawer"));
+                    $('.admin-management-wrapper ~ .k-splitbar-horizontal').show();
+                    $('#right_drawer').show();
+                    this.expand(slide.element.selector);
+                }
+                $("#right_drawer").prev().show();
+                $('#right_drawer').show();
+            },
+            collapse: function (e) {
+                if (!e.sender.options.panes[1].collapsed) {
+                    var slide = kendo.fx($("#right_drawer"));
+                    $('.admin-management-wrapper ~ .k-splitbar-horizontal').hide();
+                    $('#right_drawer').hide();
+                    this.collapse(slide.element.selector);
+                }
+                $("#right_drawer").prev().hide();
+                $('#right_drawer').hide();
+            }
+        })
+        var adminsplitter = $("#adminSplitter").data("kendoSplitter");
+        adminsplitter.resize(true);
         
-        $(document).on('click', '#TeamSettingBtn', function () {
-            $("#TeamSettingWindow").data("kendoWindow").center().open();
+        $(document).on('click', '.drawer-open', function () {
+            $("#right_drawer").prev().show();
+            $('#right_drawer').show();
+            adminsplitter.expand("#right_drawer");
+            adminsplitter.trigger("expand");
         });
         
-        // Dropdown
-        $("#teamProject").kendoDropDownList({
-            dataSource: ["project1", "project2", "project3"],
-            filter: "contains",
-            optionLabel: "-- Select Field --",
+        $(document).on('click', '.close-drawer', function (e) {
+            $("#right_drawer").prev().hide();
+            $('#right_drawer').hide();
+            adminsplitter.collapse("#right_drawer");
+            adminsplitter.trigger("collapse");
         });
         
-        $("#teamDropdown").kendoDropDownList({
-            dataSource: ["project1", "project2", "project3"],
-            filter: "contains",
-            optionLabel: "-- Select Field --",
-        });
-        // add Field window
+        if ($("#right_drawer").data().pane.collapsed) {
+            $("#right_drawer").prev().hide();
+            $('#right_drawer').hide();
+            adminsplitter.resize(true);
+        }
         
-        $("#AddFieldWindow").kendoWindow({
-            width: '25%',
-            title: "Add Field",
-            visible: false,
-            draggable: false,
-            resizable: false,
-            defaultFocus: false,
-            actions: [
-            "Close"
-            ],
-            modal: true
-        }).data("kendoWindow");
         
-        $(document).on('click', '#addTeamProject , #addTeamField', function () {
-            $("#AddFieldWindow").data("kendoWindow").center().open();
+        $("#prductname").kendoDropDownList({
+            optionLabel: "-- Please select --",
+            dataSource: ["ARA", "LYRA"],
         });
         
     </script>

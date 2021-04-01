@@ -24,30 +24,28 @@
 <body>
     <div class="adminsplitter-main-wrapper h100">
         <div id="adminSplitter" class="adminsplitter-wrapper">
-            <div class="admin-management-wrapper h100">
-                <div class="pr-20 pl-20 d-flex flex-column h100">
-                    <h4 class="fs-16 text-primary pb-10 font-semi-bold">Product Detail</h4>
-                    <div class="admin-search-header">
-                        <div class="searchbar mb-15">
-                            <div class="clear-input search-box w100 search-box input-search">
-                                <input type="text" name="txtTagListSearch" id="txtTagListSearch" aria-label="tag name" class="form-control k-textbox k-valid" placeholder="Search here...">
-                                <i class="icon-search" aria-hidden="true"></i>
-                            </div>
-                            <div class="action-div dropdown">
-                                <a href="javascript:void(0);" class="btn btn-raised btn-primary btn-block" role="button" aria-haspopup="true" aria-expanded="false" id="actionbtnmenu1"><i aria-hidden="true" class="icon-action"></i><span>Action</span><span class="caret"></span></a>
-                                <ul class="dropdown-menu right" role="menu" aria-labelledby="actionbtnmenu1">
-                                    <li role='presentation'><a href='javascript:void(0);' class="drawer-open" id="AddProductDetail" role='menuitem'><i aria-hidden="true" class="icon-plus"></i>Add </a></li>
-                                    <li role='presentation'><a href='javascript:void(0);' role='menuitem'><i aria-hidden="true" class="icon-edit1"></i><span>Edit</span></a></li>
-                                    <li role='presentation'><a href='javascript:void(0);' role='menuitem'><i aria-hidden="true" class="icon-delete text-danger"></i><span class="text-danger">Delete</span></a></li>
-                                </ul>
-                            </div>
+            <div class="admin-management-wrapper d-flex flex-column h100 pr-20 pl-20">
+                <h4 class="fs-16 text-primary  pb-10 font-semi-bold">Auditor</h4>
+                <div class="admin-search-header">
+                    <div class="searchbar mb-15">
+                        <div class="clear-input search-box w100 search-box input-search">
+                            <input type="text" name="txtTagListSearch" id="txtTagListSearch" aria-label="tag name" class="form-control k-textbox k-valid" placeholder="Search here...">
+                            <i class="icon-search" aria-hidden="true"></i>
+                        </div>
+                        <div class="action-div dropdown">
+                            <a href="javascript:void(0);" class="btn btn-raised btn-primary btn-block" role="button" aria-haspopup="true" aria-expanded="false" id="actionbtnmenu1"><i aria-hidden="true" class="icon-action"></i><span>Action</span><span class="caret"></span></a>
+                            <ul class="dropdown-menu right" role="menu" aria-labelledby="actionbtnmenu1">
+                                <li role='presentation'><a href='javascript:void(0);' class="drawer-open" role='menuitem'><i aria-hidden="true" class="icon-plus"></i>Add </a></li>
+                                <li role='presentation'><a href='javascript:void(0);' role='menuitem'><i aria-hidden="true" class="icon-edit1"></i><span>Edit</span></a></li>
+                                <li role='presentation'><a href='javascript:void(0);' role='menuitem'><i aria-hidden="true" class="icon-delete text-danger"></i><span class="text-danger">Delete</span></a></li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="flex-1 overflow-auto">
-                        <div class="admin-management-grid-wrapper grid-wrapper h100">
-                            <div id="AdminMangGrid"></div>
-                            <div id="AdminMangGrid-pager" class="with-more-option"></div>
-                        </div>
+                </div>
+                <div class="flex-1 overflow-auto">
+                    <div class="admin-management-grid-wrapper grid-wrapper h100">
+                        <div id="AdminMangGrid"></div>
+                        <div id="AdminMangGrid-pager" class="with-more-option"></div>
                     </div>
                 </div>
             </div>
@@ -55,26 +53,29 @@
                 <div class="adminsplitter-right-drawer-wrapper br-1 h100 flex-column">
                     <div class="adminsplitter-right-drawer-header bb-1 bt-1 bl-1  bg-light d-flex align-items-center">
                         <button aria-label='close' data-ara-title="Close" class="btn-red-circle btn-icn-trans fs-12 close-drawer"><i  aria-hidden="true"  class="icon-cancel"></i></button>
-                        <span class="ellipsis flex-1 overflow-hidden fs-18 text-dark font-bold ml-15 splitter-header-text">Add</span>
+                        <span class="ellipsis flex-1 overflow-hidden fs-18 text-dark font-bold ml-15 splitter-header-text">Add Auditor</span>
                     </div>
                     <div class="adminsplitter-right-drawer-content flex-1 overflow-hidden flex-column ">
                         <div class="form-inline flex-1 overflow-auto p-15">
                             <div class="form-group">
-                                <label for="AddId" class="pointer-events-none text-semibold ellipsis">Id</label>
+                                <label for="AuditorName" class="pointer-events-none text-semibold ellipsis">Auditor Name</label>
                                 <div class="form-group-content">
-                                    <input type="text" id="AddId" class="k-textbox" placeholder="" value="91253" >
+                                    <input type="text" id="AuditorName" class="k-textbox" placeholder="" value="Review" >
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="Productname" class="pointer-events-none text-semibold ellipsis">Product Name</label>
+                                <label for="Productid" class="pointer-events-none text-semibold ellipsis">Is Active</label>
                                 <div class="form-group-content">
-                                    <input type="text" id="Productname" class="k-textbox" placeholder="" value="Clarent platform - iAudit" >
+                                    <div class="checkbox-wrap">
+                                        <input type='checkbox' class='k-checkbox' id='Productid'>
+                                        <label class='k-checkbox-label' for='Productid'></label>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="Productname" class="pointer-events-none text-semibold ellipsis">Image Path</label>
+                                <label for="Email" class="pointer-events-none text-semibold ellipsis">Email</label>
                                 <div class="form-group-content">
-                                    <input type="text" id="Productname" class="k-textbox" placeholder="" value="\\mtfp02\data\transferRecords" >
+                                    <input type="email" id="Email" class="k-textbox" placeholder="" value="ankur.mistry@casepoint.in" >
                                 </div>
                             </div>
                         </div>
@@ -87,6 +88,7 @@
             </div>
         </div>
     </div>
+    
     <!-- option menu -->
     <ul id="AdminMangepopup" class="grid-options" style="display: none;">
         <li class="goto">
@@ -122,8 +124,9 @@
     <script>
         var fieldData = new kendo.data.DataSource({
             data: 
-            [{Id: "256255" ,ProductName : "Clarent Platform - iAudit",IsActive: "Acitve",CreatedBy: "Amy Hilbert" , CreatedDate: "10-Aug-2020", imagePath: "\\mtfp02\data transfer\Records"  },
-            {Id: "256255" ,ProductName : "Clarent Platform - iAudit",IsActive: "Acitve",CreatedBy: "Amy Hilbert" , CreatedDate: "10-Aug-2020", imagePath: "\\mtfp02\data transfer\Records"  },
+            [{Id: "468424", AuditorName: "UI-UX",IsActive: "Active",Email: "ankur.mistry@casepoint.in" },
+            {Id: "468424", AuditorName: "UI-UX",IsActive: "Active",Email: "ankur.mistry@casepoint.in" },
+            {Id: "468424", AuditorName: "UI-UX",IsActive: "Active",Email: "ankur.mistry@casepoint.in" },
             ],
             schema: { model: { id: "fieldid" } }
         });
@@ -138,11 +141,9 @@
             { selectable: true, width: "50px" },
             { field: "Actions", title: "Actions", width: "70px" , template: "<button aria-label='edit' data-ara-title='edit' class='btn-icn-hover btn-icn-trans'><i  aria-hidden='true'  class='icon-edit'></i></button>" },
             { field: "Id", title:"Id" },
-            { field: "ProductName" , title:"Product Name" },
-            { field: "IsActive" , title: "IsActive" },
-            { field: "CreatedBy" , title: "Created By" },
-            { field: "CreatedDate" ,  title: "Created Date" },
-            { field: "imagePath" , title: "Image path" }
+            { field: "AuditorName", title:"Auditor Name" },
+            { field: "IsActive", title:"IS Active" },
+            { field: "Email", title:"Email" },
             ]
         }).data("kendoGrid");
         
@@ -173,6 +174,7 @@
             }
         });
         
+        // Splitter Right drawer
         $('#adminSplitter').kendoSplitter({
             panes: [
             { collapsible: false },
@@ -221,6 +223,14 @@
             $('#right_drawer').hide();
             adminsplitter.resize(true);
         }
+        
+        
+        $("#prductname").kendoDropDownList({
+            optionLabel: "-- Please select --",
+            dataSource: ["ARA", "LYRA"],
+        });
+        
+        
     </script>
 </body>
 </html>

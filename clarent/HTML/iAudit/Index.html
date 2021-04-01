@@ -65,7 +65,15 @@
             <li><a href="javascript:void(0);" id="iAuditTemplate" class="ms-menu-link">Templates</a></li>
             <li><a href="javascript:void(0);" id="iAuditInspection" class="ms-menu-link">Inspetions</a></li>
             <li><a href="javascript:void(0);" id="iAuditSchdules" class="ms-menu-link">Schedules</a></li>
-            <li><a href="javascript:void(0);" id="iAuditAnalytics" class="ms-menu-link">Analytics</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0);" id="iAuditAnalytics" class="ms-menu-link align-items-center"><span>Admin </span> <i class="icon-down fs-10 ml-5"></i> </a>
+                <ul class="dropdown-menu right" role="menu" aria-labelledby="actionbtnmenu1">
+                    <li role='presentation'><a href='javascript:void(0);' id="AdminDepartment" role='menuitem'>Department</a></li>
+                    <li role='presentation'><a href='javascript:void(0);' id="AdminProcessMaster" role='menuitem'>Process Master</a></li>
+                    <li role='presentation'><a href='javascript:void(0);' id="AdminAuditor" role='menuitem'>Auditor</a></li>
+                    <li role='presentation'><a href='javascript:void(0);' id="AdminTemplate"  role='menuitem'>Template</a></li>
+                </ul>
+            </li>
         </ul>
     </section>
     <!--// Menu Section-->
@@ -282,8 +290,38 @@
                 $(this).addClass('active');
                 document.getElementById("iAuditIframe").src = "schedules.html";
             })
-            
+
+            //Admin
+
+            $('#AdminDepartment').click(function(){
+                $('#mainSectionMenu').find('a').removeClass('active');
+                $('#iAuditAnalytics').addClass('active');
+                $('#iAuditAnalytics').find('span').text('Admin: Department');
+                document.getElementById("iAuditIframe").src = "admin_Department.html";
+            })
+            $('#AdminProcessMaster').click(function(){
+                $('#mainSectionMenu').find('a').removeClass('active');
+                $('#iAuditAnalytics').addClass('active');
+                $('#iAuditAnalytics').find('span').text('Admin: Process Master');
+                document.getElementById("iAuditIframe").src = "admin_ProcessMaster.html";
+            })
+            $('#AdminAuditor').click(function(){
+                $('#mainSectionMenu').find('a').removeClass('active');
+                $('#iAuditAnalytics').addClass('active');
+                $('#iAuditAnalytics').find('span').text('Admin: Auditor');
+                document.getElementById("iAuditIframe").src = "admin_Auditor.html";
+            })
+            $('#AdminTemplate').click(function(){
+                $('#mainSectionMenu').find('a').removeClass('active');
+                $('#iAuditAnalytics').addClass('active');
+                $('#iAuditAnalytics').find('span').text('Admin: Template');
+                document.getElementById("iAuditIframe").src = "admin_Template.html";
+            })
+
             $('#mainSectionMenu').find('a').click(function(){
+                if(this.id == "iAuditAnalytics"){
+                    return false;
+                }
                 $('.iAuditIframe').ready(function(){
                     $('body').append('<div class="loader iloader"></div>');
                     setTimeout(() => {

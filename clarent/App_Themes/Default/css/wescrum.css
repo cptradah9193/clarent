@@ -524,3 +524,29 @@
 .release-cadence-dropdwon-searchbox .release-cadence-dropdwon .select-label.k-dropdown{
     width: 145px;
 }
+/* Admin Splitter */
+.adminsplitter-main-wrapper{
+    padding-top: 15px;
+}
+.adminsplitter-right-drawer-wrapper{
+    margin-right: 10px;
+}
+.adminsplitter-right-drawer-wrapper .adminsplitter-right-drawer-header{
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.adminsplitter-right-drawer {
+    margin-left: -10px;
+}
+.adminsplitter-wrapper .k-splitbar-horizontal{
+    z-index: 99999;
+}
+.adminsplitter-right-drawer.k-state-collapsed .adminsplitter-right-drawer-content{
+    display: none;
+}
+.adminsplitter-right-drawer.k-state-collapsed  .adminsplitter-right-drawer-wrapper .adminsplitter-right-drawer-header{
+    padding:10px 1px;
+}
+.adminsplitter-right-drawer.k-state-collapsed  .adminsplitter-right-drawer-wrapper .adminsplitter-right-drawer-header > .splitter-header-text{
+    display: none;
+}
