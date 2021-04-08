@@ -71,7 +71,6 @@
                     <li role='presentation'><a href='javascript:void(0);' id="AdminDepartment" role='menuitem'>Department</a></li>
                     <li role='presentation'><a href='javascript:void(0);' id="AdminProcessMaster" role='menuitem'>Process Master</a></li>
                     <li role='presentation'><a href='javascript:void(0);' id="AdminAuditor" role='menuitem'>Auditor</a></li>
-                    <li role='presentation'><a href='javascript:void(0);' id="AdminTemplate"  role='menuitem'>Template</a></li>
                 </ul>
             </li>
         </ul>
@@ -311,12 +310,7 @@
                 $('#iAuditAnalytics').find('span').text('Admin: Auditor');
                 document.getElementById("iAuditIframe").src = "admin_Auditor.html";
             })
-            $('#AdminTemplate').click(function(){
-                $('#mainSectionMenu').find('a').removeClass('active');
-                $('#iAuditAnalytics').addClass('active');
-                $('#iAuditAnalytics').find('span').text('Admin: Template');
-                document.getElementById("iAuditIframe").src = "admin_Template.html";
-            })
+            
 
             $('#mainSectionMenu').find('a').click(function(){
                 if(this.id == "iAuditAnalytics"){

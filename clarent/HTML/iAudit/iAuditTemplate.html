@@ -198,18 +198,7 @@
                                             <input type="text" class="k-textbox" placeholder="" value="Ankur Mistry" id="TempAuditName">
                                         </div>
                                     </div>
-                                    <div class="box-column box-50">
-                                        <div class="form-group">
-                                            <label for="TempDate" class="font-medium">Date <span class="text-danger">*</span> </label>
-                                            <input id="TempDate" class="form-control " title="date picker" />
-                                        </div>
-                                    </div>
-                                    <div class="box-column box-50">
-                                        <div class="form-group">
-                                            <label for="TempDueDate" class="font-medium">Due Date <span class="text-danger">*</span> </label>
-                                            <input type="text" class="k-textbox" placeholder="" value="20/03/21" id="TempDueDate">
-                                        </div>
-                                    </div>
+                                    
                                     
                                 </div>
                             </div>
@@ -237,7 +226,7 @@
                                 </div>
                             </div>
                         </div>
-                      
+                        
                         <div class="questionlist-content flex-1 overflow-auto template-question-list">
                             <div id="treelist" class="h100"></div>
                         </div>
@@ -245,6 +234,37 @@
                 </div>
             </div>
         </div>
+    </div>
+    
+    <div class="shedulewindow-wrapper" id="ShedulePopupWindow">
+        <div class="shedulewindow-wrapper-content h100 flex-column">
+            <div class="shedulewindow-form flex-1 overflow-auto">
+                <div class="form-group">
+                    <label for="SchedulesTitle" class="pointer-events-none">Scheduled Title</label>
+                    <input type="text" class="k-textbox" placeholder="Enter Here" value="Clean Seen Housekeeping Checklist" id="SchedulesTitle">
+                </div>
+                
+                <label class="text-dark fs-14 font-medium mb-5 d-block">Date Picker</label>
+                <div class="d-flex align-items-center">
+                    <div class="box-column col-width-50 p-0">
+                        <div class="form-group mb-0">
+                            <input id="startdatePicker" class="form-control" title="date picker" />
+                        </div>
+                    </div>
+                    <span class="pr-10 pl-10 text-dark">To</span>
+                    <div class="box-column col-width-50 p-0">
+                        <div class="form-group mb-0">
+                            <input id="EndtdatePicker" class="form-control" title="date picker" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="window-footer">
+                <button class="btn btn-trans k-button">Reset</button>
+                <button class="btn btn-primary k-button">Save</button>
+            </div>
+        </div>
+        
     </div>
     <!--// Add Template Window -->
     <script src="../../Scripts/Kendo/jquery.min.js"></script>
@@ -298,7 +318,7 @@
             {
                 field: "TempAccessAction",
                 title: "Access",
-                template: '<button class="btn btn-primary k-button">#: TempAccessAction #</button>'
+                template: '<button id="ShedulePopup" class="btn btn-primary k-button">#: TempAccessAction #</button>'
             },
             {
                 field: "TempAction",
@@ -400,8 +420,7 @@
             { collapsible: false }
             ],
         });
-        
-        $("#TempDate").kendoDatePicker();
+       
         
         
         // trre list
@@ -434,7 +453,7 @@
             sortable: true,
             columns: [
             { field: "Question", title: "Question", width: "75%" , template: "<span class='questionlist-drag-icon-content'><span class='questionlist-drag-icon'><i class='icon-draggable'></i></span><span class='questionlist-drag-text'>#: Question #</span></span>"  },
-            { field: "Responce" , title: "Type Of Response" , template: "<div class='questionlist-template'><div><span class='btn bgtextlight-green tagbtn k-button'>#: Responce #</span></div><a href='javascript:void(0)' class='text-muted'><i class='icon-arrow-down'></i></a></div>" },
+            { field: "Responce" , title: "Type Of Response" , template: "<div class='d-flex justify-content-space-between'><div class='questionlist-template'><div><span class='btn bgtextlight-green tagbtn k-button'>#: Responce #</span></div><a href='javascript:void(0)' class='text-muted'><i class='icon-arrow-down'></i></a></div><button aria-label='delete' data-ara-title='Delete' class='btn-red-circle btn-icn-trans text-danger ml-5'><i  aria-hidden='true'  class='icon-delete'></i></button></div>" },
             ],
             editable: {
                 move: {
@@ -444,6 +463,27 @@
         });
         $('#treelist').find('tr').addClass('questionlist-drag');
         
+        $('#ShedulePopupWindow').kendoWindow({
+            width: '40%',
+            height: '35%',
+            title: "Scheduled Audit",
+            visible: false,
+            draggable: false,
+            resizable: false,
+            defaultFocus: false,
+            actions: [
+            "Close"
+            ],
+            modal: true
+        }).data("kendoWindow");
+        
+        
+        $(document).on('click', '#ShedulePopup', function () {
+            $("#ShedulePopupWindow").data("kendoWindow").center().open();
+        });
+        
+        $("#startdatePicker").kendoDatePicker();
+        $("#EndtdatePicker").kendoDatePicker();
         
     </script>
 </body>

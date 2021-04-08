@@ -527,6 +527,9 @@
 .template-question-list .k-treelist-group > td:last-child .questionlist-template{
     display: none;
 }
+.template-question-list .k-treelist-group > td:last-child .btn-red-circle{
+    margin-left: auto !important;
+}
 .template-question-list .questionlist-drag-icon-content{
     position: relative;
 }
@@ -541,6 +544,10 @@
 .questionlist-template{
     display: flex;
     justify-content: space-between;
+    width: calc(100% - 2rem);
+}
+.questionlist-template >  a > .icon-arrow-down{
+    font-size: 12px;
 }
 .questionlist-content .k-grid-content tr td{
     position: relative;
