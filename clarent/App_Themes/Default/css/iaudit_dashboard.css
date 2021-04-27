@@ -585,8 +585,110 @@
     color:#ff5a5a ;
     background-color: rgba(250,90,90,0.2);
 }
-.questionlist-template .tagbtn {
+.tagbtn {
     padding-right: 10px;
     padding-left: 10px;
+    margin-bottom: 5px;
     min-width: inherit !important;
+}
+.bgtextlight-default:hover {
+    background-color: #e9e9e9;
+    color: #949eb2 ;
+}
+.deletepoupwrapper{
+    padding:0 !important;
+}
+.deletepoupwrapper .k-header{
+    display:none;
+}
+.tagscontext-menuwrapper{
+    width: 350px;   
+    padding:10px;
+}
+.tagscontext-menuwrapper .tagbtn{
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.viewreport-main-content{
+    border-radius: 3px;
+}
+.viewreport-box{
+    border-radius: 3px;
+    padding: 0 15px;
+}
+.viewreport-main-wrapper{
+    max-width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.viewreport-box-header{
+    text-transform: uppercase;
+    font-size: 15px;
+    display: inline-flex;
+    transform: translateY(-10px) translateX(-5px);
+    background: #fff;
+    padding: 0 5px;
+}
+.viewreport-audit-wrapper .k-panelbar .k-header{
+    border: 1px solid #dcdfe5;
+    border-radius: 3px;
+    position: relative;
+    padding-left: 3rem;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #f9fafc !important;
+}
+.viewreport-audit-wrapper .k-panelbar .k-header .k-icon {
+    position: absolute;
+    left: 16px;
+    height: 23px;
+    width: 23px;
+    background-color: #2196f3;
+    border-radius: 50%;
+    color: #fff;
+    transform: translateY(-19%);
+}
+
+.auditpanelbar-question .auditpanelbar-question-text{
+    line-height: 20px;
+}
+.viewreport-audit-wrapper .k-panel>li.k-item {
+    border-bottom: 1px solid #dcdfe5;
+    padding: 10px 0 2px;
+}
+.viewreport-audit-wrapper .k-panel>.k-item>.k-link {
+    padding-left: 3rem;
+}
+.viewreport-audit-wrapper .k-panel>li.k-item:last-child {
+    border-bottom: none;
+}
+.viewreport-audit-wrapper .k-panelbar .k-panel{
+    border: none;
+}
+.viewreport-audit-wrapper .k-panelbar{
+    background-color: #ffffff;;
+}
+.viewreport-audit-wrapper .k-panelbar>.k-item{
+    margin-bottom: 10px;
+}
+.viewreport-media-summary{
+    border-radius: 3px;
+    padding: 10px 0 0 10px;
+}
+.viewreport-media-summary > img{
+    height: 150px;
+    border-radius: 3px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.field-selection-wrapper .k-listbox:first-of-type{
+    width: calc(100% - 1px);
+}
+.field-selection-wrapper  .field-selection-left {
+    width: calc(50% + 50px);
+}
+.field-selection-wrapper  .field-selection-right {
+    width: calc(50% - 5px);
 }

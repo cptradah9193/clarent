@@ -24,35 +24,162 @@
 </head>
 
 <body>
-    
-    <div class="iaudit-template-wrapper d-flex flex-column h100">
-        <div class="iaudit-template-header-wrapper">
-            <div class="iaudit-template-header font-medium text-primary pt-20 pb-10 d-flex align-items-center">
-                <span class="mr-5 fs-18 d-inline-flex"><i class="icon-dashboard-square"></i></span>
-                <span class="fs-15 ml-5">Inspections</span>
-            </div>
-            <!-- Search Textbox -->
-            <div class="admin-search-header">
-                <div class="searchbar mb-15">
-                    <div class="clear-input search-box w100 search-box input-search">
-                        <input type="text" name="txtTagListSearch" id="txtTagListSearch" aria-label="tag name" class="form-control k-textbox k-valid" placeholder="Search Templates">
-                        <i class="icon-search" aria-hidden="true"></i>
+    <div id="inspectionGridWrapper" class="h100">
+        <div class="iaudit-template-wrapper d-flex flex-column h100" >
+            <div class="iaudit-template-header-wrapper">
+                <div class="iaudit-template-header font-medium text-primary pt-20 pb-10 d-flex align-items-center">
+                    <span class="mr-5 fs-18 d-inline-flex"><i class="icon-dashboard-square"></i></span>
+                    <span class="fs-15 ml-5">Inspections</span>
+                </div>
+                <!-- Search Textbox -->
+                <div class="admin-search-header">
+                    <div class="searchbar mb-15">
+                        <div class="clear-input search-box w100 search-box input-search">
+                            <input type="text" name="txtTagListSearch" id="txtTagListSearch" aria-label="tag name" class="form-control k-textbox k-valid" placeholder="Search Templates">
+                            <i class="icon-search" aria-hidden="true"></i>
+                        </div>
+                        <div class="action-div dropdown">
+                            <a href="javascript:void(0);" class="btn btn-raised btn-primary btn-block pr-10 pl-10" role="button" aria-haspopup="true" id="ExportGridData" aria-expanded="false" ><i aria-hidden="true" class="icon-export"></i><span>Export</span></a>
+                        </div>
                     </div>
-                    <div class="action-div dropdown">
-                        <a href="javascript:void(0);" class="btn btn-raised btn-primary btn-block pr-10 pl-10" role="button" aria-haspopup="true" id="AddNewTemplate" aria-expanded="false" ><i aria-hidden="true" class="icon-export"></i><span>Export</span></a>
+                </div>
+                <!--// Search Textbox -->
+            </div>
+            <!-- Template Grid -->
+            <div class="iaudit-template-grid-wrapper flex-1 overflow-auto">
+                <div class="grid-wrapper h100">
+                    <div id="iAuditInspectionGrid"></div>
+                    <div id="iAuditInspectionGrid-pager" class="with-more-option"></div>
+                </div>
+            </div>
+            <!--// Template Grid -->
+        </div>
+    </div>
+    <div class="h100 bg-light" id="ViewReportWrapper">
+        <div class="flex-column viewreport-main-wrapper pt-5 pb-5 h100">
+            <div class="viewreport-main-header d-flex align-items-center justify-content-space-between pb-5">
+                <a href="javascript:void(0);" id="backtoreportgrid" class="text-muted"><i class="mr-10 fs-12 icon-caret-left" aria-hidden="true"></i><span class="text-underline">Back</span></a>
+                <div class="action-div dropdown">
+                    <a href="javascript:void(0)" class="btn btn-primary k-button btn-raised" ><i  aria-hidden="true"  class="icon-export"></i><span>Export</span><span class="caret"></span></a>
+                    <ul class="dropdown-menu right" role="menu" aria-labelledby="actionbtnmenu1">
+                    <li role='presentation'><a href='javascript:void(0);' role='menuitem'>PDF</a></li>
+                    <li role='presentation'><a href='javascript:void(0);' role='menuitem'>Word</span></a></li>
+                    </ul>
+                    </div>
+                
+            </div>
+            <div class="viewreport-main-content p-10 flex-1 overflow-auto bg-white border">
+                <h4 class="text-dark fs-16 font-semi-bold pb-15">Clean Seen Housekeeping Checklist</h4>
+                <div class="viewreport-box border mb-15">
+                    <h5 class="viewreport-box-header text-dark">overview</h5>
+                    <div class="viewreport-overview-count d-flex pb-15">
+                        <div class="br-1 pr-10 mr-10">
+                            <h5 class="text-dark fs-14 pb-5 font-medium">Inspection Count</h5>
+                            <span class="text-muted">75%</span>
+                        </div>
+                        <div class="br-1 pr-10 mr-10">
+                            <h5 class="text-dark fs-14 pb-5 font-medium">Failed Items</h5>
+                            <span class="text-muted">25%</span>
+                        </div>
+                        <div class="pr-10 mr-10">
+                            <h5 class="text-dark fs-14 pb-5 font-medium">Created Actions</h5>
+                            <span class="text-muted">5%</span>
+                        </div>
+                    </div>
+                    <div class="box-row">
+                        <div class="box-column box-50">
+                            <div class="form-group">
+                                <label for="ReportProcess" class="font-medium">Process </label>
+                                <input type="text" class="k-textbox" placeholder="" value="Clean Seen Housekeeping CheckList" id="ReportProcess">
+                            </div>
+                        </div>
+                        <div class="box-column box-50">
+                            <div class="form-group">
+                                <label for="ReportContactpoint" class="font-medium">Contact point  </label>
+                                <input type="text" class="k-textbox" placeholder="" value="Hardi,Srusti" id="ReportContactpoint">
+                            </div>
+                        </div>
+                        <div class="box-column box-50">
+                            <div class="form-group">
+                                <label for="ReportDepartment" class="font-medium">Department </label>
+                                <input type="text" class="k-textbox" placeholder="" value="Management" id="ReportDepartment">
+                            </div>
+                        </div>
+                        <div class="box-column box-50">
+                            <div class="form-group">
+                                <label for="ReportAuditorName" class="font-medium">Auditor Name  </label>
+                                <input type="text" class="k-textbox" placeholder="" value="Ankur Mistry" id="ReportAuditorName">
+                            </div>
+                        </div>
+                        <div class="box-column box-50">
+                            <div class="form-group">
+                                <label for="ReportNote" class="font-medium">Note </label>
+                                <input type="text" class="k-textbox" placeholder="" value="Demo Note" id="ReportNote">
+                            </div>
+                        </div>
+                        <div class="box-column box-50">
+                            <div class="form-group">
+                                <label for="ReportAuditDate" class="font-medium">Audit Date </label>
+                                <input type="text" class="k-textbox" placeholder="" value="26 April 2021" id="ReportAuditDate">
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="viewreport-box border mb-15">
+                    <h5 class="viewreport-box-header text-dark">Audit</h5>
+                    <div class="viewreport-audit-wrapper">
+                        <ul id="AuidtPanelBar">
+                            <li class="k-state-active">
+                                <span class="k-link k-state-selected"><span>Walkways and wokking surface</span> <span class="text-muted">(25%)</span></span>
+                                <ul>
+                                    <li>
+                                        <span class="d-block auditpanelbar-question">
+                                            <span class="d-block text-dark w100 auditpanelbar-question-text">Are Walkways and woking surface clean or debris.</span>
+                                            <span class="text-muted">Yes</span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="d-block auditpanelbar-question">
+                                            <span class="d-block text-dark w100 auditpanelbar-question-text">Are slippery conditions, such as snow and ice, eliminated in designated walkways and working surfaces?</span>
+                                            <span class="text-muted">Yes</span>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="k-state-active">
+                                Dust and Dirt Removal <span class="text-muted">(25%)</span></span>
+                                <ul>
+                                    <li>
+                                        <span class="d-block auditpanelbar-question">
+                                            <span class="d-block text-dark w100 auditpanelbar-question-text">Are cleaning methods in place to minimize dust clouds, particulary where ignation sources are present?</span>
+                                            <span class="text-muted">Yes</span>
+                                        </span>
+                                    </li>
+                                    
+                                </ul>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                <div class="viewreport-box border mb-15">
+                    <h5 class="viewreport-box-header text-dark">Actions</h5>
+                    
+                    <div class="form-group">
+                        <textarea id="textArea" class="form-control k-textbox" rows="5" aria-label="textarea"></textarea>
+                    </div>
+                    
+                </div>
+                <div class="viewreport-box border">
+                    <h5 class="viewreport-box-header text-dark">Media Summary</h5>
+                    <div class="bg-white border viewreport-media-summary mb-15">
+                        <img src="https://images.pexels.com/photos/1181435/pexels-photo-1181435.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="image"/>
                     </div>
                 </div>
             </div>
-            <!--// Search Textbox -->
+            
         </div>
-        <!-- Template Grid -->
-        <div class="iaudit-template-grid-wrapper flex-1 overflow-auto">
-            <div class="grid-wrapper h100">
-                <div id="iAuditInspectionGrid"></div>
-                <div id="iAuditInspectionGrid-pager" class="with-more-option"></div>
-            </div>
-        </div>
-        <!--// Template Grid -->
     </div>
     
     
@@ -80,6 +207,32 @@
         </li>
     </ul>
     <!--// option menu -->
+     <!-- Export Popup -->
+     <div id="ExportWindow" class="field-selection-main-wrapper">
+        <div class="window-wrapper">
+            <div class="field-selection-wrapper d-flex w100 sortable-twogrid">
+                <div class="field-selection-left">
+                    <label for="PWFieldTitle" id="employees">Field Title</label>
+                    <select id="PWFieldTitle">
+                        <option>Steven White</option>
+                        <option>Nancy King</option>
+                        <option>Nancy Davolio</option>
+                        <option>Robert Davolio</option>
+                        <option>Michael Leverling</option>
+                        <option>Andrew Callahan</option>
+                        <option>Michael Suyama</option>
+                    </select>
+                </div>
+                <div class="field-selection-right">
+                    <label for="PWFieldTitleRight">Field Title</label>
+                    <select id="PWFieldTitleRight"></select>
+                </div>
+            </div>
+        </div>
+        <div class="window-footer dir-rtl bt-1">
+            <a class="btn btn-primary">Save</a><a class="btn btn-trans close-window">Close</a>
+        </div>
+    </div>
     
     <script src="../../Scripts/Kendo/jquery.min.js"></script>
     <script src="../../Scripts/Kendo/kendo.all.min.js"></script>
@@ -89,7 +242,9 @@
     <!-- Acitivity List View template -->
     
     <script>
-        
+        $(document).ready(function(){
+            $('#ViewReportWrapper').hide();
+        })
         //Grid
         var fieldData = new kendo.data.DataSource({
             data:
@@ -120,6 +275,7 @@
             { field: "IScore", title: "Score" },
             { field: "IConducted", title: "Counducted" },
             { field: "ICompleted", title: "Completed" },
+            { field: "Access", title: "Access", template: "<button class='btn btn-primary k-button' id='ViewReportBtn'>View Report</button>" },
             ]
         }).data("kendoGrid");
         $("#iAuditInspectionGrid-pager").kendoPager({
@@ -129,7 +285,7 @@
         fieldData.read();
         
         $("#iAuditInspectionGrid-pager").append("<div class='more-oprion'><span class='separator'></span><a href='javascript:void(0)' id='moreOption' class='text-muted btn-default-hover'><i class='icon-option'></i></a></div>");
-       
+        
         //Contextmenu popover left click for grid pager
         var popup = $("#popup").kendoPopup({
             animation: false,
@@ -149,6 +305,43 @@
                 appendTo: 'body'
             }
         });
+        
+        $('#ViewReportBtn').on('click', function(){
+            $('#inspectionGridWrapper').hide();
+            $('#ViewReportWrapper').show();
+        })
+        $('#backtoreportgrid').on('click', function(){
+            $('#inspectionGridWrapper').show();
+            $('#ViewReportWrapper').hide();
+        })
+        
+        $("#AuidtPanelBar").kendoPanelBar();
+        
+        $('#ExportWindow').kendoWindow({
+            width: '35%',
+            height: '42%',
+            title: "Field Selection",
+            visible: false,
+            draggable: false,
+            resizable: false,
+            defaultFocus: false,
+            actions: [
+                "Close"
+            ],
+            modal: true
+        }).data("kendoWindow");
+        $(document).on('click', '#ExportGridData', function () {
+            $("#ExportWindow").data("kendoWindow").center().open();
+        });
+        $("#PWFieldTitle").kendoListBox({
+            connectWith: "PWFieldTitleRight",
+            toolbar: {
+                tools: ["transferTo", "transferFrom", "transferAllTo", "transferAllFrom", "remove"]
+            }
+        });
+
+        $("#PWFieldTitleRight").kendoListBox();
+
     </script>
 </body>
 

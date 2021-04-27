@@ -90,7 +90,7 @@
             </div>
             <div class="newtemp-blank-temp-action">
                 <a href="#" class="newtemp-blank-temp-action-box" id="AddTemplateBtn">
-                    <span class="text-primary blankTemp-icon"><i class="icon-file"></i></span>
+                    <span class="text-primary blankTemp-icon"><i class="icon-Blank-Template"></i></span>
                     <span class="text-primary blankTemp-text">Blank Template</span>
                 </a>
             </div>
@@ -265,6 +265,36 @@
             </div>
         </div>
         
+    </div>
+
+    <!-- Delete Popup -->
+    <div id="deletePopup">
+        <p class="fs-20 font-medium text-center text-dark pb-20 mb-10 pt-20">Are You Sure yopu want to delete this?</p>
+        <div class="text-center">
+            <button type="button" class="btn btn-raised k-button btn-danger" tabindex="0">Yes</button>
+            <button type="button" class="btn btn-raised k-button btn-trans" tabindex="0">No</button>
+        </div>
+    </div>
+    <!-- tags Context Menu -->
+    <div id="TagsContextMenu" class="tagscontext-menuwrapper">
+        <h4 class="text-dark fs-15 pb-10">Types Of Responce</h4>
+        <a href="javascrip:void(0)" class="mb-10  bb-1 d-block">
+            <span class="btn bgtextlight-green tagbtn k-button">Yes</span>
+            <span class="btn bgtextlight-redwine tagbtn k-button">NO</span>
+            <span class="btn bgtextlight-default tagbtn k-button">N/A</span>
+        </a>
+        <a href="javascrip:void(0)" class="mb-10 bb-1 d-block">
+            <span class="btn bgtextlight-green tagbtn k-button">Satisfactory</span>
+            <span class="btn bgtextlight-redwine tagbtn k-button">disatisfactory</span>
+            <span class="btn bgtextlight-default tagbtn k-button">N/A</span>
+        </a>
+        <a href="javascrip:void(0)" class="d-block">
+            <span class="btn bgtextlight-green tagbtn k-button">Complient</span>
+            <span class="btn bgtextlight-yellow tagbtn k-button text-dark">OFI</span>
+            <span class="btn bgtextlight-redwine tagbtn k-button">Mninor Non Compliance</span>
+            <span class="btn bgtextlight-redwine tagbtn k-button">Major Non Compliance</span>
+            <span class="btn bgtextlight-default tagbtn k-button">Other</span>
+        </a>
     </div>
     <!--// Add Template Window -->
     <script src="../../Scripts/Kendo/jquery.min.js"></script>
@@ -453,7 +483,7 @@
             sortable: true,
             columns: [
             { field: "Question", title: "Question", width: "75%" , template: "<span class='questionlist-drag-icon-content'><span class='questionlist-drag-icon'><i class='icon-draggable'></i></span><span class='questionlist-drag-text'>#: Question #</span></span>"  },
-            { field: "Responce" , title: "Type Of Response" , template: "<div class='d-flex justify-content-space-between'><div class='questionlist-template'><div><span class='btn bgtextlight-green tagbtn k-button'>#: Responce #</span></div><a href='javascript:void(0)' class='text-muted'><i class='icon-arrow-down'></i></a></div><button aria-label='delete' data-ara-title='Delete' class='btn-red-circle btn-icn-trans text-danger ml-5'><i  aria-hidden='true'  class='icon-delete'></i></button></div>" },
+            { field: "Responce" , title: "Type Of Response" , template: "<div class='d-flex justify-content-space-between'><div class='questionlist-template'><div><span class='btn bgtextlight-green tagbtn k-button'>#: Responce #</span><span class='btn bgtextlight-redwine tagbtn k-button'>#: Responce #</span><span class='btn text-muted bgtextlight-default tagbtn k-button'>#: Responce #</span></div><a href='javascript:void(0)' class='text-muted moretags_trigger'><i class='icon-arrow-down'></i></a></div><button aria-label='delete' data-ara-title='Delete' class='btn-red-circle btn-icn-trans deleterecordpopup text-danger ml-5'><i  aria-hidden='true'  class='icon-delete'></i></button></div>" },
             ],
             editable: {
                 move: {
@@ -484,6 +514,30 @@
         
         $("#startdatePicker").kendoDatePicker();
         $("#EndtdatePicker").kendoDatePicker();
+
+        $('#deletePopup').kendoWindow({
+            
+            visible: false,
+            draggable: false,
+            resizable: false,
+            defaultFocus: false,
+            modal: true,
+        }).data("kendoWindow");
+        $(document).on('click', '.deleterecordpopup', function () {
+            $("#deletePopup").data("kendoWindow").center().open();
+        });
+        $('#deletePopup').parent().addClass('deletepoupwrapper');
+        $('#deletePopup').parent().addClass('k-window-titleless');
+        
+        // Tags Menu
+        $("#TagsContextMenu").kendoContextMenu({
+            target: ".moretags_trigger",
+            showOn: "click",
+            appendTo: "body",
+            direction: "bottom left",
+            orientation: "horizontal"
+        }).data("kendoContextMenu");
+
         
     </script>
 </body>

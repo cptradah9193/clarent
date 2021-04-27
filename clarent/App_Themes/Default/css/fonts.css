@@ -2096,6 +2096,9 @@
 .icon-call-phone:before {
     content: "\e9de";
 }
+.icon-Blank-Template:before {
+    content: "\e9e0";
+  }
 
 /*app hub icon*/
 
